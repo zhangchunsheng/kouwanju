@@ -354,7 +354,7 @@ $(document).ready(function() {
         var url = "http://" + host + ":" + port + "/indu/triggerEvent";
 
         var data = {
-            eid: "MG102041"
+            eid: "MG101011"
         };
         var params = "";
         for(var o in data) {
@@ -379,7 +379,7 @@ $(document).ready(function() {
         var url = "http://" + host + ":" + port + "/indu/triggerEvent";
 
         var data = {
-            eid: "E102041"
+            eid: "E101011"
         };
         var params = "";
         for(var o in data) {
