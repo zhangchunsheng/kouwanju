@@ -28,14 +28,17 @@ exports.enterScene = function(req, res) {
     var msg = req.query;
     var session = req.session;
 
-    var playerId = session.playerId;
     var uid = session.uid
         , serverId = session.serverId
         , registerType = session.registerType
         , loginName = session.loginName;
 
     var data = {};
-    userService.getCharacterAllInfo(serverId, registerType, loginName, playerId, function(err, player) {
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+
+    userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
         if (err || !player) {
             console.log('Get user for userDao failed! ' + err.stack);
             data = {
@@ -81,6 +84,9 @@ exports.enterIndu = function(req, res) {
         , loginName = session.loginName
         , induId = msg.induId;
 
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
         player.isEnterIndu = 1;
 
@@ -113,6 +119,9 @@ exports.leaveIndu = function(req, res) {
         , registerType = session.registerType
         , loginName = session.loginName
         , induId = msg.induId;
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
 
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
         player.isEnterIndu = 0;

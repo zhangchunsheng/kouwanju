@@ -301,10 +301,10 @@ $(document).ready(function() {
     $("#enterIndu").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
-        var url = "http://" + host + ":" + port + "/indu/enterIndu";
+        var url = "http://" + host + ":" + port + "/player/enterIndu";
 
         var data = {
-
+            induId: "Ins10101"
         };
         var params = "";
         for(var o in data) {
@@ -326,7 +326,7 @@ $(document).ready(function() {
     $("#leaveIndu").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
-        var url = "http://" + host + ":" + port + "/indu/leaveIndu";
+        var url = "http://" + host + ":" + port + "/player/leaveIndu";
 
         var data = {
             induId: "Ins10101"
