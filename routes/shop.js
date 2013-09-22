@@ -8,3 +8,12 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * 购买物品
+ * @param req
+ * @param res
+ */
+exports.buyItem = function(req, res) {
+    res.send("index");
+}

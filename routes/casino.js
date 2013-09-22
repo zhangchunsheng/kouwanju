@@ -9,10 +9,20 @@ exports.index = function(req, res) {
     res.send("index");
 }
 
+/**
+ * 获得物品
+ * @param req
+ * @param res
+ */
 exports.getItems = function(req, res) {
     res.send("index");
 }
 
+/**
+ * 下注
+ * @param req
+ * @param res
+ */
 exports.gambling = function(req, res) {
     res.send("index");
 }

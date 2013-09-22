@@ -9,6 +9,11 @@ exports.index = function(req, res) {
     res.send("index");
 }
 
+/**
+ * 战斗
+ * @param req
+ * @param res
+ */
 exports.battle = function(req, res) {
     res.send("index");
 }

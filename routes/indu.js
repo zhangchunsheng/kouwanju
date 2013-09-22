@@ -8,3 +8,12 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * 触发副本事件
+ * @param req
+ * @param res
+ */
+exports.triggerEvent = function(req, res) {
+    res.send("index");
+}

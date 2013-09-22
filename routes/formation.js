@@ -8,3 +8,12 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * 更改阵型
+ * @param req
+ * @param res
+ */
+exports.change = function(req, res) {
+    res.send("index");
+}

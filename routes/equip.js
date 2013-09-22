@@ -8,3 +8,48 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * 装载武器
+ * @param req
+ * @param res
+ */
+exports.wearWeapon = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * 卸载武器
+ * @param req
+ * @param res
+ */
+exports.unWearWeapon = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * 装载装备
+ * @param req
+ * @param res
+ */
+exports.equip = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * 卸载装备
+ * @param req
+ * @param res
+ */
+exports.unEquip = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * 升级
+ * @param req
+ * @param res
+ */
+exports.upgrade = function(req, res) {
+    res.send("index");
+}

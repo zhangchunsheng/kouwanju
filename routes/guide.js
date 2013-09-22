@@ -8,3 +8,21 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * 获得进度
+ * @param req
+ * @param res
+ */
+exports.get = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * 保存进度
+ * @param req
+ * @param res
+ */
+exports.save = function(req, res) {
+    res.send("index");
+}

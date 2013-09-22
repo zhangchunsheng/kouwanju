@@ -8,3 +8,12 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * initSkill
+ * @param req
+ * @param res
+ */
+exports.initSkill = function(req, res) {
+    res.send("index");
+}

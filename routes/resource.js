@@ -8,3 +8,21 @@
 exports.index = function(req, res) {
     res.send("index");
 }
+
+/**
+ * loadResource
+ * @param req
+ * @param res
+ */
+exports.loadResource = function(req, res) {
+    res.send("index");
+}
+
+/**
+ * loadAreaResource
+ * @param req
+ * @param res
+ */
+exports.loadAreaResource = function(req, res) {
+    res.send("index");
+}
