@@ -8,7 +8,7 @@
 var authService = require('../app/services/authService');
 var userService = require('../app/services/userService');
 var tokenService = require('../shared/token');
-var secret = require('../config/session').secret;
+var sessionToken = require('../config/session');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
 var session = require('../app/http/session');
@@ -29,7 +29,7 @@ exports.auth = function(req, res) {
     var msg = req.query;
 
     var token = msg.token;
-    var userInfo = tokenService.parse(token, secret);
+    var userInfo = tokenService.parse(token, sessionToken.secret);
     var data = {};
     if(!res) {
         data = {code: Code.ENTRY.FA_TOKEN_ILLEGAL};
@@ -37,7 +37,7 @@ exports.auth = function(req, res) {
         return;
     }
 
-    if(!checkExpire(res, this.expire)) {
+    if(!checkExpire(res, sessionToken.expire)) {
         data = {code: Code.ENTRY.FA_TOKEN_EXPIRE};
         utils.send(msg, res, data);
         return;
