@@ -33,6 +33,6 @@ userService.updatePlayerInduInfo = function(character, eid, cb) {
     userDao.updatePlayerInduInfo(character, eid, cb);
 }
 
-userService.enterIndu = function() {
-    userDao.enterIndu(character, eid, cb);
+userService.enterIndu = function(serverId, registerType, loginName, induId, cb) {
+    userDao.enterIndu(serverId, registerType, loginName, induId, cb);
 }

@@ -76,9 +76,9 @@ exports.enterIndu = function(req, res) {
     var session = req.session;
 
     var uid = session.uid
-        , serverId = session.get("serverId")
-        , registerType = session.get("registerType")
-        , loginName = session.get("loginName")
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName
         , induId = msg.induId;
 
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
@@ -105,24 +105,30 @@ exports.leaveIndu = function(req, res) {
     var msg = req.query;
     var session = req.session;
 
+    var msg = req.query;
+    var session = req.session;
+
     var uid = session.uid
-        , serverId = session.get("serverId")
-        , registerType = session.get("registerType")
-        , loginName = session.get("loginName")
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName
         , induId = msg.induId;
-    var player = area.getPlayer(session.get('playerId'));
 
-    player.isEnterIndu = 0;
-    userDao.leaveIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
-        player.currentIndu = induInfo;
+    userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+        player.isEnterIndu = 0;
+        userService.leaveIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
+            player.currentIndu = induInfo;
 
-        player.updateTaskRecord(consts.TaskGoalType.PASS_INDU, {
-            itemId: induId
-        });
+            var data = {};
+            player.updateTaskRecord(consts.TaskGoalType.PASS_INDU, {
+                itemId: induId
+            });
 
-        next(null, {
-            code: consts.MESSAGE.RES,
-            induInfo: induInfo
+            data = {
+                code: consts.MESSAGE.RES,
+                induInfo: induInfo
+            };
+            utils.send(msg, res, data);
         });
     });
 }
