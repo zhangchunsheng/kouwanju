@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.pk = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
         , serverId = session.get("serverId")
@@ -38,8 +39,6 @@ exports.pk = function(req, res) {
 }
 
 function pk(msg, session, next, opponent) {
-    var msg = req.query;
-
     var character = area.getPlayer(session.get('playerId'));
 
     var owners = {};
@@ -109,6 +108,7 @@ function pk(msg, session, next, opponent) {
  */
 exports.add = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
         , serverId = session.get("serverId")
@@ -131,6 +131,9 @@ exports.add = function(req, res) {
  * @param res
  */
 exports.getOpponents = function(req, res) {
+    var msg = req.query;
+    var session = req.session;
+
     var player = area.getPlayer(session.get('playerId'));
     arenaDao.getOpponents(player, function(err, result) {
         if( result == null ) {
@@ -154,6 +157,7 @@ exports.getOpponents = function(req, res) {
  */
 exports.getRank = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
         , serverId = session.get("serverId")

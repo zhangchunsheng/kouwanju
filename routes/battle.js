@@ -20,11 +20,12 @@ exports.index = function(req, res) {
  */
 exports.battle = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
-        , serverId = session.get("serverId")
-        , registerType = session.get("registerType")
-        , loginName = session.get("loginName")
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName
         , eid = msg.eid;
 
     var character = area.getPlayer(session.get('playerId'));

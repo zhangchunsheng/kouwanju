@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.resetTask = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }
@@ -31,6 +32,7 @@ exports.resetTask = function(req, res) {
  */
 exports.updateMoney = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }
@@ -42,6 +44,7 @@ exports.updateMoney = function(req, res) {
  */
 exports.updateExp = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }

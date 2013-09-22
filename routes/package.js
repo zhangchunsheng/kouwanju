@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.addItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var itemId = msg.itemId;
     var itemNum = msg.itemNum;
@@ -60,6 +61,7 @@ exports.addItem = function(req, res) {
  */
 exports.dropItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var type = msg.type;
     var index = msg.index;
@@ -81,6 +83,7 @@ exports.dropItem = function(req, res) {
  */
 exports.sellItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var type = msg.type,
         itemId = msg.itemId,
@@ -165,6 +168,7 @@ function removeItem(msg,player,next) {
  */
 exports.discardItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var player = area.getPlayer(session.get('playerId'));
     var result = removeItem(msg, player, next);
@@ -188,6 +192,7 @@ exports.discardItem = function(req, res) {
  */
 exports.resetItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var start = msg.start;
     var end = msg.end;
@@ -223,6 +228,7 @@ exports.resetItem = function(req, res) {
  */
 exports.userItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var index = msg.index;
     var type = msg.type;

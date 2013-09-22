@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.get = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }
@@ -31,6 +32,7 @@ exports.get = function(req, res) {
  */
 exports.save = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }

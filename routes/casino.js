@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.getItems = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var playerId = session.get('playerId');
     var player = area.getPlayer(playerId);
@@ -43,6 +44,7 @@ exports.getItems = function(req, res) {
  */
 exports.gambling = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var playerId = session.get('playerId');
     var player = area.getPlayer(playerId);

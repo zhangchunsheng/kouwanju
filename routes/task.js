@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.startTask = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var taskId = msg.taskId;
 
@@ -62,6 +63,7 @@ exports.startTask = function(req, res) {
  */
 exports.handOverTask = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var taskId = msg.taskId;
 

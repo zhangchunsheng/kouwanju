@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.initSkill = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     res.send("index");
 }

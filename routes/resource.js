@@ -40,6 +40,7 @@ var version = {
  */
 exports.loadResource = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     console.log("loadResource");
     var data = {};

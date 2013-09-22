@@ -12,6 +12,7 @@ var sessionToken = require('../config/session');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
 var session = require('../app/http/session');
+var region = require('../config/region');
 
 var DEFAULT_SECRET = 'wozlla_session_secret';
 var DEFAULT_EXPIRE = 6 * 60 * 60 * 1000;	// default session expire time: 6 hours
@@ -27,22 +28,24 @@ exports.index = function(req, res) {
  */
 exports.auth = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var token = msg.token;
     var userInfo = tokenService.parse(token, sessionToken.secret);
     var data = {};
-    if(!res) {
+    if(!userInfo) {
         data = {code: Code.ENTRY.FA_TOKEN_ILLEGAL};
         utils.send(msg, res, data);
         return;
     }
 
-    if(!checkExpire(res, sessionToken.expire)) {
+    if(!checkExpire(userInfo, sessionToken.expire)) {
         data = {code: Code.ENTRY.FA_TOKEN_EXPIRE};
         utils.send(msg, res, data);
         return;
     }
 
+    userInfo.serverId = region.serverId;
     session.setSession(req, res, userInfo);
 
     data = {code: Code.OK};

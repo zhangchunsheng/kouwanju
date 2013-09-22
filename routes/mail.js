@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.systemSendMail = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     if (msg.to == null && msg.toName == null) {
         next(null, {
@@ -67,6 +68,7 @@ exports.systemSendMail = function(req, res) {
  */
 exports.sendMail = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     if (msg.content.length > 50) {
         next(null, {
@@ -154,6 +156,7 @@ exports.sendMail = function(req, res) {
 var packageNum = 10;
 exports.getInbox = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var Key = picecBoxName(session);
     //var player = area.getPlayer(playerId);
@@ -196,6 +199,7 @@ exports.getInbox = function(req, res) {
  */
 exports.getOutbox = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var key = picecBoxName(session);
     var index = msg.index;
@@ -250,6 +254,7 @@ function picecBoxName(session) {
  */
 exports.readMail = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var mailId = msg.mailId;
     var mails = [mailId.substring(0, 3), mailId.substring(3)];
@@ -280,6 +285,7 @@ exports.readMail = function(req, res) {
  */
 exports.delMail = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var mailId = msg.mailId;
     var mails = [mailId.substring(0, 3), mailId.substring(3)];
@@ -305,6 +311,7 @@ exports.delMail = function(req, res) {
  */
 exports.hasNewMail = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var Key = picecBoxName(session);
     mailDao.ToMailCount([Key + "_" + MailKeyType.NOREAD, Key + "_" + MailKeyType.HASITEM], function (err, reply) {
@@ -328,6 +335,7 @@ exports.hasNewMail = function(req, res) {
  */
 exports.collectItem = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var itemIndex = msg.itemIndex;
     var mailId = msg.mailId;

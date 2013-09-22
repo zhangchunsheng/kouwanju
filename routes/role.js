@@ -20,10 +20,11 @@ exports.index = function(req, res) {
  */
 exports.createMainPlayer = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
-        , registerType = session.get('registerType')
-        , loginName = session.get('loginName')
+        , registerType = session.registerType
+        , loginName = session.loginName
         , cId = msg.cId // cId characterId
         , nickname = msg.nickname
         , isRandom = msg.isRandom;// 随机获得昵称

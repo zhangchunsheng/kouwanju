@@ -20,6 +20,7 @@ exports.index = function(req, res) {
  */
 exports.change = function(req, res) {
     var msg = req.query;
+    var session = req.session;
 
     var uid = session.uid
         , serverId = session.get("serverId")
