@@ -698,7 +698,7 @@ userDao.getCharacterInfo = function (serverId, registerType, loginName, cb) {
                         function(callback) {
                             partnerDao.getAllPartner(client, character.partners, serverId, registerType, loginName, characterId, function(err, partners) {
                                 if(!!err || !partners) {
-                                    logger.error('Get partners for partnerDao failed! ' + err);
+                                    console.log('Get partners for partnerDao failed! ' + err);
                                 }
                                 callback(err, partners);
                             });
@@ -823,7 +823,7 @@ userDao.getPlayerById = function(playerId, cb) {
                         function(callback) {
                             partnerDao.getAllPartner(client, character.partners, character.serverId, character.registerType, character.loginName, characterId, function(err, partners) {
                                 if(!!err || !partners) {
-                                    logger.error('Get partners for partnerDao failed! ' + err);
+                                    console.log('Get partners for partnerDao failed! ' + err);
                                 }
                                 callback(err, partners);
                             });
