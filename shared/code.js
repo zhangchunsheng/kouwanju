@@ -9,6 +9,7 @@ module.exports = {
     OK: 200,
     FAIL: 500,
     ARGUMENT_EXCEPTION: 101,
+    NO_LOGIN: 102,
 
     ENTRY: {
         FA_TOKEN_ILLEGAL: 1000,

@@ -617,7 +617,6 @@ userDao.getCharacterInfo = function (serverId, registerType, loginName, cb) {
             } else {
                 key = dbUtil.getPlayerKey(serverId, registerType, loginName, characterId);
                 client.hgetall(key, function(err, replies) {
-                    console.log(replies);
                     if(!replies.money) {
                         replies.money = 0;
                     }
@@ -766,7 +765,6 @@ userDao.getPlayerById = function(playerId, cb) {
                 var loginName = array[2];
                 var characterId = array[3].replace("C", "");
                 client.hgetall(key, function(err, replies) {
-                    console.log(replies);
                     if(!replies.money) {
                         replies.money = 0;
                     }
@@ -865,7 +863,6 @@ userDao.getUserByLoginName = function (app, registerType, loginName, cb) {
                         redis.release(client);
                         utils.invokeCallback(cb, err.message, null);
                     } else {
-                        console.log(userInfo);
                         var user = new User({
                             id: userInfo.userId,
                             registerType: userInfo.registerType,

@@ -28,7 +28,6 @@ exports.index = function(req, res) {
  */
 exports.auth = function(req, res) {
     var msg = req.query;
-    var session = req.session;
 
     var token = msg.token;
     var userInfo = tokenService.parse(token, sessionToken.secret);

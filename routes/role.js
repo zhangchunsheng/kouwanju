@@ -78,10 +78,11 @@ exports.createMainPlayer = function(req, res) {
                         };
                         data = {
                             code: consts.MESSAGE.RES,
-                            user: {},
-                            player: character
+                            user: user,
+                            player: character.strip()
                         };
-
+                        console.log(data);
+                        utils.send(msg, res, data);
                     }
                 );
             }
@@ -89,6 +90,11 @@ exports.createMainPlayer = function(req, res) {
     });
 }
 
+/**
+ * 获得角色信息
+ * @param req
+ * @param res
+ */
 exports.getMainPlayer = function(req, res) {
 
 }
