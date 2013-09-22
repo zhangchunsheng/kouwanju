@@ -211,13 +211,12 @@ userDao.getCharactersByLoginName = function(app, serverId, registerType, loginNa
 
 /**
  * 根据昵称判断是否存在该玩家，玩家昵称不可以重复
- * @param app
  * @param serverId
  * @param registerType
  * @param nickName
  * @param cb
  */
-userDao.is_exists_nickname = function(app, serverId, nickname, next) {
+userDao.is_exists_nickname = function(serverId, nickname, next) {
     var key = "S" + serverId + "_exist_nickname";
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function() {
@@ -234,13 +233,12 @@ userDao.is_exists_nickname = function(app, serverId, nickname, next) {
 
 /**
  * 根据昵称判断是否存在该玩家，玩家昵称不可以重复
- * @param app
  * @param serverId
  * @param registerType
  * @param nickName
  * @param cb
  */
-userDao.has_nickname_player = function(app, serverId, nickname, next) {
+userDao.has_nickname_player = function(serverId, nickname, next) {
     var key = "S" + serverId + "_N" + nickname;
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function() {

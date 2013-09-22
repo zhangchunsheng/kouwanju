@@ -30,11 +30,9 @@ exports.createMainPlayer = function(req, res) {
         , isRandom = msg.isRandom;// 随机获得昵称
     var self = this;
 
-    //var res = tokenService.parse(token, "pomelo_session_secret");
+    var serverId = session.serverId;
 
-    var serverId = this.app.get("regionInfo").serverId;
-
-    userDao.is_exists_nickname(this.app, serverId, nickname, function(err, flag) {
+    roleService.is_exists_nickname(serverId, nickname, function(err, flag) {
         if(flag) {
             next(null, {code: consts.MESSAGE.ERR});
             return;
