@@ -18,6 +18,14 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="./md5.js"></script>
         <script type="text/javascript">
+            var loginInfo = {
+                code: 200,
+                loginName: "html5",
+                registerType: "1",
+                sessionId: "6ACEC8A00F404644330E05D0294885A5",
+                token: "464363099bc522beb8aff5cf16bbcf019f8516f3bc58e4b2d585d9a40b8d2ac5",
+                uid: "5"
+            };
             $(document).ready(function() {
                 $("#register").bind("click", function() {
                     var loginName = $("#loginName").val();
@@ -124,6 +132,7 @@
                         url: url + "?" + params,
                         success: function(data, status) {
                             console.log(data);
+                            loginInfo = data;
                         }
                     });
                 });
@@ -177,16 +186,30 @@
                     });
                 });
 
-                var loginInfo = {
-                    code: 200,
-                    loginName: "html5",
-                    registerType: "1",
-                    sessionId: "6ACEC8A00F404644330E05D0294885A5",
-                    token: "464363099bc522beb8aff5cf16bbcf019f8516f3bc58e4b2d585d9a40b8d2ac5",
-                    uid: "5"
-                };
                 $("#auth").bind("click", function() {
                     var url = "http://192.168.1.99:6011/auth";
+                    var data = {
+                        token: loginInfo.token
+                    };
+                    var params = "";
+                    for(var o in data) {
+                        params += o + "=" + data[o] + "&"
+                    }
+                    params = params.substr(0, params.length - 1);
+                    console.log(params);
+                    $.ajax({
+                        type: "get",
+                        dataType: "jsonp",
+                        jsonp: "jsoncallback",
+                        url: url + "?" + params,
+                        success: function(data, status) {
+                            console.log(data);
+                        }
+                    });
+                });
+
+                $("#createMainPlayer").bind("click", function() {
+                    var url = "http://192.168.1.99:6011/role/createMainPlayer";
                     var data = {
                         token: loginInfo.token
                     };
@@ -226,5 +249,7 @@
         <div id="hasSession" class="button">hasSession</div>
 
         <div id="auth" class="button">auth</div>
+
+        <div id="createMainPlayer" class="button">创建角色</div>
     </body>
 </html>

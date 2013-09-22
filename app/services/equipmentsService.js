@@ -28,3 +28,7 @@ equipmentsService.unEquip = function() {
 equipmentsService.upgrade = function() {
 
 }
+
+equipmentsService.createEquipments = function() {
+
+}

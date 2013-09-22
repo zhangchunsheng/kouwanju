@@ -12,3 +12,7 @@ var userService = module.exports;
 userService.get = function() {
 
 }
+
+userService.createCharacter = function(serverId, userId, registerType, loginName, cId, nickname, cb) {
+    userDao.createCharacter(serverId, userId, registerType, loginName, cId, nickname, cb);
+}

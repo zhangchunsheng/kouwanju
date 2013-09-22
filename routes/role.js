@@ -6,8 +6,13 @@
  * Description: role
  */
 var roleService = require('../app/services/roleService');
+var userService = require('../app/services/userService');
+var equipmentsService = require('../app/services/equipmentsService');
+var packageService = require('../app/services/packageService');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
+var consts = require('../app/consts/consts');
+var async = require('async');
 
 exports.index = function(req, res) {
     res.send("index");
@@ -32,24 +37,27 @@ exports.createMainPlayer = function(req, res) {
 
     var serverId = session.serverId;
 
+    var data = {};
     roleService.is_exists_nickname(serverId, nickname, function(err, flag) {
         if(flag) {
-            next(null, {code: consts.MESSAGE.ERR});
+            data = {code: consts.MESSAGE.ERR};
+            utils.send(msg, res, data);
             return;
         }
 
-        userDao.createCharacter(serverId, uid, registerType, loginName, cId, nickname, function(err, character) {
+        userService.createCharacter(serverId, uid, registerType, loginName, cId, nickname, function(err, character) {
             if(err) {
                 console.log('[register] fail to invoke createPlayer for ' + err.stack);
-                next(null, {code: consts.MESSAGE.ERR, error:err});
+                data = {code: consts.MESSAGE.ERR, error:err};
+                utils.send(msg, res, data);
                 return;
             } else {
                 var array = [
                     function(callback) {// 初始化武器
-                        equipDao.createEquipments(character.id, callback);
+                        equipmentsService.createEquipments(character.id, callback);
                     },
                     function(callback) {// 初始化装备
-                        packageDao.createPackage(character.id, callback);
+                        packageService.createPackage(character.id, callback);
                     },
                     function(callback) {
                         var skillId = 1;
@@ -60,10 +68,20 @@ exports.createMainPlayer = function(req, res) {
                     function(err, results) {
                         if (err) {
                             console.log('learn skill error with player: ' + JSON.stringify(character.strip()) + ' stack: ' + err.stack);
-                            next(null, {code: consts.MESSAGE.ERR, error:err});
+                            data = {code: consts.MESSAGE.ERR, error:err};
+                            utils.send(msg, res, data);
                             return;
                         }
-                        afterLogin(self.app, msg, session, {id: uid}, character.getUserInfo(), next);
+
+                        var user = {
+                            id: uid
+                        };
+                        data = {
+                            code: consts.MESSAGE.RES,
+                            user: {},
+                            player: character
+                        };
+
                     }
                 );
             }
@@ -71,81 +89,6 @@ exports.createMainPlayer = function(req, res) {
     });
 }
 
-/**
- * getMainPlayer
- * @param req
- * @param res
- */
 exports.getMainPlayer = function(req, res) {
-    var token = msg.token, self = this;
 
-    var serverId = this.app.get("regionInfo").serverId;
-    if(!token) {
-        next(new Error('invalid entry request: empty token'), {code: Code.FAIL});
-        return;
-    }
-
-    var uid, userInfo, players, player;
-    async.waterfall([
-        function(cb) {
-            // auth token
-            self.app.rpc.auth.authRemote.auth(session, token, cb);
-        }, function(code, user, cb) {
-            // query player info by user id
-            if(code !== Code.OK) {
-                next(null, {code: code});
-                return;
-            }
-
-            if(!user) {
-                next(null, {code: Code.ENTRY.FA_USER_NOT_EXIST});
-                return;
-            }
-
-            user.serverId = serverId;// 选择服务器Id
-            uid = user.id;
-            userInfo = user;
-            userDao.getCharactersByLoginName(self.app, user.serverId, user.registerType, user.loginName, cb);
-        }, function(res, cb) {
-            // generate session and register chat status
-            players = res;
-            self.app.get('sessionService').isReconnect(session, uid);
-            self.app.get('sessionService').kick(uid, cb);
-        }, function(cb) {
-            if(!players) {
-                players = [];
-            }
-            session.bind(uid, cb);
-            session.set('serverId', userInfo.serverId);
-            session.set('registerType', userInfo.registerType);
-            session.set('loginName', userInfo.loginName);
-            session.set('ip', session.__session__.__socket__.remoteAddress.ip);
-        }, function(cb) {
-            if(!players || players.length === 0) {
-                next(null, {code: Code.OK, players: null});
-                return;
-            }
-
-            player = players[0];
-            if(!player) {
-                player = {};
-            }
-            session.set('areaId', player.currentScene);
-            session.set('playername', player.nickname);
-            session.set('playerId', player.id);
-            session.on('closed', onUserLeave.bind(null, self.app));
-            session.pushAll(cb);
-        }, function(cb) {
-            self.app.rpc.chat.chatRemote.add(session, player.userId, player.nickname, channelUtil.getGlobalChannelName(), cb);
-        }
-    ], function(err) {
-        if(err) {
-            next(null, {code: Code.FAIL});
-            return;
-        }
-
-        if(players[0] == {})
-            players[0] = null;
-        next(null, {code: Code.OK, player: players ? players[0] : null});
-    });
 }
