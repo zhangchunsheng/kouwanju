@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: player
  */
+var playerService = require('../app/services/playerService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

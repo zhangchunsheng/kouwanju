@@ -6,7 +6,7 @@
  * Description: formula
  */
 var formula = module.exports;
-var dataApi = require('../util/dataApi');
+var dataApi = require('../utils/dataApi');
 
 formula.calDamage = function(attacker, target) {
 

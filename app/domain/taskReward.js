@@ -12,7 +12,7 @@ var Item = require('./entity/item');
 var Equipment = require('./entity/equipment');
 var dataApi = require('../utils/dataApi');
 var messageService = require('./messageService');
-var utils = require('../util/utils');
+var utils = require('../utils/utils');
 
 /**
  * Expose 'taskReward'

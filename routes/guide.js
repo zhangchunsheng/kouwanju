@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: guide
  */
+var guideService = require('../app/services/guideService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

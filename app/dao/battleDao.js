@@ -22,7 +22,7 @@ var formula = require('../consts/formula');
 var ucenter = require('../lib/ucenter/ucenter');
 
 var redis = require('../dao/redis/redis')
-    , redisConfig = require('../config/redis');
+    , redisConfig = require('../../shared/config/redis');
 
 var env = process.env.NODE_ENV || 'development';
 if(redisConfig[env]) {

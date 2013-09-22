@@ -13,7 +13,7 @@ var crypto = require('crypto');
 var MailKeyType = require('../consts/consts').MailKeyType;
 
 var redis = require('../dao/redis/redis')
-    , redisConfig = require('../config/redis');
+    , redisConfig = require('../../shared/config/redis');
 
 var env = process.env.NODE_ENV || 'development';
 if(redisConfig[env]) {

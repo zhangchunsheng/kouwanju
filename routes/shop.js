@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: shop
  */
+var shopService = require('../app/services/shopService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

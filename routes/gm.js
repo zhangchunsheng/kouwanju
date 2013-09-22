@@ -5,7 +5,7 @@
  * Date: 2013-09-22
  * Description: gm
  */
-var gmService = require('../services/gmService');
+var gmService = require('../app/services/gmService');
 
 exports.index = function(req, res) {
     res.send("index");

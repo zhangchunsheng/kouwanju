@@ -5,7 +5,7 @@
  * Date: 2013-09-22
  * Description: friend
  */
-var authService = require('../services/authService');
+var authService = require('../app/services/authService');
 
 exports.index = function(req, res) {
     res.send("index");

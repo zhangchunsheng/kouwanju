@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: package
  */
+var packageService = require('../app/services/packageService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

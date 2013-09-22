@@ -6,24 +6,24 @@
  * Description: dataApi
  */
 // require json files
-var character = require('../config/data/character');
-var experience = require('../config/data/experience');
-var skillList = require('../config/data/skillList');
-var heroSkills = require('../config/data/heroSkills');
-var item = require('../config/data/item');
-var npc = require('../config/data/npc');
-var task = require('../config/data/task');
-var heros = require('../config/data/heros');
-var monster = require('../config/data/monster');
-var induMonstergroup = require('../config/data/induMonstergroup');
-var instancedungeon = require('../config/data/instancedungeon');
-var equipment = require('../config/data/equipment');
-var equipmentLevelup = require('../config/data/equipmentLevelup');
-var partners = require('../config/data/partners');
-var city = require('../config/data/city');
-var indu_event = require('../config/data/indu_event');
-var shops = require('../config/data/shops');
-var casino = require('../config/data/casino');
+var character = require('../../config/data/character');
+var experience = require('../../config/data/experience');
+var skillList = require('../../config/data/skillList');
+var heroSkills = require('../../config/data/heroSkills');
+var item = require('../../config/data/item');
+var npc = require('../../config/data/npc');
+var task = require('../../config/data/task');
+var heros = require('../../config/data/heros');
+var monster = require('../../config/data/monster');
+var induMonstergroup = require('../../config/data/induMonstergroup');
+var instancedungeon = require('../../config/data/instancedungeon');
+var equipment = require('../../config/data/equipment');
+var equipmentLevelup = require('../../config/data/equipmentLevelup');
+var partners = require('../../config/data/partners');
+var city = require('../../config/data/city');
+var indu_event = require('../../config/data/indu_event');
+var shops = require('../../config/data/shops');
+var casino = require('../../config/data/casino');
 /**
  * Data model `new Data()`
  *

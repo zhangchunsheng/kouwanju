@@ -11,7 +11,7 @@ var utils = require('../utils/utils');
 var dbUtil = require('../utils/dbUtil');
 
 var redis = require('../dao/redis/redis')
-    , redisConfig = require('../config/redis');
+    , redisConfig = require('../../shared/config/redis');
 
 var env = process.env.NODE_ENV || 'development';
 if(redisConfig[env]) {

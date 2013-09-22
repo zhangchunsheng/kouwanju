@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: resource
  */
+var resourceService = require('../app/services/resourceService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

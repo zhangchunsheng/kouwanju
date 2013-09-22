@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: role
  */
+var roleService = require('../app/services/roleService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

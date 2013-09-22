@@ -5,7 +5,7 @@
  * Date: 2013-09-22
  * Description: arena
  */
-var arenaService = require('../services/arenaService');
+var arenaService = require('../app/services/arenaService');
 
 exports.index = function(req, res) {
     res.send("index");

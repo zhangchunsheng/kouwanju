@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: mail
  */
+var mailService = require('../app/services/mailService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

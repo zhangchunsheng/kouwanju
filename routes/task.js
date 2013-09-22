@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: task
  */
+var taskService = require('../app/services/taskService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

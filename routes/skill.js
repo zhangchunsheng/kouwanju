@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: skill
  */
+var skillService = require('../app/services/skillService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

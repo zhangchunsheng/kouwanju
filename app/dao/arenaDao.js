@@ -6,7 +6,7 @@
  * Description: arenaDao
  */
 var redis = require('../dao/redis/redis')
-    , redisConfig = require('../config/redis');
+    , redisConfig = require('../../shared/config/redis');
 var dataApi = require('../utils/dataApi');
 var Player = require('../domain/entity/player');
 var Tasks = require('../domain/tasks');
