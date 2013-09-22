@@ -6,6 +6,8 @@
  * Description: mail
  */
 var mailService = require('../app/services/mailService');
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
 
 exports.index = function(req, res) {
     res.send("index");

@@ -6,6 +6,8 @@
  * Description: gm
  */
 var gmService = require('../app/services/gmService');
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
 
 exports.index = function(req, res) {
     res.send("index");

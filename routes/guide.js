@@ -6,6 +6,8 @@
  * Description: guide
  */
 var guideService = require('../app/services/guideService');
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
 
 exports.index = function(req, res) {
     res.send("index");

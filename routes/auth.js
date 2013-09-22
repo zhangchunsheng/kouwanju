@@ -6,6 +6,15 @@
  * Description: auth
  */
 var authService = require('../app/services/authService');
+var userService = require('../app/services/userService');
+var tokenService = require('../shared/token');
+var secret = require('../app/config/session').secret;
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
+var session = require('../app/http/session');
+
+var DEFAULT_SECRET = 'wozlla_session_secret';
+var DEFAULT_EXPIRE = 6 * 60 * 60 * 1000;	// default session expire time: 6 hours
 
 exports.index = function(req, res) {
     res.send("index");
@@ -20,27 +29,24 @@ exports.auth = function(req, res) {
     var msg = req.query;
 
     var token = msg.token;
-    var res = tokenService.parse(token, this.secret);
+    var res = tokenService.parse(token, secret);
+    var data = {};
     if(!res) {
-        cb(null, Code.ENTRY.FA_TOKEN_ILLEGAL);
+        data = {code: Code.ENTRY.FA_TOKEN_ILLEGAL};
+        utils.send(msg, res, data);
         return;
     }
 
     if(!checkExpire(res, this.expire)) {
-        cb(null, Code.ENTRY.FA_TOKEN_EXPIRE);
+        data = {code: Code.ENTRY.FA_TOKEN_EXPIRE};
+        utils.send(msg, res, data);
         return;
     }
 
-    session.setSession(req, res, data[0]);
+    session.setSession(req, res, res);
 
-    userDao.getUserByLoginName(this.app, res.registerType, res.loginName, function(err, user) {
-        if(err) {
-            cb(err);
-            return;
-        }
-
-        cb(null, Code.OK, user);
-    });
+    data = {code: Code.OK};
+    utils.send(msg, res, data);
 }
 
 /**

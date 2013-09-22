@@ -6,6 +6,8 @@
  * Description: package
  */
 var packageService = require('../app/services/packageService');
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
 
 exports.index = function(req, res) {
     res.send("index");

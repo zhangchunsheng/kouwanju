@@ -6,6 +6,8 @@
  * Description: arena
  */
 var arenaService = require('../app/services/arenaService');
+var Code = require('../shared/code');
+var utils = require('../app/utils/utils');
 
 exports.index = function(req, res) {
     res.send("index");
