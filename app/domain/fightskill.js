@@ -126,7 +126,7 @@ var FightSkill = function(opts) {
     this.skillId = opts.skillId;
     this.level = opts.level;
     this.playerId = opts.playerId;
-    this.skillData = dataApi.fightskill.findById(this.skillId);
+    this.skillData = dataApi.skillList.findById(this.skillId);
     this.name = this.skillData.skillName;
 };
 
