@@ -32,3 +32,7 @@ packageService.resetItem = function() {
 packageService.userItem = function() {
 
 }
+
+packageService.createPackage = function() {
+
+}
