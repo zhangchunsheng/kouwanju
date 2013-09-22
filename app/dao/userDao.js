@@ -7,7 +7,6 @@
  */
 var dataApi = require('../utils/dataApi');
 var Player = require('../domain/entity/player');
-var Opponent = require('../domain/entity/opponent');
 var Tasks = require('../domain/tasks');
 var User = require('../domain/user');
 var consts = require('../consts/consts');
@@ -831,6 +830,7 @@ userDao.getPlayerById = function(playerId, cb) {
                         }
                     ],
                     function(err, results) {
+                        var Opponent = require('../domain/entity/opponent');
                         var partners = results[0];
                         var player = new Opponent(character);
                         player.partners = partners;

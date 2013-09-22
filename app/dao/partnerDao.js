@@ -7,7 +7,6 @@
  */
 var dataApi = require('../utils/dataApi');
 var Player = require('../domain/entity/player');
-var Partner = require('../domain/entity/partner');
 var User = require('../domain/user');
 var consts = require('../consts/consts');
 var equipmentsDao = require('./equipmentsDao');
@@ -129,6 +128,7 @@ function generalPartner(serverId, registerType, loginName, characterId, partnerI
         }
     };
     character.equipmentsEntity = equipmentsDao.createNewEquipment(character.equipments, serverId, registerType, loginName, characterId + "P" + partnerId);
+    var Partner = require('../domain/entity/partner');
     var partner = new Partner(character);
     return partner;
 }
@@ -241,6 +241,7 @@ partnerDao.createPartner = function(serverId, userId, registerType, loginName, c
                     var array = dbUtil.getMultiCommand(key, character);
                     client.multi(array).exec(function(err, replies) {
                         character.equipmentsEntity = equipmentsDao.createNewEquipment(character.equipments, serverId, registerType, loginName, characterId + "P" + partnerId);
+                        var Partner = require('../domain/entity/partner');
                         var partner = new Partner(character);
                         redis.release(client);
                         utils.invokeCallback(cb, null, partner);
