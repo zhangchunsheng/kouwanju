@@ -33,6 +33,7 @@ module.exports = function (app) {
     app.get('/auth', auth.auth);
 
     app.get('/role/createMainPlayer', authRequired, role.createMainPlayer);
+    app.get('/role/getMainPlayer', authRequired, role.getMainPlayer);
 
     // 竞技场
     app.get('/arena/pk', authRequired, arena.pk);

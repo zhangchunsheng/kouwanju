@@ -17,7 +17,46 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.enterScene = function(req, res) {
-    res.send("index");
+    var playerId = session.get('playerId');
+    var areaId = session.get('areaId');
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName");
+    userDao.getCharacterAllInfo(serverId, registerType, loginName, playerId, function(err, player) {
+        if (err || !player) {
+            logger.error('Get user for userDao failed! ' + err.stack);
+            next(new Error('fail to get user from dao'), {
+                route: msg.route,
+                code: consts.MESSAGE.ERR
+            });
+
+            return;
+        }
+
+        player.regionId = serverId;
+        player.serverId = session.frontendId;
+
+        pomelo.app.rpc.chat.chatRemote.add(session, session.uid, player.name, channelUtil.getAreaChannelName(areaId), null);
+
+        player.x = 100;
+        player.y = 100;
+
+        /*var data = {
+         entities: area.getAreaInfo({x: player.x, y: player.y}, player.range),
+         curPlayer: player.getInfo()
+         };*/
+        var data = {
+            code: consts.MESSAGE.RES,
+            entities: area.getAreaInfo({x: player.x, y: player.y}, player.range)
+        };
+        logger.info(data);
+        next(null, data);
+
+        if (!area.addEntity(player)) {
+            logger.error("Add player to area faild! areaId : " + player.areaId);
+        }
+    }, true);
 }
 
 /**
@@ -26,7 +65,21 @@ exports.enterScene = function(req, res) {
  * @param res
  */
 exports.enterIndu = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , induId = msg.induId;
+    var player = area.getPlayer(session.get('playerId'));
+    logger.info(player);
+    player.isEnterIndu = 1;
+    userDao.enterIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
+        player.currentIndu = induInfo;
+        next(null, {
+            code: consts.MESSAGE.RES,
+            induInfo: induInfo
+        });
+    });
 }
 
 /**
@@ -35,7 +88,26 @@ exports.enterIndu = function(req, res) {
  * @param res
  */
 exports.leaveIndu = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , induId = msg.induId;
+    var player = area.getPlayer(session.get('playerId'));
+    logger.info(player);
+    player.isEnterIndu = 0;
+    userDao.leaveIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
+        player.currentIndu = induInfo;
+
+        player.updateTaskRecord(consts.TaskGoalType.PASS_INDU, {
+            itemId: induId
+        });
+
+        next(null, {
+            code: consts.MESSAGE.RES,
+            induInfo: induInfo
+        });
+    });
 }
 
 /**
@@ -44,7 +116,37 @@ exports.leaveIndu = function(req, res) {
  * @param res
  */
 exports.getPartner = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , cId = msg.cId;
+    var player = area.getPlayer(session.get('playerId'));
+    var partners = player.partners;
+    var flag = false;
+    for(var i = 0 ; i < partners.length ; i++) {
+        if(partners[i].cId == cId) {
+            flag = true;
+            break;
+        }
+    }
+    if(flag) {
+        next(null, {
+            code: 102
+        });
+        return;
+    }
+    var characterId = session.get("playerId");
+    characterId = userDao.getRealCharacterId(characterId);
+    partnerDao.createPartner(serverId, uid, registerType, loginName, characterId, cId, function(err, partner) {
+        if(err) {
+            next(null, {code: consts.MESSAGE.ERR});
+            return;
+        }
+
+        player.partners.push(partner);
+        next(null, {code: consts.MESSAGE.RES, partner: partner});
+    });
 }
 
 /**
@@ -53,7 +155,7 @@ exports.getPartner = function(req, res) {
  * @param res
  */
 exports.changeView = function(req, res) {
-    res.send("index");
+    res.send("changeView");
 }
 
 /**
@@ -62,7 +164,30 @@ exports.changeView = function(req, res) {
  * @param res
  */
 exports.changeArea = function(req, res) {
-    res.send("index");
+    var areaId = msg.currentScene;
+    var target = msg.target;
+
+    var req = {
+        areaId: areaId,
+        target: target,
+        uid: session.uid,
+        playerId: session.get('playerId'),
+        frontendId: session.frontendId
+    };
+
+    world.changeArea(req, session, function(err) {
+        if(err) {
+            next(null, {
+                code: consts.MESSAGE.ERR,
+                currentScene: target
+            });
+        } else {
+            next(null, {
+                code: consts.MESSAGE.RES,
+                currentScene: target
+            });
+        }
+    });
 }
 
 /**
@@ -71,7 +196,9 @@ exports.changeArea = function(req, res) {
  * @param res
  */
 exports.npcTalk = function(req, res) {
-    res.send("index");
+    var player = area.getPlayer(session.get('playerId'));
+    player.target = msg.targetId;
+    next();
 }
 
 /**
@@ -80,7 +207,10 @@ exports.npcTalk = function(req, res) {
  * @param res
  */
 exports.learnSkill = function(req, res) {
-    res.send("index");
+    var player = area.getPlayer(session.get('playerId'));
+    var status = player.learnSkill(msg.skillId);
+
+    next(null, {status: status, skill: player.fightSkills[msg.skillId]});
 }
 
 /**
@@ -89,5 +219,8 @@ exports.learnSkill = function(req, res) {
  * @param res
  */
 exports.upgradeSkill = function(req, res) {
-    res.send("index");
+    var player = area.getPlayer(session.get('playerId'));
+    var status = player.upgradeSkill(msg.skillId);
+
+    next(null, {status: status});
 }

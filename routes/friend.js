@@ -17,7 +17,22 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.get = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , start = msg.start
+        , stop = msg.stop;
+
+    var player = area.getPlayer(session.get('playerId'));
+
+    // 需要验证
+    friendDao.getFriends(player, start, stop, function(err, reply) {
+        next(null, {
+            code: Code.OK,
+            result: reply[0]
+        });
+    });
 }
 
 /**
@@ -26,7 +41,34 @@ exports.get = function(req, res) {
  * @param res
  */
 exports.add = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , playerId = msg.playerId;
+
+    var player = area.getPlayer(session.get('playerId'));
+
+    addFriendById(player, playerId, next);
+}
+
+function addFriendById(player, playerId, next) {
+    friendDao.addFriend(player, playerId, function(err, reply) {
+        logger.info(reply);
+        if(reply.reply == 1) {
+            next(null, {
+                code: Code.OK
+            });
+        } else if(reply.reply == 0) {
+            next(null, {
+                code: Code.FRIEND.EXIST_FRIEND
+            });
+        } else {
+            next(null, {
+                code: Code.FRIEND.NOT_EXIST_PLAYER
+            });
+        }
+    });
 }
 
 /**
@@ -35,7 +77,20 @@ exports.add = function(req, res) {
  * @param res
  */
 exports.addByName = function(req, res) {
-    res.send("index");
+    var player  = area.getPlayer(session.get('playerId'));
+    // var nickName = msg.nickname;
+    var serverId = session.get("serverId");
+    var self = addFriendById;
+    userDao.getPlayerIdByNickname(serverId, msg.nickname, function(err, playerId) {
+        logger.info(arguments);
+        if(!playerId) {
+            next(null,{
+                code:Code.FRIEND.NOT_EXIST_PLAYER
+            });
+            return;
+        }
+        self(player, playerId, next);
+    });
 }
 
 /**
@@ -44,5 +99,18 @@ exports.addByName = function(req, res) {
  * @param res
  */
 exports.remove = function(req, res) {
-    res.send("index");
+    var uid = session.uid
+        , serverId = session.get("serverId")
+        , registerType = session.get("registerType")
+        , loginName = session.get("loginName")
+        , playerId = msg.playerId;
+
+    var player = area.getPlayer(session.get('playerId'));
+
+    // 需要验证
+    friendDao.removeFriend(player, playerId, function(err, reply) {
+        next(null, {
+            code: Code.OK
+        });
+    });
 }
