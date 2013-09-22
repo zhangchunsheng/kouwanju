@@ -201,7 +201,7 @@ userDao.saveUserInfo = function(userInfo, serverId, registerType, loginName, cb)
  * @param {loginName} loginName
  * @param {function} cb Callback function.
  */
-userDao.getCharactersByLoginName = function(app, serverId, registerType, loginName, cb) {
+userDao.getCharactersByLoginName = function(serverId, registerType, loginName, cb) {
     userDao.getCharacterAllInfo(serverId, registerType, loginName, 0, function(err, character) {
         var array = [];
         array.push(character);

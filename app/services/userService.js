@@ -16,3 +16,11 @@ userService.get = function() {
 userService.createCharacter = function(serverId, userId, registerType, loginName, cId, nickname, cb) {
     userDao.createCharacter(serverId, userId, registerType, loginName, cId, nickname, cb);
 }
+
+userService.getCharactersByLoginName = function(serverId, registerType, loginName, cb) {
+    userDao.getCharactersByLoginName(serverId, registerType, loginName, cb);
+}
+
+userService.getCharacterAllInfo = function(serverId, registerType, loginName, characterId, cb) {
+    userDao.getCharacterAllInfo(serverId, registerType, loginName, characterId, cb);
+}
