@@ -8,7 +8,7 @@
 var message = require('../i18n/zh_CN.json');
 var consts = require('../consts/consts');
 var Token = require('../../shared/token')
-    , secret = require('../config/session').secret;
+    , secret = require('../../config/session').secret;
 
 var utils = module.exports;
 

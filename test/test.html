@@ -177,10 +177,18 @@
                     });
                 });
 
+                var loginInfo = {
+                    code: 200,
+                    loginName: "html5",
+                    registerType: 1,
+                    sessionId: "43AEEFC19CCE04583BBCDC961034B75C",
+                    token: "2a1e5f5238a083bf974d15cf61b2547104673e6743300c55d1d4461e2701517c",
+                    uid: 5
+                };
                 $("#auth").bind("click", function() {
                     var url = "http://192.168.1.99:6011/auth";
                     var data = {
-                        sessionId: ""
+                        token: loginInfo.token
                     };
                     var params = "";
                     for(var o in data) {

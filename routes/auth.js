@@ -8,7 +8,7 @@
 var authService = require('../app/services/authService');
 var userService = require('../app/services/userService');
 var tokenService = require('../shared/token');
-var secret = require('../app/config/session').secret;
+var secret = require('../config/session').secret;
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
 var session = require('../app/http/session');
@@ -29,7 +29,7 @@ exports.auth = function(req, res) {
     var msg = req.query;
 
     var token = msg.token;
-    var res = tokenService.parse(token, secret);
+    var userInfo = tokenService.parse(token, secret);
     var data = {};
     if(!res) {
         data = {code: Code.ENTRY.FA_TOKEN_ILLEGAL};
@@ -43,7 +43,7 @@ exports.auth = function(req, res) {
         return;
     }
 
-    session.setSession(req, res, res);
+    session.setSession(req, res, userInfo);
 
     data = {code: Code.OK};
     utils.send(msg, res, data);
