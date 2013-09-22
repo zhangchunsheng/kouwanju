@@ -229,6 +229,72 @@
                         }
                     });
                 });
+
+                $("#getMainPlayer").bind("click", function() {
+                    var url = "http://192.168.1.99:6011/role/getMainPlayer";
+                    var data = {
+                        token: loginInfo.token
+                    };
+                    var params = "";
+                    for(var o in data) {
+                        params += o + "=" + data[o] + "&"
+                    }
+                    params = params.substr(0, params.length - 1);
+                    console.log(params);
+                    $.ajax({
+                        type: "get",
+                        dataType: "jsonp",
+                        jsonp: "jsoncallback",
+                        url: url + "?" + params,
+                        success: function(data, status) {
+                            console.log(data);
+                        }
+                    });
+                });
+
+                $("#battle").bind("click", function() {
+                    var url = "http://192.168.1.99:6011/battle/battle";
+                    var data = {
+                        token: loginInfo.token
+                    };
+                    var params = "";
+                    for(var o in data) {
+                        params += o + "=" + data[o] + "&"
+                    }
+                    params = params.substr(0, params.length - 1);
+                    console.log(params);
+                    $.ajax({
+                        type: "get",
+                        dataType: "jsonp",
+                        jsonp: "jsoncallback",
+                        url: url + "?" + params,
+                        success: function(data, status) {
+                            console.log(data);
+                        }
+                    });
+                });
+
+                $("#enterScene").bind("click", function() {
+                    var url = "http://192.168.1.99:6011/player/enterScene";
+                    var data = {
+                        token: loginInfo.token
+                    };
+                    var params = "";
+                    for(var o in data) {
+                        params += o + "=" + data[o] + "&"
+                    }
+                    params = params.substr(0, params.length - 1);
+                    console.log(params);
+                    $.ajax({
+                        type: "get",
+                        dataType: "jsonp",
+                        jsonp: "jsoncallback",
+                        url: url + "?" + params,
+                        success: function(data, status) {
+                            console.log(data);
+                        }
+                    });
+                });
             });
         </script>
     </head>
