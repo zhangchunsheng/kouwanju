@@ -28,3 +28,7 @@ userService.getCharacterAllInfo = function(serverId, registerType, loginName, ch
 userService.getUserByLoginName = function(serverId, registerType, loginName, cb) {
     userDao.getUserByLoginName(serverId, registerType, loginName, cb);
 }
+
+userService.updatePlayerInduInfo = function(character, eid, cb) {
+    userDao.updatePlayerInduInfo(character, eid, cb);
+}

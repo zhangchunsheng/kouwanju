@@ -6,6 +6,7 @@
  * Description: player
  */
 var playerService = require('../app/services/playerService');
+var userService = require('../app/services/userService');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
 

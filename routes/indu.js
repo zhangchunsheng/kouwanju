@@ -6,6 +6,7 @@
  * Description: indu
  */
 var induService = require('../app/services/induService');
+var userService = require('../app/services/userService');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
 
