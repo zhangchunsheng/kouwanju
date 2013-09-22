@@ -31,10 +31,12 @@ exports.battle = function(req, res) {
     var character = area.getPlayer(session.get('playerId'));
     var induId = character.currentIndu.induId;
 
+    var data = {};
     if(induId == 0) {
-        next(null, {
+        data = {
             code: Code.INDU.NOT_AT_INDU
-        });
+        };
+        utils.send(msg, res, data);
         return;
     }
 

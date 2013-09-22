@@ -76,6 +76,9 @@ exports.createMainPlayer = function(req, res) {
                         var user = {
                             id: uid
                         };
+
+                        req.session.playerId = character.id;
+
                         data = {
                             code: consts.MESSAGE.RES,
                             user: user,
