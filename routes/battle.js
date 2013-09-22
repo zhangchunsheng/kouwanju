@@ -53,8 +53,11 @@ exports.battle = function(req, res) {
         }
 
         var induData = character.currentIndu.induData;
+
         var flag = false;
         for(var i = 0 ; i < induData.length ; i++) {
+            if(induData[i] == null)
+                continue;
             if(induData[i].eventId == eid && !induData[i].died) {
                 flag = true;
                 break;
