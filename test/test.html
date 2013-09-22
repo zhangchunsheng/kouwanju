@@ -187,7 +187,10 @@
                 });
 
                 $("#auth").bind("click", function() {
-                    var url = "http://192.168.1.99:6011/auth";
+                    var host = $("#host").val();
+                    var port = $("#port").val();
+                    var url = "http://" + host + ":" + port + "/auth";
+
                     var data = {
                         token: loginInfo.token
                     };
@@ -209,7 +212,10 @@
                 });
 
                 $("#createMainPlayer").bind("click", function() {
-                    var url = "http://192.168.1.99:6011/role/createMainPlayer";
+                    var host = $("#host").val();
+                    var port = $("#port").val();
+                    var url = "http://" + host + ":" + port + "/createMainPlayer";
+
                     var data = {
                         token: loginInfo.token
                     };
@@ -231,7 +237,10 @@
                 });
 
                 $("#getMainPlayer").bind("click", function() {
-                    var url = "http://192.168.1.99:6011/role/getMainPlayer";
+                    var host = $("#host").val();
+                    var port = $("#port").val();
+                    var url = "http://" + host + ":" + port + "/getMainPlayer";
+
                     var data = {
                         token: loginInfo.token
                     };
@@ -253,7 +262,10 @@
                 });
 
                 $("#battle").bind("click", function() {
-                    var url = "http://192.168.1.99:6011/battle/battle";
+                    var host = $("#host").val();
+                    var port = $("#port").val();
+                    var url = "http://" + host + ":" + port + "/battle/battle";
+
                     var data = {
                         token: loginInfo.token
                     };
@@ -275,7 +287,10 @@
                 });
 
                 $("#enterScene").bind("click", function() {
-                    var url = "http://192.168.1.99:6011/player/enterScene";
+                    var host = $("#host").val();
+                    var port = $("#port").val();
+                    var url = "http://" + host + ":" + port + "/player/enterScene";
+
                     var data = {
                         token: loginInfo.token
                     };
@@ -303,6 +318,15 @@
             <label for="loginName">登录名：</label><input id="loginName" type="text" value="wozlla" />
             <label for="password">密码：</label><input id="password" type="password" value="wozlla" />
             <label for="password_verify">确定密码：</label><input id="password_verify" type="password" value="wozlla" />
+            <label for="host">host:</label>
+            <select id="host">
+                <option value="192.168.1.99" selected="selected">192.168.1.99</option>
+                <option value="192.168.1.22">192.168.1.22</option>
+            </select>
+            <label for="port">port:</label>
+            <select id="port">
+                <option value="6011">6011</option>
+            </select>
         </div>
 
         <div style="clear:both;"></div>

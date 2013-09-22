@@ -24,3 +24,7 @@ userService.getCharactersByLoginName = function(serverId, registerType, loginNam
 userService.getCharacterAllInfo = function(serverId, registerType, loginName, characterId, cb) {
     userDao.getCharacterAllInfo(serverId, registerType, loginName, characterId, cb);
 }
+
+userService.getUserByLoginName = function(serverId, registerType, loginName, characterId, cb) {
+    userDao.getCharacterAllInfo(serverId, registerType, loginName, characterId, cb);
+}
