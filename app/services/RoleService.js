@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var roleDao = require('../dao/roleDao');
 
-var arenaService = module.exports;
+var roleService = module.exports;
 
-arenaService.get = function() {
+roleService.createMainPlayer = function() {
 
 }

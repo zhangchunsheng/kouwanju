@@ -5,10 +5,42 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var playerDao = require('../dao/playerDao');
 
-var arenaService = module.exports;
+var playerService = module.exports;
 
-arenaService.get = function() {
+playerService.enterScene = function() {
+
+}
+
+playerService.enterIndu = function() {
+
+}
+
+playerService.leaveIndu = function() {
+
+}
+
+playerService.getPartner = function() {
+
+}
+
+playerService.changeView = function() {
+
+}
+
+playerService.changeArea = function() {
+
+}
+
+playerService.npcTalk = function() {
+
+}
+
+playerService.learnSkill = function() {
+
+}
+
+playerService.upgradeSkill = function() {
 
 }

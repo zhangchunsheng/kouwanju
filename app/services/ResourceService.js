@@ -5,10 +5,12 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var resourceService = module.exports;
 
-var arenaService = module.exports;
+resourceService.loadResource = function() {
 
-arenaService.get = function() {
+}
+
+resourceService.loadAreaResource = function() {
 
 }

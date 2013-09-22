@@ -5,10 +5,14 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var taskDao = require('../dao/taskDao');
 
-var arenaService = module.exports;
+var taskService = module.exports;
 
-arenaService.get = function() {
+taskService.startTask = function() {
+
+}
+
+taskService.handOverTask = function() {
 
 }

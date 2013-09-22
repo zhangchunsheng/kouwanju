@@ -5,8 +5,6 @@
  * Date: 2013-09-22
  * Description: authService
  */
-var authDao = require('../dao/authDao');
-
 var authService = module.exports;
 
 authService.auth = function() {

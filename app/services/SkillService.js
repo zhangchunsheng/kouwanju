@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var skillDao = require('../dao/skillDao');
 
-var arenaService = module.exports;
+var skillService = module.exports;
 
-arenaService.get = function() {
+skillService.initSkill = function() {
 
 }

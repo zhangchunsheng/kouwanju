@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var shopDao = require('../dao/shopDao');
 
-var arenaService = module.exports;
+var shopService = module.exports;
 
-arenaService.get = function() {
+shopService.buyItem = function() {
 
 }
