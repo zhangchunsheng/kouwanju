@@ -5,10 +5,14 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var guideDao = require('../dao/guideDao');
 
-var arenaService = module.exports;
+var guideService = module.exports;
 
-arenaService.get = function() {
+guideService.get = function() {
+
+}
+
+guideService.save = function() {
 
 }

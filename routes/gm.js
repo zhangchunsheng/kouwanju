@@ -3,46 +3,37 @@
  * Version: 1.0
  * Author: Peter Zhang
  * Date: 2013-09-22
- * Description: arena
+ * Description: gm
  */
-var arenaService = require('../services/arenaService');
+var gmService = require('../services/gmService');
 
 exports.index = function(req, res) {
     res.send("index");
 }
 
 /**
- * pk
+ * 重置任务
  * @param req
  * @param res
  */
-exports.pk = function(req, res) {
+exports.resetTask = function(req, res) {
     res.send("index");
 }
 
 /**
- * 加入竞技场
+ * 更新金币
  * @param req
  * @param res
  */
-exports.add = function(req, res) {
+exports.updateMoney = function(req, res) {
     res.send("index");
 }
 
 /**
- * 获得对手
+ * 更新经验
  * @param req
  * @param res
  */
-exports.getOpponents = function(req, res) {
-    res.send("index");
-}
-
-/**
- * 获得排名
- * @param req
- * @param res
- */
-exports.getRank = function(req, res) {
+exports.updateExp = function(req, res) {
     res.send("index");
 }

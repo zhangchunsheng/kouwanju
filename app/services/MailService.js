@@ -5,10 +5,38 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var mailDao = require('../dao/mailDao');
 
-var arenaService = module.exports;
+var mailService = module.exports;
 
-arenaService.get = function() {
+mailService.systemSendMail = function() {
+
+}
+
+mailService.sendMail = function() {
+
+}
+
+mailService.getInbox = function() {
+
+}
+
+mailService.getOutbox = function() {
+
+}
+
+mailService.readMail = function() {
+
+}
+
+mailService.delMail = function() {
+
+}
+
+mailService.hasNewMail = function() {
+
+}
+
+mailService.collectItem = function() {
 
 }

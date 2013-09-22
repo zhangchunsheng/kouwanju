@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var formationDao = require('../dao/formationDao');
 
-var arenaService = module.exports;
+var formationService = module.exports;
 
-arenaService.get = function() {
+formationService.change = function() {
 
 }

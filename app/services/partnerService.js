@@ -5,10 +5,38 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var partnerDao = require('../dao/partnerDao');
 
-var arenaService = module.exports;
+var partnerService = module.exports;
 
-arenaService.get = function() {
+partnerService.getAllPartner = function() {
+
+}
+
+partnerService.getRealPartnerId = function() {
+
+}
+
+partnerService.getPartner = function() {
+
+}
+
+partnerService.createPartner = function() {
+
+}
+
+partnerService.getPartnerId = function() {
+
+}
+
+partnerService.updatePartners = function() {
+
+}
+
+partnerService.addHP = function() {
+
+}
+
+partnerService.updatePartners = function() {
 
 }

@@ -5,10 +5,26 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var equipmentsDao = require('../dao/equipmentsDao');
 
-var arenaService = module.exports;
+var equipmentsService = module.exports;
 
-arenaService.get = function() {
+equipmentsService.wearWeapon = function() {
+
+}
+
+equipmentsService.unWearWeapon = function() {
+
+}
+
+equipmentsService.equip = function() {
+
+}
+
+equipmentsService.unEquip = function() {
+
+}
+
+equipmentsService.upgrade = function() {
 
 }

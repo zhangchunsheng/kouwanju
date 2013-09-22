@@ -9,6 +9,18 @@ var arenaDao = require('../dao/arenaDao');
 
 var arenaService = module.exports;
 
-arenaService.get = function() {
+arenaService.pk = function() {
+
+}
+
+arenaService.add = function() {
+
+}
+
+arenaService.getOpponents = function() {
+
+}
+
+arenaService.getRank = function() {
 
 }

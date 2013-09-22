@@ -23,6 +23,7 @@ var routes = require('./routes')
     , shop = require('./routes/shop')
     , skill = require('./routes/skill')
     , task = require('./routes/task')
+    , gm = require('./routes/gm')
     , authRequired = require('./middlewares/auth_required');
 
 module.exports = function (app) {
@@ -99,4 +100,8 @@ module.exports = function (app) {
 
     app.get('/task/startTask', authRequired, task.startTask);
     app.get('/task/handOverTask', authRequired, task.handOverTask);
+
+    app.get('/gm/resetTask', authRequired, gm.resetTask);
+    app.get('/gm/updateMoney', authRequired, gm.updateMoney);
+    app.get('/gm/updateExp', authRequired, gm.updateExp);
 }

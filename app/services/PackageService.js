@@ -5,10 +5,30 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var packageDao = require('../dao/packageDao');
 
-var arenaService = module.exports;
+var packageService = module.exports;
 
-arenaService.get = function() {
+packageService.addItem = function() {
+
+}
+
+packageService.dropItem = function() {
+
+}
+
+packageService.sellItem = function() {
+
+}
+
+packageService.discardItem = function() {
+
+}
+
+packageService.resetItem = function() {
+
+}
+
+packageService.userItem = function() {
 
 }

@@ -5,6 +5,8 @@
  * Date: 2013-09-22
  * Description: formation
  */
+var authService = require('../services/authService');
+
 exports.index = function(req, res) {
     res.send("index");
 }

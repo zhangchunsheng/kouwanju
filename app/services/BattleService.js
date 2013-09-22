@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var battleDao = require('../dao/battleDao');
 
-var arenaService = module.exports;
+var battleService = module.exports;
 
-arenaService.get = function() {
+battleService.battle = function() {
 
 }

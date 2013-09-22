@@ -5,10 +5,22 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var friendDao = require('../dao/friendDao');
 
-var arenaService = module.exports;
+var friendService = module.exports;
 
-arenaService.get = function() {
+friendService.get = function() {
+
+}
+
+friendService.add = function() {
+
+}
+
+friendService.addByName = function() {
+
+}
+
+friendService.remove = function() {
 
 }

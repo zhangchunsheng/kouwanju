@@ -5,10 +5,14 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var casinoDao = require('../dao/casinoDao');
 
-var arenaService = module.exports;
+var casinoService = module.exports;
 
-arenaService.get = function() {
+casinoService.getItems = function() {
+
+}
+
+casinoService.gambling = function() {
 
 }

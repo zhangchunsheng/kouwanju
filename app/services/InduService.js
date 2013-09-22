@@ -5,10 +5,10 @@
  * Date: 2013-09-22
  * Description: arenaService
  */
-var arenaDao = require('../dao/arenaDao');
+var induDao = require('../dao/induDao');
 
-var arenaService = module.exports;
+var induService = module.exports;
 
-arenaService.get = function() {
+induService.triggerEvent = function() {
 
 }
