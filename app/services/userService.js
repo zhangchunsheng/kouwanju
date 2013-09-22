@@ -32,3 +32,7 @@ userService.getUserByLoginName = function(serverId, registerType, loginName, cb)
 userService.updatePlayerInduInfo = function(character, eid, cb) {
     userDao.updatePlayerInduInfo(character, eid, cb);
 }
+
+userService.enterIndu = function() {
+    userDao.enterIndu(character, eid, cb);
+}

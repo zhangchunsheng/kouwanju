@@ -201,10 +201,10 @@ $(document).ready(function() {
     $("#createMainPlayer").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
-        var url = "http://" + host + ":" + port + "/createMainPlayer";
+        var url = "http://" + host + ":" + port + "/role/createMainPlayer";
 
         var data = {
-            token: loginInfo.token
+
         };
         var params = "";
         for(var o in data) {
@@ -226,10 +226,10 @@ $(document).ready(function() {
     $("#getMainPlayer").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
-        var url = "http://" + host + ":" + port + "/getMainPlayer";
+        var url = "http://" + host + ":" + port + "/role/getMainPlayer";
 
         var data = {
-            token: loginInfo.token
+
         };
         var params = "";
         for(var o in data) {
@@ -254,7 +254,6 @@ $(document).ready(function() {
         var url = "http://" + host + ":" + port + "/battle/battle";
 
         var data = {
-            token: loginInfo.token,
             eid: "MG101011"
         };
         var params = "";
@@ -280,7 +279,107 @@ $(document).ready(function() {
         var url = "http://" + host + ":" + port + "/player/enterScene";
 
         var data = {
-            token: loginInfo.token
+
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#enterIndu").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/indu/enterIndu";
+
+        var data = {
+
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#leaveIndu").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/indu/leaveIndu";
+
+        var data = {
+            induId: "Ins10101"
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#triggerEvent1").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/indu/triggerEvent";
+
+        var data = {
+            eid: "MG102041"
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#triggerEvent2").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/indu/triggerEvent";
+
+        var data = {
+            eid: "E102041"
         };
         var params = "";
         for(var o in data) {

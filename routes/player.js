@@ -9,6 +9,11 @@ var playerService = require('../app/services/playerService');
 var userService = require('../app/services/userService');
 var Code = require('../shared/code');
 var utils = require('../app/utils/utils');
+var consts = require('../app/consts/consts');
+var EntityType = require('../app/consts/consts').EntityType;
+var dataApi = require('../app/utils/dataApi');
+var area = require('../app/domain/area/area');
+var async = require('async');
 
 exports.index = function(req, res) {
     res.send("index");
@@ -23,27 +28,24 @@ exports.enterScene = function(req, res) {
     var msg = req.query;
     var session = req.session;
 
-    var playerId = session.get('playerId');
-    var areaId = session.get('areaId');
+    var playerId = session.playerId;
     var uid = session.uid
-        , serverId = session.get("serverId")
-        , registerType = session.get("registerType")
-        , loginName = session.get("loginName");
-    userDao.getCharacterAllInfo(serverId, registerType, loginName, playerId, function(err, player) {
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName;
+
+    var data = {};
+    userService.getCharacterAllInfo(serverId, registerType, loginName, playerId, function(err, player) {
         if (err || !player) {
             console.log('Get user for userDao failed! ' + err.stack);
-            next(new Error('fail to get user from dao'), {
+            data = {
                 route: msg.route,
                 code: consts.MESSAGE.ERR
-            });
+            };
+            utils.send(msg, res, data);
 
             return;
         }
-
-        player.regionId = serverId;
-        player.serverId = session.frontendId;
-
-        pomelo.app.rpc.chat.chatRemote.add(session, session.uid, player.name, channelUtil.getAreaChannelName(areaId), null);
 
         player.x = 100;
         player.y = 100;
@@ -56,7 +58,7 @@ exports.enterScene = function(req, res) {
             code: consts.MESSAGE.RES,
             entities: area.getAreaInfo({x: player.x, y: player.y}, player.range)
         };
-        next(null, data);
+        utils.send(msg, res, data);
 
         if (!area.addEntity(player)) {
             console.log("Add player to area faild! areaId : " + player.areaId);
@@ -78,14 +80,18 @@ exports.enterIndu = function(req, res) {
         , registerType = session.get("registerType")
         , loginName = session.get("loginName")
         , induId = msg.induId;
-    var player = area.getPlayer(session.get('playerId'));
 
-    player.isEnterIndu = 1;
-    userDao.enterIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
-        player.currentIndu = induInfo;
-        next(null, {
-            code: consts.MESSAGE.RES,
-            induInfo: induInfo
+    userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+        player.isEnterIndu = 1;
+
+        var data = {};
+        userService.enterIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
+            player.currentIndu = induInfo;
+            data = {
+                code: consts.MESSAGE.RES,
+                induInfo: induInfo
+            };
+            utils.send(msg, res, data);
         });
     });
 }
