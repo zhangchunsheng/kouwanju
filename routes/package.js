@@ -90,7 +90,6 @@ exports.sellItem = function(req, res) {
     } else {
         itemInfo = dataApi.equipment.findById(itemId);
     }
-    logger.info(itemInfo);
     if(!itemInfo) {
         next(null, {
             code:code.PACKAGE.NOT_EXIST_ITEM
@@ -228,7 +227,7 @@ exports.userItem = function(req, res) {
 
     var player = (area.getPlayer(session.get("playerId")));
     var Item = player.packageEntity[type].items[index];
-    logger.error(player);
+
     if(Item == null) {
         next(null, {
             code: code.FAIL
@@ -264,7 +263,6 @@ exports.userItem = function(req, res) {
                 startTime: new Date().getTime()
             });
 
-            logger.info(player.buffs);
             package.removeItem(type, index, 1);
             package.save();
             next(null, {
@@ -283,7 +281,7 @@ exports.userItem = function(req, res) {
                     } else {
                         player.hp = player.maxHp;
                     }
-                    logger.info("hp:" + player.hp);
+
                     userDao.updatePlayer(player, "hp", function(err, reply) {
                         package.removeItem(type, index, 1);
                         package.save();

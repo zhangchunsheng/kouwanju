@@ -19,7 +19,6 @@ exports.index = function(req, res) {
 exports.systemSendMail = function(req, res) {
     var msg = req.query;
 
-    logger.error(msg);
     if (msg.to == null && msg.toName == null) {
         next(null, {
             code: Code.MAIL.NO_RECEIVE_ID
@@ -35,7 +34,6 @@ exports.systemSendMail = function(req, res) {
                 mailDao.DelInboxMail(all.toKey, function (err, reply) {});
             }
             var mail = mailDao.createMail(all);
-            logger.info(mail);
             mailDao.systemSendMail(all.toKey, mail, function (err, reply) {
                 next(null, {
                     code : "OK",
@@ -68,7 +66,6 @@ exports.systemSendMail = function(req, res) {
 exports.sendMail = function(req, res) {
     var msg = req.query;
 
-    logger.error(msg);
     if (msg.content.length > 50) {
         next(null, {
             code:Code.FAIL
@@ -104,9 +101,7 @@ exports.sendMail = function(req, res) {
     msg.from = playerId;
     msg.fromName = player.nickname;
     var fromKey = picecBoxName(session);
-    logger.debug(fromKey);
     mailDao.SendMailCount(fromKey, function (err, reply) {
-        logger.debug(reply);
         if (reply == 50) {
             mailDao.DelOutboxMail(fromKey, function (err, reply) {});
         }
@@ -117,11 +112,10 @@ exports.sendMail = function(req, res) {
                     mailDao.DelInboxMail(all.toKey, function (err, reply) {});
                 }
                 var mail = mailDao.createMail(all);
-                logger.info(mail);
 
                 mailDao.addMail(fromKey + MailKeyType.SEND, all.toKey + MailKeyType.NOREAD, mail, function (err, reply) {
                     if (!!err) {
-                        logger.debug(err);
+                        console.log(err);
                         next(null, {
                             code : Code.FAIL
                         });
@@ -264,7 +258,6 @@ exports.readMail = function(req, res) {
         return;
     }
     var Key = picecBoxName(session);
-    logger.info(mails);
     mailDao.readMail(mails, Key, function (err, reply) {
         if (!!err) {
             next(null, {

@@ -36,7 +36,6 @@ exports.triggerEvent = function(req, res) {
     }
 
     var induData = character.currentIndu.induData;
-    logger.info(induData);
     var flag = false;
     for(var i = 0 ; i < induData.length ; i++) {
         if(induData[i] == null)
@@ -89,8 +88,6 @@ exports.triggerEvent = function(req, res) {
                 monsters[i] = player;
             }
         }
-        logger.info(owners);
-        logger.info(monsters);
 
         var fight = new Fight({
             mainPlayer: character,

@@ -330,7 +330,7 @@ userDao.getPlayer = function(characterId, cb){
  */
 userDao.createCharacter = function(serverId, userId, registerType, loginName, cId, nickname, cb) {
     var key = "S" + serverId + "_T" + registerType + "_" + loginName;// 先判断是否已创建角色
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
 
@@ -555,7 +555,7 @@ userDao.getCharacterAllInfo = function (serverId, registerType, loginName, chara
         function(callback) {
             userDao.getCharacterInfo(serverId, registerType, loginName, function(err, character) {
                 if(!!err || !character) {
-                    logger.error('Get user for userDao failed! ' + err);
+                    console.log('Get user for userDao failed! ' + err);
                 } else {
                     characterId = character.id;
                 }
@@ -693,7 +693,7 @@ userDao.getCharacterInfo = function (serverId, registerType, loginName, cb) {
                             }
                         }
                     }
-                    logger.info(character.partners);
+
                     async.parallel([
                         function(callback) {
                             partnerDao.getAllPartner(client, character.partners, serverId, registerType, loginName, characterId, function(err, partners) {
@@ -818,7 +818,7 @@ userDao.getPlayerById = function(playerId, cb) {
                         formation: JSON.parse(replies.formation).formation,
                         partners: JSON.parse(replies.partners).partners
                     };
-                    logger.info(character.partners);
+
                     async.parallel([
                         function(callback) {
                             partnerDao.getAllPartner(client, character.partners, character.serverId, character.registerType, character.loginName, characterId, function(err, partners) {
@@ -925,7 +925,7 @@ userDao.updatePlayer = function (player, field, cb) {
     var loginName = player.loginName;
 
     var key = "S" + serverId + "_T" + registerType + "_" + loginName;
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
 
@@ -970,14 +970,13 @@ userDao.updatePlayer = function (player, field, cb) {
 
 userDao.updatePlayerAttribute = function(player, cb) {    var column = player.updateColumn().columns;
     var key = "S" + player.sid + "_T" + player.registerType + "_" + player.loginName;
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
 
         }).hget(key, "characters", function(err, reply) {
                 if(reply) {
                     key = "S" + player.sid + "_T" + player.registerType + "_" + player.loginName + "_C" + reply;
-                    logger.info(column);
 
                     var array = [];
                     for(var o in column) {
@@ -1005,7 +1004,7 @@ userDao.upgrade = function(player, columns, cb) {
 
     var column = columns;
     var key = dbUtil.getPlayerKey(player.sid, player.registerType, player.loginName, characterId);
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
             var array = [];
@@ -1066,24 +1065,23 @@ userDao.enterScene = function(serverId, registerType, loginName, sceneId, cb) {
  */
 userDao.enterIndu = function(serverId, registerType, loginName, induId, cb) {
     var key = "S" + serverId + "_T" + registerType + "_" + loginName;
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
 
         }).hget(key, "characters", function(err, reply) {
                 if(reply) {
                     key = "S" + serverId + "_T" + registerType + "_" + loginName + "_C" + reply;
-                    logger.info(key);
+
                     client.hget(key, "currentIndu", function(err, reply) {
-                        logger.info(reply);
                         var currentIndu = JSON.parse(reply);
-                        logger.info(currentIndu);
+
                         if(currentIndu.induId == induId) {
 
                         } else {
                             var induData = dataApi.instancedungeon.findById(induId);
                             var date = new Date();
-                            logger.info(induData);
+
                             currentIndu.induId = induId;
                             currentIndu.induData = induData.induData;
                             currentIndu.enterDate = date.getTime();
@@ -1118,16 +1116,14 @@ userDao.updatePlayerInduInfo = function(player, eid, cb) {
     var characterId = userDao.getRealCharacterId(player.id);
 
     var key = dbUtil.getPlayerKey(player.sid, player.registerType, player.loginName, characterId);
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
             client.hget(key, "currentIndu", function(err, reply) {
-                logger.info(reply);
                 var currentIndu = JSON.parse(reply);
-                logger.info(currentIndu);
                 if(currentIndu.induId == player.currentIndu.induId) {
                     var induData = player.currentIndu.induData;
-                    logger.info(induData);
+
                     for(var i = 0 ; i < induData.length ; i++) {
                         if(induData[i] == null)
                             continue;
@@ -1163,18 +1159,16 @@ userDao.updatePlayerInduInfo = function(player, eid, cb) {
  */
 userDao.leaveIndu = function(serverId, registerType, loginName, induId, cb) {
     var key = "S" + serverId + "_T" + registerType + "_" + loginName;
-    logger.info(key);
+
     redis.command(function(client) {
         client.multi().select(redisConfig.database.SEAKING_REDIS_DB, function(err, reply) {
 
         }).hget(key, "characters", function(err, characterId) {
                 if(characterId) {
                     key = dbUtil.getPlayerKey(serverId, registerType, loginName, characterId)
-                    logger.info(key);
+
                     client.hget(key, "currentIndu", function(err, reply) {
-                        logger.info(reply);
                         var currentIndu = JSON.parse(reply);
-                        logger.info(currentIndu);;
                         if(currentIndu.induId == induId) {
                             var _currentIndu = {
                                 induId: 0

@@ -58,7 +58,6 @@ exports.add = function(req, res) {
 
 function addFriendById(player, playerId, next) {
     friendDao.addFriend(player, playerId, function(err, reply) {
-        logger.info(reply);
         if(reply.reply == 1) {
             next(null, {
                 code: Code.OK
@@ -88,7 +87,6 @@ exports.addByName = function(req, res) {
     var serverId = session.get("serverId");
     var self = addFriendById;
     userDao.getPlayerIdByNickname(serverId, msg.nickname, function(err, playerId) {
-        logger.info(arguments);
         if(!playerId) {
             next(null,{
                 code:Code.FRIEND.NOT_EXIST_PLAYER

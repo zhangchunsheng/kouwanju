@@ -27,7 +27,7 @@ exports.getItems = function(req, res) {
         index : 0,
         items : items
     };
-    logger.error(items);
+
     next(null, {
         code : Code.OK,
         items : items

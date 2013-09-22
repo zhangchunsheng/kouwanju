@@ -20,9 +20,7 @@ exports.auth = function(req, res) {
     var msg = req.query;
 
     var token = msg.token;
-    logger.info(token);
     var res = tokenService.parse(token, this.secret);
-    logger.info(res);
     if(!res) {
         cb(null, Code.ENTRY.FA_TOKEN_ILLEGAL);
         return;

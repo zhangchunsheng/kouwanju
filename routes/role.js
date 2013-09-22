@@ -29,7 +29,6 @@ exports.createMainPlayer = function(req, res) {
 
     //var res = tokenService.parse(token, "pomelo_session_secret");
 
-    logger.info(session);
     var serverId = this.app.get("regionInfo").serverId;
 
     userDao.is_exists_nickname(this.app, serverId, nickname, function(err, flag) {
@@ -40,7 +39,7 @@ exports.createMainPlayer = function(req, res) {
 
         userDao.createCharacter(serverId, uid, registerType, loginName, cId, nickname, function(err, character) {
             if(err) {
-                logger.error('[register] fail to invoke createPlayer for ' + err.stack);
+                console.log('[register] fail to invoke createPlayer for ' + err.stack);
                 next(null, {code: consts.MESSAGE.ERR, error:err});
                 return;
             } else {
@@ -59,7 +58,7 @@ exports.createMainPlayer = function(req, res) {
                 async.parallel(array,
                     function(err, results) {
                         if (err) {
-                            logger.error('learn skill error with player: ' + JSON.stringify(character.strip()) + ' stack: ' + err.stack);
+                            console.log('learn skill error with player: ' + JSON.stringify(character.strip()) + ' stack: ' + err.stack);
                             next(null, {code: consts.MESSAGE.ERR, error:err});
                             return;
                         }
@@ -115,14 +114,11 @@ exports.getMainPlayer = function(req, res) {
             if(!players) {
                 players = [];
             }
-            logger.info(uid);
-            logger.info(userInfo);
             session.bind(uid, cb);
             session.set('serverId', userInfo.serverId);
             session.set('registerType', userInfo.registerType);
             session.set('loginName', userInfo.loginName);
             session.set('ip', session.__session__.__socket__.remoteAddress.ip);
-            logger.info(session);
         }, function(cb) {
             if(!players || players.length === 0) {
                 next(null, {code: Code.OK, players: null});

@@ -25,8 +25,6 @@ exports.change = function(req, res) {
         , loginName = session.get("loginName")
         , formation = msg.formation;
 
-    logger.info(formation);
-
     if(!formation && Object.prototype.toString.call(formation) !== '[object Array]') {
         next(null, {
             code: consts.MESSAGE.ARGUMENT_EXCEPTION

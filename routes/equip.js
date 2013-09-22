@@ -24,18 +24,14 @@ exports.wearWeapon = function(req, res) {
     var index = msg.index;
     var weaponId = msg.weaponId;
     var pkgType = PackageType.WEAPONS;
-    logger.info(msg);
 
     var player = area.getPlayer(session.get('playerId'));
     var status = 0;
 
-    logger.info(player.packageEntity);
     var packageIndex = -1;
     if(player.packageEntity.checkItem(pkgType, index, weaponId) > 0) {
         var item = player.packageEntity[pkgType].items[index];
-        logger.info(item);
         var eq = dataApi.equipment.findById(item.itemId);
-        logger.info(eq);
         if(!eq || player.level < eq.useLevel) {
             next(null, {
                 status: -1//等级不够
@@ -175,9 +171,6 @@ exports.unEquip = function(req, res) {
     var result = {};
     var packageIndex = -1;
 
-    logger.info(type);
-    logger.info(player.equipmentsEntity);
-
     if(player.equipmentsEntity.get(type).epid == 0) {// 没有装备
         next(null, {
             status: -2
@@ -229,9 +222,6 @@ exports.upgrade = function(req, res) {
 
     var player = area.getPlayer(session.get('playerId'));
     var status = 0;
-
-    logger.info(type);
-    logger.info(player.equipmentsEntity);
 
     if(player.equipmentsEntity.get(type).epid == 0) {// 没有装备
         next(null, {

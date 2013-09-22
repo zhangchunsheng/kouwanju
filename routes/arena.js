@@ -26,10 +26,8 @@ exports.pk = function(req, res) {
         , vsPlayerId = msg.vsPlayerId;
 
     var opponent = area.getPlayer(vsPlayerId);
-    logger.info(opponent);
     if(opponent == null) {
         userDao.getPlayerById(vsPlayerId, function(err, reply) {
-            logger.info(reply);
             pk(msg, session, next, reply);
         });
     } else {

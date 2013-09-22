@@ -27,7 +27,7 @@ exports.enterScene = function(req, res) {
         , loginName = session.get("loginName");
     userDao.getCharacterAllInfo(serverId, registerType, loginName, playerId, function(err, player) {
         if (err || !player) {
-            logger.error('Get user for userDao failed! ' + err.stack);
+            console.log('Get user for userDao failed! ' + err.stack);
             next(new Error('fail to get user from dao'), {
                 route: msg.route,
                 code: consts.MESSAGE.ERR
@@ -52,11 +52,10 @@ exports.enterScene = function(req, res) {
             code: consts.MESSAGE.RES,
             entities: area.getAreaInfo({x: player.x, y: player.y}, player.range)
         };
-        logger.info(data);
         next(null, data);
 
         if (!area.addEntity(player)) {
-            logger.error("Add player to area faild! areaId : " + player.areaId);
+            console.log("Add player to area faild! areaId : " + player.areaId);
         }
     }, true);
 }
@@ -75,7 +74,7 @@ exports.enterIndu = function(req, res) {
         , loginName = session.get("loginName")
         , induId = msg.induId;
     var player = area.getPlayer(session.get('playerId'));
-    logger.info(player);
+
     player.isEnterIndu = 1;
     userDao.enterIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
         player.currentIndu = induInfo;
@@ -100,7 +99,7 @@ exports.leaveIndu = function(req, res) {
         , loginName = session.get("loginName")
         , induId = msg.induId;
     var player = area.getPlayer(session.get('playerId'));
-    logger.info(player);
+
     player.isEnterIndu = 0;
     userDao.leaveIndu(serverId, registerType, loginName, induId, function(err, induInfo) {
         player.currentIndu = induInfo;
