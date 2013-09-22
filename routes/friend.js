@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.get = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -41,6 +43,8 @@ exports.get = function(req, res) {
  * @param res
  */
 exports.add = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -77,6 +81,8 @@ function addFriendById(player, playerId, next) {
  * @param res
  */
 exports.addByName = function(req, res) {
+    var msg = req.query;
+
     var player  = area.getPlayer(session.get('playerId'));
     // var nickName = msg.nickname;
     var serverId = session.get("serverId");
@@ -99,6 +105,8 @@ exports.addByName = function(req, res) {
  * @param res
  */
 exports.remove = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")

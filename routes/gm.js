@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.resetTask = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }
 
@@ -26,6 +28,8 @@ exports.resetTask = function(req, res) {
  * @param res
  */
 exports.updateMoney = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }
 
@@ -35,5 +39,7 @@ exports.updateMoney = function(req, res) {
  * @param res
  */
 exports.updateExp = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }

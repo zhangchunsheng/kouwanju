@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.pk = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -36,6 +38,8 @@ exports.pk = function(req, res) {
 }
 
 function pk(msg, session, next, opponent) {
+    var msg = req.query;
+
     var character = area.getPlayer(session.get('playerId'));
 
     var owners = {};
@@ -104,6 +108,8 @@ function pk(msg, session, next, opponent) {
  * @param res
  */
 exports.add = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -147,6 +153,8 @@ exports.getOpponents = function(req, res) {
  * @param res
  */
 exports.getRank = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")

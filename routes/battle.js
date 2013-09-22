@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.battle = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")

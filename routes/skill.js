@@ -17,5 +17,7 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.initSkill = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }

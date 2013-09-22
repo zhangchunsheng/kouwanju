@@ -69,6 +69,8 @@ var _getAnimationJson = function() {
  * @param res
  */
 exports.loadResource = function(req, res) {
+    var msg = req.query;
+
     console.log("loadResource");
     var data = {};
     if (msg.version.fightskill !== version.fightskill) {

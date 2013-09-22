@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.startTask = function(req, res) {
+    var msg = req.query;
+
     var taskId = msg.taskId;
 
     var player = area.getPlayer(session.get('playerId'));
@@ -57,6 +59,8 @@ exports.startTask = function(req, res) {
  * @param res
  */
 exports.handOverTask = function(req, res) {
+    var msg = req.query;
+
     var taskId = msg.taskId;
 
     var player = area.getPlayer(session.get('playerId'));

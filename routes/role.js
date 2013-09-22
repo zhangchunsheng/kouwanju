@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.createMainPlayer = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , registerType = session.get('registerType')
         , loginName = session.get('loginName')

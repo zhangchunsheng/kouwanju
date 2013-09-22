@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.systemSendMail = function(req, res) {
+    var msg = req.query;
+
     logger.error(msg);
     if (msg.to == null && msg.toName == null) {
         next(null, {
@@ -64,6 +66,8 @@ exports.systemSendMail = function(req, res) {
  * @param res
  */
 exports.sendMail = function(req, res) {
+    var msg = req.query;
+
     logger.error(msg);
     if (msg.content.length > 50) {
         next(null, {
@@ -153,6 +157,8 @@ exports.sendMail = function(req, res) {
  */
 var packageNum = 10;
 exports.getInbox = function(req, res) {
+    var msg = req.query;
+
     var Key = picecBoxName(session);
     //var player = area.getPlayer(playerId);
     var index = msg.index;
@@ -193,6 +199,8 @@ exports.getInbox = function(req, res) {
  * @param res
  */
 exports.getOutbox = function(req, res) {
+    var msg = req.query;
+
     var key = picecBoxName(session);
     var index = msg.index;
     var start = index  * packageNum;
@@ -245,6 +253,8 @@ function picecBoxName(session) {
  * @param res
  */
 exports.readMail = function(req, res) {
+    var msg = req.query;
+
     var mailId = msg.mailId;
     var mails = [mailId.substring(0, 3), mailId.substring(3)];
     if (MailKeyType.NOREAD != mails[0]) {
@@ -274,6 +284,8 @@ exports.readMail = function(req, res) {
  * @param res
  */
 exports.delMail = function(req, res) {
+    var msg = req.query;
+
     var mailId = msg.mailId;
     var mails = [mailId.substring(0, 3), mailId.substring(3)];
 
@@ -297,6 +309,8 @@ exports.delMail = function(req, res) {
  * @param res
  */
 exports.hasNewMail = function(req, res) {
+    var msg = req.query;
+
     var Key = picecBoxName(session);
     mailDao.ToMailCount([Key + "_" + MailKeyType.NOREAD, Key + "_" + MailKeyType.HASITEM], function (err, reply) {
         if (!!err) {
@@ -318,6 +332,8 @@ exports.hasNewMail = function(req, res) {
  * @param res
  */
 exports.collectItem = function(req, res) {
+    var msg = req.query;
+
     var itemIndex = msg.itemIndex;
     var mailId = msg.mailId;
     var Key = picecBoxName(session);

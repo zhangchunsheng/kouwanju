@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.wearWeapon = function(req, res) {
+    var msg = req.query;
+
     logUtil.info(logger, session, msg);
 
     var index = msg.index;
@@ -62,6 +64,8 @@ exports.wearWeapon = function(req, res) {
  * @param res
  */
 exports.unWearWeapon = function(req, res) {
+    var msg = req.query;
+
     var weaponId = msg.weaponId;
     var type = consts.EqType.WEAPON;
 
@@ -107,6 +111,8 @@ exports.unWearWeapon = function(req, res) {
  * @param res
  */
 exports.equip = function(req, res) {
+    var msg = req.query;
+
     var pkgType = msg.pkgType;
     var index = msg.index;
     var eqId = msg.eqId;
@@ -159,6 +165,8 @@ exports.equip = function(req, res) {
  * @param res
  */
 exports.unEquip = function(req, res) {
+    var msg = req.query;
+
     var epId = msg.eqId;
     var type = msg.type;
 
@@ -214,6 +222,8 @@ exports.unEquip = function(req, res) {
  * @param res
  */
 exports.upgrade = function(req, res) {
+    var msg = req.query;
+
     var epId = msg.eqId;
     var type = msg.type;
 

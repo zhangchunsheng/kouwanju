@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.get = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }
 
@@ -26,5 +28,7 @@ exports.get = function(req, res) {
  * @param res
  */
 exports.save = function(req, res) {
+    var msg = req.query;
+
     res.send("index");
 }

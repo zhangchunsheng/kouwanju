@@ -17,6 +17,9 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.auth = function(req, res) {
+    var msg = req.query;
+
+    var token = msg.token;
     logger.info(token);
     var res = tokenService.parse(token, this.secret);
     logger.info(res);
@@ -29,6 +32,8 @@ exports.auth = function(req, res) {
         cb(null, Code.ENTRY.FA_TOKEN_EXPIRE);
         return;
     }
+
+    session.setSession(req, res, data[0]);
 
     userDao.getUserByLoginName(this.app, res.registerType, res.loginName, function(err, user) {
         if(err) {

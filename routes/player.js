@@ -17,6 +17,8 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.enterScene = function(req, res) {
+    var msg = req.query;
+
     var playerId = session.get('playerId');
     var areaId = session.get('areaId');
     var uid = session.uid
@@ -65,6 +67,8 @@ exports.enterScene = function(req, res) {
  * @param res
  */
 exports.enterIndu = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -88,6 +92,8 @@ exports.enterIndu = function(req, res) {
  * @param res
  */
 exports.leaveIndu = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -116,6 +122,8 @@ exports.leaveIndu = function(req, res) {
  * @param res
  */
 exports.getPartner = function(req, res) {
+    var msg = req.query;
+
     var uid = session.uid
         , serverId = session.get("serverId")
         , registerType = session.get("registerType")
@@ -155,6 +163,8 @@ exports.getPartner = function(req, res) {
  * @param res
  */
 exports.changeView = function(req, res) {
+    var msg = req.query;
+
     res.send("changeView");
 }
 
@@ -164,6 +174,8 @@ exports.changeView = function(req, res) {
  * @param res
  */
 exports.changeArea = function(req, res) {
+    var msg = req.query;
+
     var areaId = msg.currentScene;
     var target = msg.target;
 
@@ -196,6 +208,8 @@ exports.changeArea = function(req, res) {
  * @param res
  */
 exports.npcTalk = function(req, res) {
+    var msg = req.query;
+
     var player = area.getPlayer(session.get('playerId'));
     player.target = msg.targetId;
     next();
@@ -207,6 +221,8 @@ exports.npcTalk = function(req, res) {
  * @param res
  */
 exports.learnSkill = function(req, res) {
+    var msg = req.query;
+
     var player = area.getPlayer(session.get('playerId'));
     var status = player.learnSkill(msg.skillId);
 
@@ -219,6 +235,8 @@ exports.learnSkill = function(req, res) {
  * @param res
  */
 exports.upgradeSkill = function(req, res) {
+    var msg = req.query;
+
     var player = area.getPlayer(session.get('playerId'));
     var status = player.upgradeSkill(msg.skillId);
 
