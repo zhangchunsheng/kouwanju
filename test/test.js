@@ -19,7 +19,9 @@ $(document).ready(function() {
         var password = $("#password").val();
         var password_verify = $("#password_verify").val();
 
-        var url = "http://192.168.1.99:8090/register";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/register";
         var data = {
             registerType: 1,
             loginName: loginName,
@@ -44,7 +46,9 @@ $(document).ready(function() {
     });
 
     $("#autoRegister").bind("click", function() {
-        var url = "http://192.168.1.99:8090/autoRegister";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/autoRegister";
         var data = {
             registerType: 2
         };
@@ -70,7 +74,9 @@ $(document).ready(function() {
         var password = $("#password").val();
         var password_verify = $("#password_verify").val();
 
-        var url = "http://192.168.1.99:8090/relevance";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/relevance";
         var data = {
             registerType: 1,
             loginName: loginName,
@@ -100,7 +106,9 @@ $(document).ready(function() {
         var loginName = $("#loginName").val();
         var password = $("#password").val();
 
-        var url = "http://192.168.1.99:8090/login";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/login";
         var data = {
             registerType: 1,
             loginName: loginName,
@@ -128,7 +136,9 @@ $(document).ready(function() {
         var loginName = $("#loginName").val();
         var password = $("#password").val();
 
-        var url = "http://192.168.1.99:8090/multiLogin";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/multiLogin";
         var data = {
             registerType: 1,
             loginName: loginName,
@@ -152,7 +162,9 @@ $(document).ready(function() {
     });
 
     $("#hasSession").bind("click", function() {
-        var url = "http://192.168.1.99:8090/hasSession";
+        var host = $("#ucenter_host").val();
+        var port = $("#ucenter_port").val();
+        var url = "http://" + host + ":" + port + "/hasSession";
         var data = {
             sessionId: ""
         };

@@ -25,19 +25,19 @@
     </head>
     <body>
         <div style="float:left">
-            <label for="loginName">登录名：</label><input id="loginName" type="text" value="wozlla" />
-            <label for="password">密码：</label><input id="password" type="password" value="wozlla" />
-            <label for="password_verify">确定密码：</label><input id="password_verify" type="password" value="wozlla" />
-            <label for="host">host:</label>
-            <select id="host">
+            <label for="ucenter_host">host:</label>
+            <select id="ucenter_host">
                 <option value="192.168.1.99" selected="selected">192.168.1.99</option>
                 <option value="192.168.1.22">192.168.1.22</option>
             </select>
-            <label for="port">port:</label>
-            <select id="port">
-                <option value="4011">4011</option>
-                <option value="6011">6011</option>
+            <label for="ucenter_port">port:</label>
+            <select id="ucenter_port">
+                <option value="8090">8090</option>
+                <option value="8090">8090</option>
             </select>
+            <label for="loginName">登录名：</label><input id="loginName" type="text" value="wozlla" />
+            <label for="password">密码：</label><input id="password" type="password" value="wozlla" />
+            <label for="password_verify">确定密码：</label><input id="password_verify" type="password" value="wozlla" />
         </div>
 
         <div style="clear:both;"></div>
@@ -50,6 +50,19 @@
         <div id="hasSession" class="button">hasSession</div>
 
         <div class="clearfix"></div>
+
+        <div>
+            <label for="host">host:</label>
+            <select id="host">
+                <option value="192.168.1.99" selected="selected">192.168.1.99</option>
+                <option value="192.168.1.22">192.168.1.22</option>
+            </select>
+            <label for="port">port:</label>
+            <select id="port">
+                <option value="4011">4011</option>
+                <option value="6011">6011</option>
+            </select>
+        </div>
 
         <div id="auth" class="button">auth</div>
 
