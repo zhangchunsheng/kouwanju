@@ -40,6 +40,7 @@ $(document).ready(function() {
             jsonp: "jsoncallback",
             url: url + "?" + params,
             success: function(data, status) {
+                loginInfo = data;
                 console.log(data);
             }
         });
@@ -64,6 +65,7 @@ $(document).ready(function() {
             jsonp: "jsoncallback",
             url: url + "?" + params,
             success: function(data, status) {
+                loginInfo = data;
                 console.log(data);
             }
         });
@@ -216,7 +218,9 @@ $(document).ready(function() {
         var url = "http://" + host + ":" + port + "/role/createMainPlayer";
 
         var data = {
-
+            cId: 1,
+            nickname: "test",
+            isRandom: 0
         };
         var params = "";
         for(var o in data) {
@@ -292,6 +296,57 @@ $(document).ready(function() {
 
         var data = {
 
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#changeArea").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/changeArea";
+
+        var data = {
+            currentScene: "city01",
+            target: "city02"
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#getAreaInfo").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/area/getAreaInfo";
+
+        var data = {
+            sceneId: $("#sceneId").val()
         };
         var params = "";
         for(var o in data) {

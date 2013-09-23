@@ -30,17 +30,17 @@ exp.changeArea = function(args, session, cb) {
     var characterId = utils.getRealCharacterId(playerId);
 
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
-        area.removePlayer(playerId);
-
-        player.currentScene = target;
-        userService.updatePlayer(player, "currentScene", function(err, success) {
-            if(err || !success) {
-                err = err || 'update player failed!';
-                console.log(err);
-                utils.invokeCallback(cb, err);
-            } else {
-                utils.invokeCallback(cb, null);
-            }
+        area.removePlayer(player, function(err, reply) {
+            player.currentScene = target;
+            userService.updatePlayer(player, "currentScene", function(err, success) {
+                if(err || !success) {
+                    err = err || 'update player failed!';
+                    console.log(err);
+                    utils.invokeCallback(cb, err);
+                } else {
+                    utils.invokeCallback(cb, null);
+                }
+            });
         });
     });
 };
