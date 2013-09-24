@@ -464,4 +464,29 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("#changeFormation").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/formation/change";
+
+        var data = {
+            formation: encodeURIComponent(JSON.stringify([null,{playerId:"S1C7420"},null,null,null,null,null]))
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            url: url + "?" + params,
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
 });
