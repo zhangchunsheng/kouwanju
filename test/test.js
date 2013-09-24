@@ -588,6 +588,28 @@ $(document).ready(function() {
         };
         request(url, data);
     });
+
+    $("#startTask").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/task/startTask";
+
+        var data = {
+            taskId: $("#taskId").val()
+        };
+        request(url, data);
+    });
+
+    $("#handOverTask").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/task/handOverTask";
+
+        var data = {
+            taskId: $("#taskId").val()
+        };
+        request(url, data);
+    });
 });
 
 function request(url, data) {
