@@ -577,6 +577,17 @@ $(document).ready(function() {
         };
         request(url, data);
     });
+
+    $("#getPartner").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/getPartner";
+
+        var data = {
+            cId: $("#cId").val()
+        };
+        request(url, data);
+    });
 });
 
 function request(url, data) {
