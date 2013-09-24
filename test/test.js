@@ -489,4 +489,35 @@ $(document).ready(function() {
             }
         });
     });
+
+    $("#addItem").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/package/addItem";
+
+        var data = {
+            itemId: "W0101",
+            itemNum: 1,
+            itemLevel: 1
+        };
+        request(url, data);
+    });
 });
+
+function request(url, data) {
+    var params = "";
+    for(var o in data) {
+        params += o + "=" + data[o] + "&"
+    }
+    params = params.substr(0, params.length - 1);
+    console.log(params);
+    $.ajax({
+        type: "get",
+        dataType: "jsonp",
+        jsonp: "jsoncallback",
+        url: url + "?" + params,
+        success: function(data, status) {
+            console.log(data);
+        }
+    });
+}

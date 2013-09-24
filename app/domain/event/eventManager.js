@@ -28,14 +28,17 @@ exp.addEvent = function(entity) {
  */
 function addSaveEvent(player) {
     player.on('save', function() {
+        console.log("player sync data");
         player.syncData();
     });
 
     player.packageEntity.on('save', function() {
+        console.log("package sync data");
         player.packageEntity.syncData();
     });
 
     player.equipmentsEntity.on('save', function() {
+        console.log("equipments sync data");
         player.equipmentsEntity.syncData();
     });
 }
