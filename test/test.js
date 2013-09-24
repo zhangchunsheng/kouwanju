@@ -490,15 +490,90 @@ $(document).ready(function() {
         });
     });
 
+    /**
+     * 添加物品
+     */
     $("#addItem").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
         var url = "http://" + host + ":" + port + "/package/addItem";
 
         var data = {
-            itemId: "W0101",
+            itemId: $("#itemId").val(),
             itemNum: 1,
             itemLevel: 1
+        };
+        request(url, data);
+    });
+
+    $("#wearWeapon").bind("click", function() {
+        var index = 2;//1
+        var weaponId = "W0101";//W0101
+
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/equip/wearWeapon";
+
+        var data = {
+            index: index,
+            weaponId: weaponId
+        };
+        request(url, data);
+    });
+
+    $("#unWearWeapon").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/equip/unWearWeapon";
+
+        var weaponId = "W0101";//W0101
+        var data = {
+            weaponId: weaponId
+        };
+        request(url, data);
+    });
+
+
+    $("#equip").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/equip/equip";
+
+        var index = 1;//1
+        var eqId = "W0101";//W0101
+        var pkgType = "weapons";
+        var data = {
+            index: index,
+            eqId: eqId,
+            pkgType: pkgType
+        };
+        request(url, data);
+    });
+
+    $("#unEquip").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/equip/unEquip";
+
+        var type = "weapon";//weapon armor
+        var eqId = "W0101";//W0101 W90101
+        var data = {
+            eqId: eqId,
+            type: type
+        };
+        request(url, data);
+    });
+
+    $("#upgrade").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/equip/upgrade";
+
+        var type = "weapon";
+        var eqId = "W0101";//W0101
+        var data = {
+            eqId: eqId,
+            type: type
         };
         request(url, data);
     });
