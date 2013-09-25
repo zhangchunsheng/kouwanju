@@ -219,7 +219,7 @@ $(document).ready(function() {
 
         var data = {
             cId: 1,
-            nickname: "test",
+            nickname: $("#nickname").val(),
             isRandom: 0
         };
         var params = "";
