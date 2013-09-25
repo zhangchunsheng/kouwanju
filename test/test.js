@@ -340,6 +340,18 @@ $(document).ready(function() {
         });
     });
 
+    $("#changeAndGetSceneData").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/changeAndGetSceneData";
+
+        var data = {
+            currentScene: $("#currentScene").val(),
+            target: $("#sceneId").val()
+        };
+        request(url, data);
+    });
+
     $("#getAreaInfo").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();

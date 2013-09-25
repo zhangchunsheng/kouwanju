@@ -8,6 +8,7 @@
 var dataApi = require('../utils/dataApi');
 var utils = require('../utils/utils');
 var area = require('./area/area');
+var areaService = require('../services/areaService');
 var userService = require('../services/userService');
 
 var exp = module.exports;
@@ -44,3 +45,7 @@ exp.changeArea = function(args, session, cb) {
         });
     });
 };
+
+exp.removeAndUpdatePlayer = function(areaId, player, cb) {
+    areaService.removeAndUpdatePlayer(areaId, player, cb);
+}

@@ -30,3 +30,7 @@ areaService.addEntity = function(player, cb) {
 areaService.removePlayer = function(player, cb) {
     areaDao.removePlayer(player, cb);
 }
+
+areaService.removeAndUpdatePlayer = function(areaId, player, cb) {
+    areaDao.removeAndUpdatePlayer(areaId, player, cb);
+}
