@@ -622,6 +622,39 @@ $(document).ready(function() {
         };
         request(url, data);
     });
+
+    $("#learnSkill").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/learnSkill";
+
+        var data = {
+            skillId: $("#skillId").val()
+        };
+        request(url, data);
+    });
+
+    $("#upgradeSkill").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/upgradeSkill";
+
+        var data = {
+            skillId: $("#skillId").val()
+        };
+        request(url, data);
+    });
+
+    $("#useSkill").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/player/useSkill";
+
+        var data = {
+            skillId: $("#skillId").val()
+        };
+        request(url, data);
+    });
 });
 
 function request(url, data) {
