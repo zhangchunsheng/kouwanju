@@ -1,4 +1,4 @@
-/**
+ /**
  * Copyright(c)2013,Wozlla,www.wozlla.com
  * Version: 1.0
  * Author: Peter Zhang
@@ -205,6 +205,20 @@ module.exports = {
         PASSIVE_SKILLS: "passiveSkills"
     },
 
+    attrNames: {
+        ATTACK: "attack",
+        DEFENSE: "defense",
+        SPEEDLEVEL: "speedLevel",
+        HP: "hp",
+        MAXHP: "maxHp",
+        FOCUS: "focus",
+        CRITICALHIT: "criticalHit",
+        CRITICALHIT: "critDamage",
+        DODGE: "dodge",
+        BLOCK: "block",
+        COUNTER: "counter"
+    },
+
     correspondingSkillsType: {
         1: "activeSkills",
         2: "passiveSkills"
@@ -327,8 +341,9 @@ module.exports = {
     },
 
     valueType: {
-        PERCENTAGE: 0,//"百分比"
-        NUMBER: 1//"数值"
+        NUMBER: 1,//"数值"
+        PERCENTAGE: 2,//"百分比"
+        GETPERCENTAGE: 3//获取目标值(百分比）
     },
 
     timeType: {

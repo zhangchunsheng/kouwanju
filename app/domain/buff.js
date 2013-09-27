@@ -17,5 +17,9 @@ Buff.prototype.use = function(player) {
     player.addBuff(this);
 };
 
+Buff.create = function(skill) {
+
+}
+
 module.exports = Buff;
 

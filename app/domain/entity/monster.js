@@ -12,7 +12,6 @@ var consts = require('../../consts/consts');
 var EntityType = require('../../consts/consts').EntityType;
 var Character = require('./character');
 var skillDao = require('../../dao/skillDao');
-var fightskill = require('./../fightskill');
 
 /**
  * Initialize a new 'Enemy' with the given 'opts'.
@@ -33,6 +32,20 @@ var Enemy = function(opts) {
     this.range = opts.range || 2;
 
     this.setTotalAttackAndDefence();
+
+    this.fightValue = {
+        attack: this.attack,
+        defense: this.defense,
+        speedLevel: this.speedLevel,
+        hp: this.hp,
+        maxHp: this.maxHp,
+        focus: this.focus,
+        criticalHit: this.criticalHit,
+        critDamage: this.critDamage,
+        dodge: this.dodge,
+        block: this.block,
+        counter: this.counter
+    };
 };
 
 util.inherits(Enemy, Character);
@@ -74,6 +87,49 @@ Enemy.prototype.recover = function(lastTick){
 
         this.isRecover = false;
     }
+};
+
+/**
+ * 计算战斗数值
+ */
+Enemy.prototype.updateFightValue = function() {
+    var attack = 0;
+    var defense = 0;
+    var speedLevel = 0;
+    var hp = 0;
+    var focus = 0;
+    var criticalHit = 0;
+    var critDamage = 0;
+    var dodge = 0;
+    var block = 0;
+    var counter = 0;
+    var counterDamage = 0;
+    var equipments;
+    var equipment;
+    //集中值 武器百分比 技能百分比 buff百分比
+    //武器攻击力 技能攻击力 道具攻击力 buff攻击力
+    attack = this.attack + this.attack * this.focus;
+    defense = this.defense;
+    speedLevel = this.speedLevel;
+    hp = this.hp;
+    focus = this.focus;
+    criticalHit = this.criticalHit;
+    critDamage = this.critDamage;
+    dodge = this.dodge;
+    block = this.block;
+    counter = this.counter;
+
+    this.fightValue.attack = Math.floor(attack);
+    this.fightValue.defense = Math.floor(defense);
+    this.fightValue.speedLevel = Math.floor(speedLevel);
+    this.fightValue.hp = hp;
+    this.fightValue.maxHp = hp;
+    this.fightValue.focus = focus;
+    this.fightValue.criticalHit = criticalHit;
+    this.fightValue.critDamage = critDamage;
+    this.fightValue.dodge = dodge;
+    this.fightValue.block = block;
+    this.fightValue.counter = counter;
 };
 
 //Convert player' state to json and return
@@ -120,7 +176,6 @@ Enemy.prototype.strip = function() {
 Enemy.prototype.getInfo = function() {
     var playerData = this.strip();
     playerData.equipments = this.equipments;
-    playerData.fightSkills = this.getFightSkillData();
 
     return playerData;
 };

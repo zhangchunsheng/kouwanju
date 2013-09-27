@@ -52,6 +52,14 @@ Fight.prototype.fight = function(cb) {
 
     // players = utils.sortArray(players, "speedLevel", 1); //由大到小排序
 
+    // 更新角色数据
+    for(var i in owners) {
+        owners[i].updateFightValue();
+    }
+    for(var i in monsters) {
+        monsters[i].updateFightValue();
+    }
+
     // 计算最大速度
     var max_speed = 0;
     for(var i in owners) {
