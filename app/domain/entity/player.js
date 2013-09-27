@@ -480,6 +480,7 @@ Player.prototype.useSkill = function(skillId, callback) {
     var skills = this.skills[type];
 
     var flag = false;
+    var currentSkill = {};
     for(var i = 0 ; i < skills.length ; i++) {
         if(typeof skills[i].select != "" && skills[i].select == 1) {
             skills[i].select = 0;
@@ -487,6 +488,11 @@ Player.prototype.useSkill = function(skillId, callback) {
         if(skills[i].skillId == skillId) {
             flag = true;
             skills[i].select = 1;
+            var date = new Date();
+            currentSkill = {
+                skillId: skillId,
+                time: date.getTime()
+            };
         }
     }
 
@@ -498,6 +504,7 @@ Player.prototype.useSkill = function(skillId, callback) {
     var characterId = utils.getRealCharacterId(this.id);
     var key = dbUtil.getPlayerKey(this.serverId, this.registerType, this.loginName, characterId);
     array.push(["hset", key, type, JSON.stringify(skills)]);
+    array.push(["hset", key, "currentSkill", JSON.stringify(currentSkill)]);
     userDao.update(array, function(err, repy) {
         utils.invokeCallback(callback, null, 1);
     });
