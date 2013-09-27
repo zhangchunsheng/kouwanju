@@ -82,6 +82,7 @@ var Player = function(opts) {
     };
 
     this.initSkills();
+    this.updateRestoreAngerSpeed();
 };
 
 util.inherits(Player, Character);
@@ -370,6 +371,13 @@ Player.prototype.updateFightValue = function() {
     this.fightValue.counter = counter;
 };
 
+Player.prototype.updateRestoreAngerSpeed = function() {
+    var speed = this.activeSkill.skillData.speed;
+    for(var i = 0 ; i < speed.length ; i++) {
+        this.restoreAngerSpeed[speed[i].type] = parseInt(speed[i].value);
+    }
+}
+
 /**
  * 武器装备加成
  */
@@ -460,18 +468,44 @@ Player.prototype.activeSkillAdditional = function() {
     var counterDamage = 0;
     //集中值 武器百分比 技能百分比 buff百分比
     //武器攻击力 技能攻击力 道具攻击力 buff攻击力
-    attack = this.attack;
-    defense = this.defense;
-    speedLevel = this.speedLevel;
-    hp = this.hp;
-    focus = this.focus;
-    criticalHit = this.criticalHit;
-    critDamage = this.critDamage;
-    dodge = this.dodge;
-    block = this.block;
-    counter = this.counter;
+    attack = this.fightValue.attack;
+    defense = this.fightValue.defense;
+    speedLevel = this.fightValue.speedLevel;
+    hp = this.fightValue.hp;
+    focus = this.fightValue.focus;
+    criticalHit = this.fightValue.criticalHit;
+    critDamage = this.fightValue.critDamage;
+    dodge = this.fightValue.dodge;
+    block = this.fightValue.block;
+    counter = this.fightValue.counter;
 
-
+    var effects = {};
+    effects = this.activeSkill.skillData.effects;
+    for(var j = 0 ; j < effects.length ; j++) {
+        if(effects[j].attr == consts.buffType.ATTACK) {
+            attack += utils.getEffectValue(effects[j], this.attack);
+        } else if(effects[j].attr == consts.buffType.ADDATTACK) {
+            attack += utils.getEffectValue(effects[j], this.attack);
+        } else if(effects[j].attr == consts.buffType.DEFENSE) {
+            defense += utils.getEffectValue(effects[j], this.defense);
+        } else if(effects[j].attr == consts.buffType.SPEED) {
+            speedLevel += utils.getEffectValue(effects[j], this.speedLevel);
+        } else if(effects[j].attr == consts.buffType.HP) {
+            hp += utils.getEffectValue(effects[j], this.hp);
+        } else if(effects[j].attr == consts.buffType.FOCUS) {
+            focus += utils.getEffectValue(effects[j], this.focus);
+        } else if(effects[j].attr == consts.buffType.CRITICALHIT) {
+            criticalHit += utils.getEffectValue(effects[j], this.criticalHit);
+        } else if(effects[j].attr == consts.buffType.CRITDAMAGE) {
+            critDamage += utils.getEffectValue(effects[j], this.critDamage);
+        } else if(effects[j].attr == consts.buffType.DODGE) {
+            dodge += utils.getEffectValue(effects[j], this.dodge);
+        } else if(effects[j].attr == consts.buffType.BLOCK) {
+            block += utils.getEffectValue(effects[j], this.block);
+        } else if(effects[j].attr == consts.buffType.COUNTER) {
+            counter += utils.getEffectValue(effects[j], this.counter);
+        }
+    }
 
     this.fightValue.attack = Math.floor(attack);
     this.fightValue.defense = Math.floor(defense);

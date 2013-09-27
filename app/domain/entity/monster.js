@@ -12,6 +12,8 @@ var consts = require('../../consts/consts');
 var EntityType = require('../../consts/consts').EntityType;
 var Character = require('./character');
 var skillDao = require('../../dao/skillDao');
+var ActiveSkill = require('./../activeSkill');
+var PassiveSkill = require('./../passiveSkill');
 
 /**
  * Initialize a new 'Enemy' with the given 'opts'.
@@ -31,6 +33,7 @@ var Enemy = function(opts) {
     this.herosData = dataApi.heros.findById(this.kindId);
     this.range = opts.range || 2;
 
+    this.initSkills();
     this.setTotalAttackAndDefence();
 
     this.fightValue = {
@@ -54,6 +57,10 @@ util.inherits(Enemy, Character);
  * Expose 'Enemy' constructor.
  */
 module.exports = Enemy;
+
+Enemy.prototype.initSkills = function() {
+
+};
 
 Enemy.prototype.setTotalAttackAndDefence = function() {
     var attack = 0, defense = 0;
@@ -131,6 +138,10 @@ Enemy.prototype.updateFightValue = function() {
     this.fightValue.block = block;
     this.fightValue.counter = counter;
 };
+
+Enemy.prototype.updateRestoreAngerSpeed = function() {
+
+}
 
 //Convert player' state to json and return
 Enemy.prototype.strip = function() {

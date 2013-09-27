@@ -30,11 +30,10 @@ var Character = function(opts) {
 
     this.died = false;
     this.hp = opts.hp;
-    this.anger = opts.anger;// 能量值
+    this.anger = opts.anger || 0;// 能量值
     this.maxHp = opts.maxHp;
     this.maxAnger = opts.maxAnger || 100;// 最大能量值
     this.restoreHpSpeed = opts.restoreHpSpeed || 10;//生命值恢复速度
-    this.restoreAngerSpeed = opts.restoreAngerSpeed || 10;//能量恢复速度
     this.level = opts.level;
     this.experience = opts.experience;
     this.attack = opts.attack;//攻击
@@ -74,6 +73,8 @@ var Character = function(opts) {
     this.activeSkill = {};
     this.activeSkills = [];
     this.passiveSkills = [];
+
+    this.restoreAngerSpeed = opts.restoreAngerSpeed || {ea:10, ehr: 3, eshr: 6};//能量恢复速度
 
     this.hasBuff = false;
     this.buffs = opts.buffs || [];
