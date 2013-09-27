@@ -264,7 +264,8 @@ playerDao.updatePlayersAttribute = function(mainPlayer, players, field, cb) {
     key = dbUtil.getPlayerKey(serverId, registerType, loginName, characterId);
     obj[mainPlayer.id] = {};
     for(var o in _field) {
-        array.push(["hset", key, _field[o], mainPlayer[_field[o]]]);
+        // array.push(["hset", key, _field[o], mainPlayer[_field[o]]]);
+        dbUtil.getCommand(array, key, _field[o], mainPlayer);
         obj[mainPlayer.id][_field[o]] = mainPlayer[_field[o]];
     }
 

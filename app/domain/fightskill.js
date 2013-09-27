@@ -121,14 +121,16 @@ var removeBuff = function(attacker, target, buff) {
  * @param opts
  * @constructor
  */
-var FightSkill = function(opts) {
-    Persistent.call(this, opts);
-    this.skillId = opts.skillId;
-    this.level = opts.level;
-    this.playerId = opts.playerId;
+var FightSkill = function(player) {
+    Persistent.call(this, {
+        id: player.currentSkill.skillId
+    });
+    this.skillId = player.currentSkill.skillId;
+    this.playerId = player.id;
     this.skillData = dataApi.skillList.findById(this.skillId);
     this.name = this.skillData.skillName;
     this.type = this.skillData.type;
+    this.level = this.skillData.level;
 };
 
 FightSkill.prototype.attack = function() {

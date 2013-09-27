@@ -42,7 +42,6 @@ var Player = function(opts) {
     this.nickname = opts.nickname;
     this.equipments = opts.equipments;
     this.package = opts.package;
-    this.skillPoint = opts.skillPoint || 0;
     this.skills = opts.skills;
     this.formation = opts.formation;
     this.partners = opts.partners;
@@ -714,6 +713,7 @@ Player.prototype.strip = function() {
         equipments: this.equipmentsEntity.getInfo(),
         package: this.packageEntity.getInfo(),
         skills: this.skills,
+        buffs: this.buffs,
         formation: this.formation,
         partners: this.getPartners(),
         gift: this.gift
@@ -871,6 +871,7 @@ Player.prototype.toJSON = function() {
         equipments: this.equipmentsEntity.getInfo(),
         package: this.packageEntity.getInfo(),
         skills: this.skills,
+        buffs: this.buffs,
         formation: this.formation,
         partners: this.getPartners(),
         gift: this.gift

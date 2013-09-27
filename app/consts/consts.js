@@ -239,6 +239,64 @@ module.exports = {
         ICE: "26"//冰冻
     },
 
+    EffectType: {
+        "hp": 1,
+        "experience": 2,
+        "attack": 3,
+        "defense": 4,
+        "focus": 5,
+        "speed": 6,
+        "dodge": 7,
+        "criticalHit": 8,
+        "critDamage": 9,
+        "block": 10,
+        "counter": 11,
+        "parallelDamage": 12,
+        "burn": 13,
+        "stunt": 14,
+        "poison": 15,
+        "confusion": 16,
+        "defense_focus": 17,
+        "hpRecoverySpeed": 18,
+        "addItemAttr": 19,
+        "addAttack": 20,
+        "bounceAttack": 21,
+        "money": 22,
+        "addBlood": 23,
+        "attack_focus": 24,
+        "skill": 25,
+        "ice": 26
+    },
+
+    buffType: {
+        HP: "hp",//HP
+        EXPERIENCE: "experience",//经验
+        ATTACK: "attack",//攻击
+        DEFENSE: "defense",//防御
+        FOCUS: "focus",//集中值
+        SPEED: "speed",//速度
+        DODGE: "dodge",//闪避
+        CRITICALHIT: "criticalHit",//暴击几率
+        CRITDAMAGE: "critDamage",//暴击伤害
+        BLOCK: "block",//格挡
+        COUNTER: "counter",//反击
+        PARALLELDAMAGE: "parallelDamage",//溅射伤害
+        BURN: "burn",//点燃
+        STUNT: "stunt",//禁锢
+        POISON: "poison",//施毒
+        CONFUSION: "confusion",//迷惑
+        DEFENSE_FOCUS: "defense_focus",//防御力加成(focus)
+        HPRECOVERYSPEED: "hpRecoverySpeed",//血量回复
+        ADDITEMATTR: "addItemAttr",//装备加成
+        ADDATTACK: "addAttack",//增加自己攻击力
+        BOUNCEATTACK: "bounceAttack",//反弹伤害
+        MONEY: "money",//额外金钱
+        ADDBLOOD: "addBlood",//吸血
+        ATTACK_FOCUS: "attack_focus",//攻击力加成(focus)
+        SKILL: "skill",//技能
+        ICE: "ice"//冰冻
+    },
+
     correspondingEffect_attr: {
         1: "hp",
         2: "experience",

@@ -11,7 +11,7 @@ var formula = require('../../consts/formula');
 var consts = require('../../consts/consts');
 var EntityType = require('../../consts/consts').EntityType;
 var Character = require('./character');
-var fightskillDao = require('../../dao/skillDao');
+var skillDao = require('../../dao/skillDao');
 var fightskill = require('./../fightskill');
 
 /**
@@ -26,7 +26,6 @@ var Enemy = function(opts) {
     this.id = opts.id;
     this.type = EntityType.MONSTER;
     this.equipments = opts.equipments;
-    this.skillPoint = opts.skillPoint || 0;
 
     var heros = dataApi.heros.data;
     //this.nextLevelExp = formula.calculateXpNeeded(heros[this.id]["xpNeeded"], heros[this.id]["levelFillRate"], this.level + 1);//hero.xpNeeded, hero.levelFillRate, level
@@ -106,7 +105,9 @@ Enemy.prototype.strip = function() {
         criticalHit: this.criticalHit,
         critDamage: this.critDamage,
         block: this.block,//格挡
-        counterAttack: this.counterAttack//反击
+        counterAttack: this.counterAttack,//反击
+        skills: this.skills,
+        buffs: this.buffs
     };
 };
 
@@ -165,6 +166,8 @@ Enemy.prototype.toJSON = function() {
         criticalHit: this.criticalHit,
         critDamage: this.critDamage,
         block: this.block,//格挡
-        counterAttack: this.counterAttack//反击
+        counterAttack: this.counterAttack,//反击
+        skills: this.skills,
+        buffs: this.buffs
     };
 };

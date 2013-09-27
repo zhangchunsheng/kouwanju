@@ -68,7 +68,7 @@ var Character = function(opts) {
     this.defenseParam = 1;
     this.equipmentParam = 1;
     this.hasBuff = false;
-    this.buffs = [];
+    this.buffs = opts.buffs;
     this.curSkill = 1;  //default normal attack
     this.characterData = dataApi.character.findById(this.cId);
     this.fightSkills = {};
@@ -103,17 +103,7 @@ Character.prototype.addFightSkills = function(fightSkills) {
  * @api public
  */
 Character.prototype.getFightSkillData = function(){
-    var data = [];
-    for(var key in this.fightSkills){
-        var fs = {
-            id : Number(key),
-            level : this.fightSkills[key].level
-        };
 
-        data.push(fs);
-    }
-
-    return data;
 };
 
 /**
@@ -218,7 +208,7 @@ Character.prototype.getTotalDefence = function() {
  * @api public
  */
 Character.prototype.addBuff = function(buff) {
-    this.buffs[buff.type] = buff;
+    this.buffs.push(buff);
 };
 
 /**
@@ -228,5 +218,5 @@ Character.prototype.addBuff = function(buff) {
  * @api public
  */
 Character.prototype.removeBuff = function(buff) {
-    delete this.buffs[buff.type];
+
 };
