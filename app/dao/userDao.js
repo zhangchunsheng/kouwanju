@@ -225,9 +225,8 @@ userDao.has_nickname_player = function(serverId, nickname, next) {
  * @param cb
  */
 userDao.getNicknameByPlayerId = function(playerId, cb ) {
-    if(player != null){
-        utils.invokeCallback(cb,null,player.nickname);
-    }else{
+    console.log(playerId);
+    
         redis.command(function(client) {
             client.multi().select(redisConfig.database.SEAKING_REDIS_DB,function(){
 
@@ -250,7 +249,7 @@ userDao.getNicknameByPlayerId = function(playerId, cb ) {
 
                 });
         });
-    }
+    
 }
 
 /**
