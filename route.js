@@ -59,7 +59,7 @@ module.exports = function (app) {
 
     app.get('/formation/change', authRequired, formation.change);
 
-    app.get('/friend/add', authRequired, friend.get);
+    app.get('/friend/get', authRequired, friend.get);
     app.get('/friend/add', authRequired, friend.add);
     app.get('/friend/addByName', authRequired, friend.addByName);
     app.get('/friend/remove', authRequired, friend.remove);
@@ -71,11 +71,15 @@ module.exports = function (app) {
 
     app.get('/mail/systemSendMail', authRequired, mail.systemSendMail);
     app.get('/mail/sendMail', authRequired, mail.sendMail);
+    app.get('/mail/send',authRequired,mail.sendMail);
     app.get('/mail/getInbox', authRequired, mail.getInbox);
     app.get('/mail/getOutbox', authRequired, mail.getOutbox);
     app.get('/mail/readMail', authRequired, mail.readMail);
+    app.get('/mail/read',authRequired,mail.readMail);
     app.get('/mail/delMail', authRequired, mail.delMail);
+    app.get('/mail/del',authRequired,mail.delMail);
     app.get('/mail/hasNewMail', authRequired, mail.hasNewMail);
+    app.get('/mail/newMail',authRequired,mail.hasNewMail);
     app.get('/mail/collectItem', authRequired, mail.collectItem);
 
     app.get('/package/addItem', authRequired, package.addItem);
