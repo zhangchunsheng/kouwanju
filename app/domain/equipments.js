@@ -13,6 +13,7 @@ var util = require('util');
 var Entity = require('./entity/entity');
 var EntityType = require('../consts/consts').EntityType;
 var Persistent = require('./persistent');
+var consts = require('../consts/consts');
 
 /**
  * Initialize a new 'Equipments' with the given 'opts'.
@@ -85,6 +86,10 @@ Equipments.prototype.get = function(type) {
     return this[type];
 };
 
+Equipments.prototype.syncData = function() {
+
+}
+
 //Equip equipment by type and id
 Equipments.prototype.equip = function(type, equip) {
     this[type] = {
@@ -125,7 +130,7 @@ Equipments.prototype.upgradeByMoney = function(player, type, equipment_levelup) 
     if(player.money >= equipment_levelup.upgradeMoney) {
         player.money -= equipment_levelup.upgradeMoney;
         status = 1;
-        this[type].level += 1;
+        this[type].level = parseInt(this[type].level) + 1;
         player.updateTaskRecord(consts.TaskGoalType.UPGRADE_EQUIPMENT, {
             itemId: this[type].epid,
             itemNum: this[type].level

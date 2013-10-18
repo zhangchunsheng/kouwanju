@@ -14,12 +14,14 @@ var express = require('express')
     , connect = require('connect')
     , config = require('./config')
     , fs = require('fs')
+    , utils = require('./app/utils/utils')
     , redis = require('./app/dao/redis/redis');
 
 var app = express();
 
+utils.doProcess(process);
 // all environments
-app.set('port', process.env.PORT || 6011);
+app.set('port', process.env.PORT || 4011);
 //app.use(express.favicon());
 
 //log
@@ -27,7 +29,7 @@ app.set('port', process.env.PORT || 6011);
 express.logger.format('home', ':remote-addr :response-time - [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" :res[content-length]');
 app.use(express.logger({
     format: 'home',
-    stream: fs.createWriteStream(__dirname + '/logs/access.log')
+    stream: fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
 }));
 
 //app.use(express.bodyParser());
@@ -36,7 +38,12 @@ app.use(express.logger({
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('html5'));
-app.use(express.session());
+app.use(express.session({
+    secret: "html5",
+    maxAge: new Date(Date.now() + 3600000), //1 Hour
+    expires: new Date(Date.now() + 3600000) //1 Hour
+    //store: new MongoStore({db: 'sessionDB'})
+}));
 //app.use(app.router);
 app.use(urlrouter(route));
 

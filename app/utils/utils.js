@@ -167,6 +167,16 @@ utils.getTaskType = function(task) {
     return type;
 }
 
+utils.getEffectValue = function(effect, baseValue) {
+    var value = 0;
+    if(effect.valueType == consts.valueType.NUMBER)
+        value = effect.value;
+    if(effect.valueType == consts.valueType.PERCENTAGE)
+        value = baseValue * effect.value / 100;
+
+    return value;
+}
+
 /**
  * get equipment type
  * 第3位表示位置序号
@@ -257,4 +267,21 @@ utils.send = function(msg, res, data) {
 
 utils.log = function(msg) {
     console.log(msg);
+}
+
+/**
+ *
+ * @param process
+ */
+utils.doProcess = function(process) {
+    var argv = process.argv;
+    var array = [];
+    for(var i = 2 ; i < argv.length ; i++) {
+        array = argv[i].split("=");
+        if(array[0] == "env") {
+            process.env.NODE_ENV = array[1];
+        } else if(array[0] == "serverType") {
+            process.env.SERVER_TYPE = array[1];
+        }
+    }
 }

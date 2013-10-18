@@ -6,18 +6,20 @@
  * Description: buff
  */
 
-function Buff(opts){
+function Buff(opts) {
+    this.useEffectId = opts.useEffectId;
+    this.startTime = opts.startTime;
     this.type = opts.type;
     this.count = opts.count;// 持续次数
 }
-
-var create = function(skill) {
-    return null;
-};
 
 Buff.prototype.use = function(player) {
     player.addBuff(this);
 };
 
-module.exports.create = create;
+Buff.create = function(skill) {
+
+}
+
+module.exports = Buff;
 

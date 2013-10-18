@@ -35,12 +35,38 @@ exports.createMainPlayer = function(req, res) {
         , isRandom = msg.isRandom;// 随机获得昵称
     var self = this;
 
+    var data = {};
+    if(typeof msg.cId == "undefined" || msg.cId == "" || msg.cId == 0) {
+        data = {
+            code: Code.ARGUMENT_EXCEPTION
+        };
+        utils.send(msg, res, data);
+        return;
+    }
+
+    if(typeof msg.nickname == "undefined" || msg.nickname == "" || msg.nickname == 0) {
+        data = {
+            code: Code.ARGUMENT_EXCEPTION
+        };
+        utils.send(msg, res, data);
+        return;
+    }
+
+    if(typeof msg.isRandom == "undefined") {
+        data = {
+            code: Code.ARGUMENT_EXCEPTION
+        };
+        utils.send(msg, res, data);
+        return;
+    }
+
     var serverId = session.serverId;
 
-    var data = {};
     roleService.is_exists_nickname(serverId, nickname, function(err, flag) {
         if(flag) {
-            data = {code: consts.MESSAGE.ERR};
+            data = {
+                code: Code.CHARACTER.EXISTS_NICKNAME
+            };
             utils.send(msg, res, data);
             return;
         }
@@ -58,10 +84,6 @@ exports.createMainPlayer = function(req, res) {
                     },
                     function(callback) {// 初始化装备
                         packageService.createPackage(character.id, callback);
-                    },
-                    function(callback) {
-                        var skillId = 1;
-                        character.learnSkill(skillId, callback);
                     }
                 ];
                 async.parallel(array,
@@ -76,6 +98,9 @@ exports.createMainPlayer = function(req, res) {
                         var user = {
                             id: uid
                         };
+
+                        req.session.playerId = character.id;
+
                         data = {
                             code: consts.MESSAGE.RES,
                             user: user,
@@ -96,5 +121,36 @@ exports.createMainPlayer = function(req, res) {
  * @param res
  */
 exports.getMainPlayer = function(req, res) {
+    var msg = req.query;
+    var session = req.session;
 
+    var uid = session.uid
+        , registerType = session.registerType
+        , loginName = session.loginName
+        , serverId = session.serverId;
+
+    var data = {};
+    userService.getCharactersByLoginName(serverId, registerType, loginName, function(err, results) {
+        if (err) {
+            console.log('learn skill error with player: ' + JSON.stringify(results) + ' stack: ' + err.stack);
+            data = {code: consts.MESSAGE.ERR, error:err};
+            utils.send(msg, res, data);
+            return;
+        }
+
+        if(results[0] == null || results[0] == {}) {
+            data = {
+                code: Code.OK,
+                player: null
+            };
+        } else {
+            data = {
+                code: consts.MESSAGE.RES,
+                player: results[0].strip()
+            };
+        }
+
+        console.log(data);
+        utils.send(msg, res, data);
+    });
 }

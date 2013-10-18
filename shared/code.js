@@ -15,7 +15,8 @@ module.exports = {
         FA_TOKEN_ILLEGAL: 1000,
         FA_TOKEN_INVALID: 1001,
         FA_TOKEN_EXPIRE: 	1002,
-        FA_USER_NOT_EXIST: 1003
+        FA_USER_NOT_EXIST: 1003,
+        NO_CHARACTER: 1004
     },
 
     GATE: {
@@ -63,6 +64,23 @@ module.exports = {
     MAIL: {
         HAVE_READ: 1601,
         NO_RECEIVE_ID: 1602
+    },
+
+    AREA: {
+        WRONG_CURRENTSCENE: 1701
+    },
+
+    CHARACTER: {
+        EXISTS_NICKNAME: 1801
+    },
+
+    SKILL: {
+        HAVED_SKILL: 1820,
+        NO_HAVE_SKILL: 1821,
+        TOP_LEVEL: 1822,
+        NEED_REQUIREMENT: 1823,
+        NO_REACH_SKILL: 1824,
+        NO_SKILL: 1825
     },
 
     EQUIPMENT: {
