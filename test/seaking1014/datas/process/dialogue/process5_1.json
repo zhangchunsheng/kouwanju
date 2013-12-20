@@ -1,0 +1,9 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1007.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "老头，你交代的活做完了。"
+    }]
+}

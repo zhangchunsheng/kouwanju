@@ -1,0 +1,39 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1005.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "这么可爱的妹子，尤其还是躺着的，我最喜欢了。"
+    },
+    {
+        "speakerID": "NPC0103",
+        "speaker": "躺着的妹子",
+        "contentLines": "你，你是谁？"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "哈，你还清醒着呢啊？"
+    },
+    {
+        "speakerID": "NPC0103",
+        "speaker": "躺着的妹子",
+        "contentLines": "……"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "诶诶，你说话呀？"
+    },
+    {
+        "speakerID": "NPC0103",
+        "speaker": "躺着的妹子",
+        "contentLines": "（继续无反应）"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": ["昏迷都不给说一声，太没有礼貌了吧。还是先回村子，", "交给树老头再说吧。"]
+    }]
+}

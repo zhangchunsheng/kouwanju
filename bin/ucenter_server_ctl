@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$1" in
+start)
+cd /home/seaking/jasmineTea
+node app.js ucenter_server
+;;
+stop)
+echo "stop ucenter_server"
+;;
+esac 
+exit 0

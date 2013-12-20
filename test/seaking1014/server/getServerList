@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "lastLoginServer": "0",
+  "serverLists": [
+    {
+      "id": "1",
+      "connectors": {
+        "host": "192.168.1.22",
+        "port": 4011
+      },
+      "chat": {
+        "host": "192.168.1.22",
+        "port": 3060
+      },
+      "showName": "华东区",
+      "status": "1",
+      "characters": [
+      ]
+    }
+  ]
+}

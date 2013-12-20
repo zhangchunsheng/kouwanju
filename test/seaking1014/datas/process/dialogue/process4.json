@@ -1,0 +1,10 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1004.js",
+    "touch" : false,
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "那是什么？"
+    }]
+}

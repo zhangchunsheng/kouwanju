@@ -1,0 +1,605 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 0.55
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				},
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				},
+				{
+					"cid": "base.ColorLayer",
+					"properties": {
+						"color": "#000000"
+					}
+				}
+			]
+		},
+		{
+			"gid": "UI_inst_result",
+			"active": true,
+			"visible": true,
+			"layer": "battleResultUI",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 300,
+				"regY": 180,
+				"scaleX": 0,
+				"scaleY": 0,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "BG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 6,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_public.tt",
+								"index": "29",
+								"width": "600",
+								"height": "400",
+								"patchTop": 38,
+								"patchBottom": 38,
+								"patchLeft": 37,
+								"patchRight": 37,
+								"cache": false
+							}
+						}
+					]
+				},
+				{
+					"gid": "TitleBG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 142,
+						"y": -75,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Effect1",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 100,
+								"y": 103,
+								"regX": 52,
+								"regY": 49,
+								"scaleX": 1.2,
+								"scaleY": 1.2,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/InstResultStarEffect.ans",
+										"defaultAnimation": "play",
+										"frameTime": 66
+									}
+								}
+							]
+						},
+						{
+							"gid": "Effect2",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 158,
+								"y": 113,
+								"regX": 50,
+								"regY": 50,
+								"scaleX": 1.2,
+								"scaleY": 1.2,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/InstResultStarEffect.ans",
+										"defaultAnimation": "play",
+										"frameTime": 66
+									}
+								}
+							]
+						},
+						{
+							"gid": "Star1",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 98,
+								"y": 102,
+								"regX": 26,
+								"regY": 26,
+								"scaleX": 3,
+								"scaleY": 3,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 0
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_battle_result.tt",
+										"index": "17"
+									}
+								},
+								{
+									"cid": "battle.inst.StarAnimation",
+									"properties": {}
+								}
+							]
+						},
+						{
+							"gid": "Star2",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 158,
+								"y": 110,
+								"regX": 30,
+								"regY": 29,
+								"scaleX": 3,
+								"scaleY": 3,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 0
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_battle_result.tt",
+										"index": "18"
+									}
+								},
+								{
+									"cid": "battle.inst.StarAnimation",
+									"properties": {}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "5"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Money",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 70,
+						"y": 82,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 190,
+								"y": 58,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "1000",
+										"color": "#FFF6B3",
+										"font": "normal 26px STHeiti,黑体",
+										"baseline": "middle",
+										"align": "end"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "12"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Exp",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 314,
+						"y": 81,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 189,
+								"y": 57,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "5000",
+										"color": "#FFF6B3",
+										"font": "normal 26px STHeiti,黑体",
+										"baseline": "middle",
+										"align": "end"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "6"
+							}
+						}
+					]
+				},
+				{
+					"gid": "ItemFrame",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 48,
+						"y": 176,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Item1",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 40,
+								"y": 31,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -7,
+										"y": -7,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.ImageRenderer",
+											"properties": {
+												"src": "resources/equipment/1035.png"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_all.tt",
+										"index": "95"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Item2",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 156,
+								"y": 31,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -7,
+										"y": -7,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.ImageRenderer",
+											"properties": {
+												"src": "resources/equipment/1037.png"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_public.tt",
+										"index": "13"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "2",
+								"width": "510",
+								"height": "140",
+								"patchTop": 21,
+								"patchBottom": 21,
+								"patchLeft": 21,
+								"patchRight": 21,
+								"cache": false
+							}
+						}
+					]
+				},
+				{
+					"gid": "ShareBtn",
+					"active": true,
+					"visible": true,
+					"layer": "battleResultUI",
+					"transform": {
+						"x": 98,
+						"y": 326,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.TextureButton",
+							"properties": {
+								"name": "InstResult.ShareBtn",
+								"texture": "resources/texture/UI_battle_result.tt",
+								"normalIndex": "15",
+								"pressIndex": "16"
+							}
+						},
+						{
+							"cid": "base.RectHitDelegate",
+							"properties": {
+								"x": -25,
+								"y": -10,
+								"width": 180,
+								"height": 80
+							}
+						}
+					]
+				},
+				{
+					"gid": "SureBtn",
+					"active": true,
+					"visible": true,
+					"layer": "battleResultUI",
+					"transform": {
+						"x": 360,
+						"y": 326,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.TextureButton",
+							"properties": {
+								"name": "InstResult.SureBtn",
+								"texture": "resources/texture/UI_battle_result.tt",
+								"normalIndex": "20",
+								"pressIndex": "21"
+							}
+						},
+						{
+							"cid": "base.RectHitDelegate",
+							"properties": {
+								"x": -25,
+								"y": -10,
+								"width": 180,
+								"height": 80
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				},
+				{
+					"cid": "base.AlertEffect",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

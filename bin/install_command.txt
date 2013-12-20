@@ -1,0 +1,46 @@
+vim /etc/rc.d/rc.local
+/etc/rc.d/init.d/redis_server_ctl start
+/etc/rc.d/init.d/ucenter_server_ctl start
+/etc/rc.d/init.d/seaking_server_ctl start
+
+/usr/local/bin/redis_server_ctl.sh
+/usr/local/bin/ucenter_server_ctl.sh
+/usr/local/bin/seaking_server_ctl.sh
+/usr/local/bin/chat_server_ctl.sh
+
+su seaking -c "/usr/local/bin/redis_server_ctl.sh"
+su seaking -c "/usr/local/bin/ucenter_server_ctl.sh"
+su seaking -c "/usr/local/bin/seaking_server_ctl.sh"
+su seaking -c "/usr/local/bin/chat_server_ctl.sh"
+
+chmod +x /etc/rc.d/init.d/redis_server_ctl
+chmod +x /etc/rc.d/init.d/ucenter_server_ctl
+chmod +x /etc/rc.d/init.d/seaking_server_ctl
+chmod +x /etc/rc.d/init.d/chat_server_ctl
+
+chmod +x /usr/local/bin/redis_server_ctl.sh
+chmod +x /usr/local/bin/ucenter_server_ctl.sh
+chmod +x /usr/local/bin/seaking_server_ctl.sh
+chmod +x /etc/rc.d/init.d/chat_server_ctl
+
+chown seaking /usr/local/bin/redis_server_ctl.sh
+chown seaking /usr/local/bin/ucenter_server_ctl.sh
+chown seaking /usr/local/bin/seaking_server_ctl.sh
+chown seaking /usr/local/bin/chat_server_ctl.sh
+
+/usr/local/bin/redis_server_ctl.sh
+/usr/local/bin/chat_server_ctl.sh
+
+/usr/bin/env: node: No such file or directory
+
+ln -s /usr/local/bin/node /usr/bin/node
+ln -s /usr/local/bin/npm /usr/bin/npm
+ln -s /usr/local/bin/redis-server /usr/bin/redis-server
+
+npm install forever -g
+
+chown seaking -R /home/seaking/chat-server/
+chown seaking -R /home/seaking/jasmineTea/
+chown seaking -R /home/seaking/seaking_server/
+
+linux 指定用户 运行程序

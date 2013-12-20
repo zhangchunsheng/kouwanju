@@ -1,0 +1,455 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 0.55
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				},
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				},
+				{
+					"cid": "base.ColorLayer",
+					"properties": {
+						"color": "#000000"
+					}
+				}
+			]
+		},
+		{
+			"gid": "UI_battle_result",
+			"active": true,
+			"visible": true,
+			"layer": "battleResultUI",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 300,
+				"regY": 200,
+				"scaleX": 0,
+				"scaleY": 0,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "BG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 50,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_public.tt",
+								"index": "29",
+								"width": "600",
+								"height": "360",
+								"patchTop": 38,
+								"patchBottom": 38,
+								"patchLeft": 37,
+								"patchRight": 37,
+								"cache": false
+							}
+						}
+					]
+				},
+				{
+					"gid": "TitleBG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 158,
+						"y": 10,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Title",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 99,
+								"y": 21,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_all.tt",
+										"index": "30"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_public.tt",
+								"index": "30"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Money",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 70,
+						"y": 82,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 190,
+								"y": 58,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "1000",
+										"color": "#FFF6B3",
+										"font": "normal 26px STHeiti,黑体",
+										"baseline": "middle",
+										"align": "end"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "12"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Exp",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 314,
+						"y": 81,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 189,
+								"y": 57,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "5000",
+										"color": "#FFF6B3",
+										"font": "normal 26px STHeiti,黑体",
+										"baseline": "middle",
+										"align": "end"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "6"
+							}
+						}
+					]
+				},
+				{
+					"gid": "ItemFrame",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 48,
+						"y": 176,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Item1",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 43,
+								"y": 33,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -7,
+										"y": -7,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.ImageRenderer",
+											"properties": {
+												"src": "resources/equipment/1034.png"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_all.tt",
+										"index": "95"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_battle_result.tt",
+								"index": "2",
+								"width": "510",
+								"height": "140",
+								"patchTop": 21,
+								"patchBottom": 21,
+								"patchLeft": 21,
+								"patchRight": 21,
+								"cache": false
+							}
+						}
+					]
+				},
+				{
+					"gid": "ReplayBtn",
+					"active": true,
+					"visible": true,
+					"layer": "battleResultUI",
+					"transform": {
+						"x": 98,
+						"y": 326,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.TextureButton",
+							"properties": {
+								"name": "BattleResult.ReplayBtn",
+								"texture": "resources/texture/UI_battle_result.tt",
+								"normalIndex": "13",
+								"pressIndex": "14"
+							}
+						},
+						{
+							"cid": "base.RectHitDelegate",
+							"properties": {
+								"x": -25,
+								"y": -10,
+								"width": 180,
+								"height": 80
+							}
+						}
+					]
+				},
+				{
+					"gid": "ReturnBtn",
+					"active": true,
+					"visible": true,
+					"layer": "battleResultUI",
+					"transform": {
+						"x": 360,
+						"y": 326,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.TextureButton",
+							"properties": {
+								"name": "BattleResult.ReturnBtn",
+								"texture": "resources/texture/UI_battle_result.tt",
+								"normalIndex": 0,
+								"pressIndex": "1"
+							}
+						},
+						{
+							"cid": "base.RectHitDelegate",
+							"properties": {
+								"x": -25,
+								"y": -10,
+								"width": 180,
+								"height": 80
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				},
+				{
+					"cid": "base.AlertEffect",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

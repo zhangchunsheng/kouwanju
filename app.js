@@ -5,6 +5,9 @@
  * Date: 2013-06-21
  * Description: app
  */
+var utils = require('./app/utils/utils');
+utils.doProcess(process);
+
 var express = require('express')
     , route = require('./route')
     , urlrouter = require('urlrouter')
@@ -14,19 +17,25 @@ var express = require('express')
     , connect = require('connect')
     , config = require('./config')
     , fs = require('fs')
-    , utils = require('./app/utils/utils')
-    , redis = require('./app/dao/redis/redis');
+    , redis = require('./app/dao/redis/redis')
+    , RedisStore = require('connect-redis')(express);
+
+var redisConfig = require('./shared/config/redis');
 
 var app = express();
 
-utils.doProcess(process);
+var env = process.env.NODE_ENV || 'development';
+if(redisConfig[env]) {
+    redisConfig = redisConfig[env];
+}
+
 // all environments
 app.set('port', process.env.PORT || 4011);
 //app.use(express.favicon());
 
 //log
 //app.use(express.logger('dev'));
-express.logger.format('home', ':remote-addr :response-time - [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" :res[content-length]');
+express.logger.format('home', ':req[X-Forwarded-For] :response-time - [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" :res[content-length]');
 app.use(express.logger({
     format: 'home',
     stream: fs.createWriteStream(__dirname + '/logs/access.log', {flags: 'a'})
@@ -41,8 +50,14 @@ app.use(express.cookieParser('html5'));
 app.use(express.session({
     secret: "html5",
     maxAge: new Date(Date.now() + 3600000), //1 Hour
-    expires: new Date(Date.now() + 3600000) //1 Hour
+    expires: new Date(Date.now() + 3600000), //1 Hour
+    cookie: { secure: false, maxAge:86400000 },
     //store: new MongoStore({db: 'sessionDB'})
+    store: new RedisStore({
+        host: redisConfig.host,
+        port: redisConfig.port,
+        db: 15
+    })
 }));
 //app.use(app.router);
 app.use(urlrouter(route));

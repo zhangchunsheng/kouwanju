@@ -39,6 +39,16 @@ httpHelper.request = function(type, host, port, path, headers, params, post_body
 }
 
 httpHelper.get = function(host, port, path, headers, params, cb) {
+    if(path.indexOf("?") < 0) {
+        path = path + "?";
+    }
+
+    for(var o in params) {
+        path += o + "=" + params[o] + "&";
+    }
+
+    path = path.substr(0, path.length - 1);
+
     var options = {
         host: host,
         port: port,
@@ -62,7 +72,14 @@ httpHelper.get = function(host, port, path, headers, params, cb) {
         });
     }
 
-    http.request(options, callback).end();
+    var req = http.request(options, callback);
+
+    req.setTimeout(5000, function() {
+        if(typeof cb == "function")
+            cb({}, null);
+    });
+
+    req.end();
 }
 
 httpHelper.post = function(host, port, path, headers, params, post_body, cb) {
@@ -97,6 +114,11 @@ httpHelper.post = function(host, port, path, headers, params, post_body, cb) {
 
     req.on("error", function(e) {
 
+    });
+
+    req.setTimeout(5000, function() {
+        if(typeof cb == "function")
+            cb({}, null);
     });
 
     console.log(data);

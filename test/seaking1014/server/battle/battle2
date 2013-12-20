@@ -1,0 +1,87 @@
+{
+    "player" : [{
+        "id" : "Chief",
+        "kind" : "Chief",
+        "maxHP" : 600,
+        "HP" : 500,
+        "anger" : 0,
+        "formation" : 4
+    }],
+
+    "enemy" : [{
+        "id" : "M10101_1",
+        "kind" : "M10101",
+        "maxHP" : 600,
+        "HP" : 600,
+        "anger" : 0,
+        "formation" : 4
+    }],
+
+
+    "battle" : [{
+        "sequence" : ["Chief","M10101_1"],
+        "camp" : "player",
+        "attacker" : "Chief",
+        "attackType" : 0,
+        "damageType" : 0,
+        "attackAnger" : 30,
+        "target" : "M10101_1",
+        "targetAction" : "hit",
+        "targetHP" : -100,
+        "targetAnger" : 30
+    }, {
+        "sequence" : ["M10101_1", "Chief"],
+        "camp" : "player",
+        "attacker" : "M10101_1",
+        "attackType" : 0,
+        "damageType" : 0,
+        "attackAnger" : 60,
+        "target" : "Chief",
+        "targetAction" : "hit",
+        "targetHP" : -100,
+        "targetAnger" : 50
+    }, {
+       "sequence" : ["Chief","M10101_1"],
+       "camp" : "player",
+       "attacker" : "Chief",
+       "attackType" : 0,
+       "damageType" : 0,
+       "attackAnger" : 70,
+       "target" : "M10101_1",
+       "targetAction" : "hit",
+       "targetHP" : -123,
+       "targetAnger" : 90
+   }, {
+       "sequence" : ["M10101_1", "Chief"],
+       "camp" : "player",
+       "attacker" : "M10101_1",
+       "attackType" : 0,
+       "damageType" : 0,
+       "attackAnger" : 90,
+       "target" : "Chief",
+       "targetAction" : "hit",
+       "targetHP" : -108,
+       "targetAnger" : 100
+   }, {
+         "sequence" : ["Chief","M10101_1"],
+         "camp" : "player",
+         "attacker" : "Chief",
+         "attackType" : 1,
+         "damageType" : 0,
+         "attackAnger" : 0,
+         "target" : "M10101_1",
+         "targetAction" : "hit",
+         "targetComboHP" : [-80, -120, -180],
+         "targetHP" : -380,
+         "targetAnger" : 100,
+         "targetDied" : true
+      }],
+
+   "result" : {
+        "items" : [{
+            "id" : "D101001011010",
+            "kind" : "D101",
+            "level" : 1
+        }]
+   }
+}

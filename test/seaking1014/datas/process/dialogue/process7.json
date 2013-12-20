@@ -1,0 +1,13 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1009.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "这哪跟哪啊，怎么让我自己看。"
+    }, {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "还好还在村子周围，我这就回去找那个老骗子。"
+    }]
+}

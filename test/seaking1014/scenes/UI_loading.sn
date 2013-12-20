@@ -1,0 +1,500 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Loading",
+			"active": true,
+			"visible": true,
+			"layer": "loadingUI",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "ColorLayer",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 0.51
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "base.ColorLayer",
+							"properties": {
+								"color": "#000000"
+							}
+						}
+					]
+				},
+				{
+					"gid": "PureColorLoading",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 0
+					},
+					"children": [
+						{
+							"gid": "Mask",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.EventMask",
+									"properties": {}
+								},
+								{
+									"cid": "base.AlwaysHitDelegate",
+									"properties": {}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.ColorLayer",
+							"properties": {
+								"color": "black"
+							}
+						},
+						{
+							"cid": "loading.component.PureColorLoader",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "ImageLoading",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Mask",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.EventMask",
+									"properties": {}
+								},
+								{
+									"cid": "base.AlwaysHitDelegate",
+									"properties": {}
+								}
+							]
+						},
+						{
+							"gid": "LeftDoor",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/loading/blue_bg.jpg",
+										"sourceX": 0,
+										"sourceY": 0,
+										"sourceW": 480,
+										"sourceH": 640,
+										"renderWidth": "50%",
+										"renderHeight": "640"
+									}
+								}
+							]
+						},
+						{
+							"gid": "RightDoor",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/loading/blue_bg.jpg",
+										"sourceX": 480,
+										"sourceY": 0,
+										"sourceW": 480,
+										"sourceH": 640,
+										"renderWidth": "50%",
+										"renderHeight": "640"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Logo",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 489,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "LeftPoint",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 51,
+										"y": 51,
+										"regX": 19,
+										"regY": 6,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.ImageRenderer",
+											"properties": {
+												"src": "resources/loading/left_point.png"
+											}
+										},
+										{
+											"cid": "behaviour.ConstantLoopRotation",
+											"properties": {
+												"speed": 0.3
+											}
+										}
+									]
+								},
+								{
+									"gid": "RightPoint",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 161,
+										"y": 38,
+										"regX": 13,
+										"regY": 17,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.ImageRenderer",
+											"properties": {
+												"src": "resources/loading/right_point.png"
+											}
+										},
+										{
+											"cid": "behaviour.ConstantLoopRotation",
+											"properties": {
+												"speed": 0.4
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/loading/logo.png",
+										"sourceX": null,
+										"sourceY": null,
+										"sourceW": null,
+										"sourceH": null,
+										"renderWidth": null,
+										"renderHeight": null
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "loading.component.ImageLoadingLayout",
+							"properties": {}
+						},
+						{
+							"cid": "loading.component.OpenCloseBehaviour",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "SmallLoading",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -130,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 0,
+						"scaleY": 0,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Mask",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.EventMask",
+									"properties": {}
+								},
+								{
+									"cid": "base.AlwaysHitDelegate",
+									"properties": {}
+								}
+							]
+						},
+						{
+							"gid": "BG",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -240,
+								"y": -120,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_all.tt",
+										"index": "111",
+										"width": "480",
+										"height": "220",
+										"patchTop": 24,
+										"patchBottom": 24,
+										"patchLeft": 24,
+										"patchRight": 24,
+										"cache": false
+									}
+								}
+							]
+						},
+						{
+							"gid": "Icon",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": -45,
+								"regX": 16,
+								"regY": 16,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/temp/loading.png"
+									}
+								},
+								{
+									"cid": "behaviour.ConstantLoopRotation",
+									"properties": {
+										"speed": 0.35
+									}
+								}
+							]
+						},
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 18,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "loading...",
+										"color": "#999999",
+										"font": "normal 24px Arial,STHeiti,黑体",
+										"baseline": "middle",
+										"align": "center"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.CenterLayout",
+							"properties": {
+								"horizontal": true,
+								"vertical": true
+							}
+						},
+						{
+							"cid": "base.AlertEffect",
+							"properties": {}
+						}
+					]
+				}
+			],
+			"components": []
+		}
+	]
+}

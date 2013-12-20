@@ -1,0 +1,11 @@
+{
+	"src": "resources/texture/fight_font.tt.png",
+	"frames": [
+		{
+			"x": 0,
+			"y": 0,
+			"w": 588,
+			"h": 945
+		}
+	]
+}

@@ -264,6 +264,66 @@ $(document).ready(function() {
         });
     });
 
+    $("#getMainPlayerWithCookie").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/role/getMainPlayer";
+
+        var data = {
+
+        };
+        var params = "";
+        for(var o in data) {
+            params += o + "=" + data[o] + "&"
+        }
+        params = params.substr(0, params.length - 1);
+        console.log(params);
+        $.ajax({
+            type: "get",
+            url: url + "?" + params,
+            beforeSend : function (xhr) {
+                xhr.setRequestHeader('Cookie', "connect.sid=s%3AYcm7d4MODUTacVVyDk6r69Gq.eJrQ4paS43jjOvnSfB74he0R3mVeQZUcIhIO4x11tVw");
+                xhr.setRequestHeader('test', "test");
+            },
+            success: function(data, status) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#getNickname").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/role/getNickname";
+
+        var data = {
+
+        };
+        request(url, data);
+    });
+
+    $("#removeMainPlayer").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/role/removeMainPlayer";
+
+        var data = {
+
+        };
+        request(url, data);
+    });
+
+    $("#testCreateMainPlayer").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/role/testCreateMainPlayer";
+
+        var data = {
+
+        };
+        request(url, data);
+    });
+
     $("#battle").bind("click", function() {
         var host = $("#host").val();
         var port = $("#port").val();
@@ -519,8 +579,9 @@ $(document).ready(function() {
     });
 
     $("#wearWeapon").bind("click", function() {
-        var index = 2;//1
-        var weaponId = "W0101";//W0101
+        var index = $("#index").val();//1
+        var weaponId = $("#weaponId").val();//W01011
+        var playerId = $("#playerId").val();
 
         var host = $("#host").val();
         var port = $("#port").val();
@@ -528,7 +589,8 @@ $(document).ready(function() {
 
         var data = {
             index: index,
-            weaponId: weaponId
+            weaponId: weaponId,
+            playerId: playerId
         };
         request(url, data);
     });
@@ -538,9 +600,11 @@ $(document).ready(function() {
         var port = $("#port").val();
         var url = "http://" + host + ":" + port + "/equip/unWearWeapon";
 
-        var weaponId = "W0101";//W0101
+        var weaponId = $("#weaponId").val();//W01011
+        var playerId = $("#playerId").val();
         var data = {
-            weaponId: weaponId
+            weaponId: weaponId,
+            playerId: playerId
         };
         request(url, data);
     });
@@ -551,13 +615,15 @@ $(document).ready(function() {
         var port = $("#port").val();
         var url = "http://" + host + ":" + port + "/equip/equip";
 
-        var index = 1;//1
-        var eqId = "W0101";//W0101
-        var pkgType = "weapons";
+        var index = $("#index").val();//1
+        var eqId = $("#eqId").val();//W01011
+        var pkgType = $("#pkgType").val();//weapons
+        var playerId = $("#playerId").val();
         var data = {
             index: index,
             eqId: eqId,
-            pkgType: pkgType
+            pkgType: pkgType,
+            playerId: playerId
         };
         request(url, data);
     });
@@ -567,11 +633,13 @@ $(document).ready(function() {
         var port = $("#port").val();
         var url = "http://" + host + ":" + port + "/equip/unEquip";
 
-        var type = "weapon";//weapon armor
-        var eqId = "W0101";//W0101 W90101
+        var type = $("#type").val();//weapon armor
+        var eqId = $("#eqId").val();//W01011 W901011
+        var playerId = $("#playerId").val();
         var data = {
             eqId: eqId,
-            type: type
+            type: type,
+            playerId: playerId
         };
         request(url, data);
     });
@@ -581,11 +649,13 @@ $(document).ready(function() {
         var port = $("#port").val();
         var url = "http://" + host + ":" + port + "/equip/upgrade";
 
-        var type = "weapon";
-        var eqId = "W0101";//W0101
+        var type = $("#type").val();
+        var eqId = $("#eqId").val();//W01011
+        var playerId = $("#playerId").val();
         var data = {
             eqId: eqId,
-            type: type
+            type: type,
+            playerId: playerId
         };
         request(url, data);
     });
@@ -652,6 +722,78 @@ $(document).ready(function() {
 
         var data = {
             skillId: $("#skillId").val()
+        };
+        request(url, data);
+    });
+
+    $("#resetTask").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/gm/resetTask";
+
+        var data = {
+            //type: 1,
+            type: "currentMainTask",
+            //taskId: "Task10102",
+            taskId: "Task10101",
+            nickname: "html5"
+        };
+        request(url, data);
+    });
+
+    $("#updateMoney").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/gm/updateMoney";
+
+        var data = {
+            nickname: "html5",
+            money: 100
+        };
+        request(url, data);
+    });
+
+    $("#updateExp").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/gm/updateExp";
+
+        var data = {
+            nickname: "html5",
+            exp: 100
+        };
+        request(url, data);
+    });
+
+    $("#buyItem").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/shop/buyItem";
+
+        var wid = $("#itemId").val();
+        var num = $("#itemNum").val();
+        var data = {
+            wid: wid,
+            num: num,
+            currentScene: "city01"
+        };
+        request(url, data);
+    });
+
+    $("#sellItem").bind("click", function() {
+        var host = $("#host").val();
+        var port = $("#port").val();
+        var url = "http://" + host + ":" + port + "/package/sellItem";
+
+        var itemId = $("#itemId").val();
+        var index = $("#index1").val();
+        var itemNum = $("#itemNum").val();
+        var type = $("#type1").val();
+        var data = {
+            itemId: itemId,
+            index: index,
+            itemNum: itemNum,
+            type: type
         };
         request(url, data);
     });

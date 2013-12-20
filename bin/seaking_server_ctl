@@ -1,0 +1,11 @@
+#!/bin/bash
+case "$1" in
+start)
+cd /home/seaking/seaking_server
+node app.js seaking_server
+;;
+stop)
+echo "stop seaking_server"
+;;
+esac 
+exit 0

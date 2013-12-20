@@ -1,0 +1,19 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1012.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "喂喂，还能说话不？"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "躺在地上人",
+        "contentLines": "（无反应）"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "看来又要让我扛回去了，诶，这人不是我么？！"
+    }]
+}

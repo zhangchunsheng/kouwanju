@@ -1,0 +1,2396 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 0.75
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.ColorLayer",
+					"properties": {
+						"color": "#000000"
+					}
+				},
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				},
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				}
+			]
+		},
+		{
+			"gid": "BG",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Left",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -173,
+						"y": 98,
+						"regX": 213,
+						"regY": 150,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.ImageRenderer",
+							"properties": {
+								"src": "resources/battle/magic1.png"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Right",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 212,
+						"y": -93,
+						"regX": 198,
+						"regY": 136,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.ImageRenderer",
+							"properties": {
+								"src": "resources/battle/magic2.png"
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				}
+			]
+		},
+		{
+			"gid": "FightLayer",
+			"active": true,
+			"visible": true,
+			"layer": "FightLayer",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "player_1",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -63,
+						"y": 36,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_2",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -194,
+						"y": 14,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_3",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -30,
+						"y": 112,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_4",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -173,
+						"y": 89,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_5",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -312,
+						"y": 65,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_6",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -143,
+						"y": 177,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "player_7",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -302,
+						"y": 160,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_1",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 91,
+						"y": -37,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_2",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 234,
+						"y": -22,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_3",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 82,
+						"y": -123,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_4",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 207,
+						"y": -101,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_5",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 188,
+						"y": -168,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_6",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 338,
+						"y": -80,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				},
+				{
+					"gid": "enemy_7",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 307,
+						"y": -148,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				},
+				{
+					"cid": "map.component.LayerSorter",
+					"properties": {}
+				}
+			]
+		},
+		{
+			"gid": "FightFrontLayer",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "FightFont",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 0.9,
+						"scaleY": 0.9,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "battle.component.FightNumber",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "Temp",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -252,
+						"y": -336,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_all.tt",
+								"index": "101"
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				}
+			]
+		},
+		{
+			"gid": "AttackSeq",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": -100,
+				"y": 15,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "BG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_fight.tt",
+								"index": "7"
+							}
+						}
+					]
+				},
+				{
+					"gid": "List",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 43,
+						"y": 60,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "player_1",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 44,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "player_2",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut0",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "player_3",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut1",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "player_4",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut2",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "enemy_1",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut3",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "enemy_2",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut4",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "enemy_3",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut5",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "enemy_4",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 25,
+								"regY": 25,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BGQuan",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "5"
+											}
+										}
+									]
+								},
+								{
+									"gid": "HeadCut6",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 25,
+										"y": 48,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "battle.component.HeadCutRenderer",
+											"properties": {}
+										}
+									]
+								}
+							],
+							"components": []
+						}
+					],
+					"components": [
+						{
+							"cid": "battle.component.AttackSeqListLayout",
+							"properties": {}
+						},
+						{
+							"cid": "battle.component.AttackSequenceApi",
+							"properties": {}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.TweenAnimation",
+					"properties": {
+						"property": "x",
+						"startValue": -100,
+						"endValue": 10,
+						"time": 400,
+						"func": "linear"
+					}
+				}
+			]
+		},
+		{
+			"gid": "EnemyTeamBuff",
+			"active": false,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Layout",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -195,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "BG",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight.tt",
+										"index": "14"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.TweenAnimation",
+							"properties": {
+								"property": "y",
+								"startValue": -65,
+								"endValue": 0,
+								"time": 400,
+								"func": "linear"
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.Float",
+					"properties": {
+						"float": "right"
+					}
+				}
+			]
+		},
+		{
+			"gid": "MyTeamInfo",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Layout",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": -100,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "BG",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -430,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.StretchTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight.tt",
+										"index": "12",
+										"width": "1924",
+										"height": "176"
+									}
+								}
+							]
+						},
+						{
+							"gid": "ClistLayout",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "attack_effect",
+									"active": false,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -478,
+										"y": 14,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONAnimationSheetRenderer",
+											"properties": {
+												"ans": "resources/animation/battle_tips.ans",
+												"defaultAnimation": "attack",
+												"frameTime": 100
+											}
+										}
+									]
+								},
+								{
+									"gid": "skill_effect",
+									"active": false,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -237,
+										"y": 0,
+										"regX": 142,
+										"regY": 296,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONAnimationSheetRenderer",
+											"properties": {
+												"ans": "resources/animation/battle_tips.ans",
+												"defaultAnimation": "skillfire",
+												"frameTime": 133
+											}
+										}
+									]
+								},
+								{
+									"gid": "player_1",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -478,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "HeadCut",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 47,
+												"y": 84,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "battle.component.MyHeadCutRenderer",
+													"properties": {}
+												}
+											]
+										},
+										{
+											"gid": "Name",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 144,
+												"y": 30,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "base.Text",
+													"properties": {
+														"text": "这里是名字",
+														"color": "#ffffff",
+														"font": "normal 20px STHeiti,黑体",
+														"baseline": "middle",
+														"align": "center"
+													}
+												}
+											]
+										},
+										{
+											"gid": "HP",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 45,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "0"
+													}
+												}
+											]
+										},
+										{
+											"gid": "Anger",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 69,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "4"
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "11"
+											}
+										}
+									]
+								},
+								{
+									"gid": "player_2",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": -237,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "HeadCut",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 47,
+												"y": 84,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "battle.component.MyHeadCutRenderer",
+													"properties": {}
+												}
+											]
+										},
+										{
+											"gid": "Name",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 144,
+												"y": 30,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "base.Text",
+													"properties": {
+														"text": "这里是名字",
+														"color": "#ffffff",
+														"font": "normal 20px STHeiti,黑体",
+														"baseline": "middle",
+														"align": "center"
+													}
+												}
+											]
+										},
+										{
+											"gid": "HP",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 45,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "0"
+													}
+												}
+											]
+										},
+										{
+											"gid": "Anger",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 69,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "4"
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "11"
+											}
+										}
+									]
+								},
+								{
+									"gid": "player_3",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 4,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "HeadCut",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 47,
+												"y": 84,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "battle.component.MyHeadCutRenderer",
+													"properties": {}
+												}
+											]
+										},
+										{
+											"gid": "Name",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 144,
+												"y": 30,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "base.Text",
+													"properties": {
+														"text": "这里是名字",
+														"color": "#ffffff",
+														"font": "normal 20px STHeiti,黑体",
+														"baseline": "middle",
+														"align": "center"
+													}
+												}
+											]
+										},
+										{
+											"gid": "HP",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 45,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "0"
+													}
+												}
+											]
+										},
+										{
+											"gid": "Anger",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 69,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "4"
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "11"
+											}
+										}
+									]
+								},
+								{
+									"gid": "player_4",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 241,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "HeadCut",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 47,
+												"y": 84,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "battle.component.MyHeadCutRenderer",
+													"properties": {}
+												}
+											]
+										},
+										{
+											"gid": "Name",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 144,
+												"y": 30,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "base.Text",
+													"properties": {
+														"text": "这里是名字",
+														"color": "#ffffff",
+														"font": "normal 20px STHeiti,黑体",
+														"baseline": "middle",
+														"align": "center"
+													}
+												}
+											]
+										},
+										{
+											"gid": "HP",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 45,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "0"
+													}
+												}
+											]
+										},
+										{
+											"gid": "Anger",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 85,
+												"y": 69,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_fight.tt",
+														"index": "4"
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "11"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.CenterLayout",
+									"properties": {
+										"horizontal": true,
+										"vertical": false
+									}
+								}
+							]
+						},
+						{
+							"gid": "Buff",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -195,
+								"y": -62,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BG",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight.tt",
+												"index": "13"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.Float",
+									"properties": {
+										"float": "right"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.TweenAnimation",
+							"properties": {
+								"property": "y",
+								"startValue": 70,
+								"endValue": -100,
+								"time": 400,
+								"func": "linear"
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "base.Float",
+					"properties": {
+						"float": "bottom"
+					}
+				}
+			]
+		},
+		{
+			"gid": "PK",
+			"active": false,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "MaskL",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": -320,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 0.5
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "battle.component.PKMask",
+							"properties": {
+								"direction": "left"
+							}
+						}
+					]
+				},
+				{
+					"gid": "MaskR",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": -320,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 0.5
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "battle.component.PKMask",
+							"properties": {
+								"direction": "right"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Effect",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -271,
+						"y": -194,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/PK_effect.ans",
+								"defaultAnimation": "play"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Flash",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -163,
+						"y": -512,
+						"regX": 65,
+						"regY": 192,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_fight_others.tt",
+								"index": "13"
+							}
+						},
+						{
+							"cid": "battle.component.FlashAnimation",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "Left",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "BlurP",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -224,
+								"y": -128,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_others.tt",
+										"index": "15"
+									}
+								}
+							]
+						},
+						{
+							"gid": "P",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -137,
+								"y": -112,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_others.tt",
+										"index": "16"
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				},
+				{
+					"gid": "Right",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "BlurK",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": -112,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_others.tt",
+										"index": "11"
+									}
+								},
+								{
+									"cid": "base.TweenAnimation",
+									"properties": {
+										"property": "x",
+										"startValue": 1024,
+										"endValue": 0,
+										"time": 260,
+										"func": "none"
+									}
+								}
+							]
+						},
+						{
+							"gid": "K",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": -112,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_others.tt",
+										"index": "12"
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"horizontal": true,
+						"vertical": true
+					}
+				},
+				{
+					"cid": "battle.component.PKAnimation",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

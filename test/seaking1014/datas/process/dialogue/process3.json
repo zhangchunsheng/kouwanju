@@ -1,0 +1,34 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1002.js",
+    "dialogue" : [{
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "还有谁！有谁！谁！谁！"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "o(╯□╰)o，又是做梦啊，这都多少次了。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "这地方还真的适合看太阳啊。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "不过我好像还有个任务什么的。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "那个树老头让我来接个人，这人在哪呢？"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "难道还要往那边走吧，那边的小东西很烦人的。"
+        }]
+}

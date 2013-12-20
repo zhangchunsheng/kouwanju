@@ -1,0 +1,340 @@
+{
+  "code": 200,
+  "player": {
+    "id": "S1C7420",
+    "entityId": 6,
+    "nickname": "",
+    "cId": "1",
+    "type": "player",
+    "x": 1000,
+    "y": 100,
+    "hp": 200,
+    "maxHp": 200,
+    "anger": 0,
+    "level": 0,
+    "experience": 0,
+    "attack": 80,
+    "defense": 10,
+    "speedLevel": 20,
+    "speed": 5,
+    "currentScene": "city02",
+    "currentIndu": {
+      "induId": "Ins10101",
+      "induData": [
+        {
+          "eventId": "MG101011",
+          "mgid": "MG101011",
+          "showMonsterId": "M10101"
+        },
+        {
+          "eventId": "MG101012",
+          "mgid": "MG101012",
+          "showMonsterId": "M10101"
+        },
+        {
+          "eventId": "MG101013",
+          "mgid": "MG101013",
+          "showMonsterId": "M10101"
+        },
+        {
+          "eventId": "MG101014",
+          "mgid": "MG101014",
+          "showMonsterId": "M10101"
+        },
+        {
+          "eventId": "MG101015",
+          "mgid": "MG101015",
+          "showMonsterId": "M10102"
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "eventId": "E101011"
+        },
+        {
+          "eventId": "E101012"
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "enterDate": 1379907476212
+    },
+    "focus": 1,
+    "dodge": 0,
+    "nextLevelExp": 50,
+    "money": 460,
+    "gameCurrency": 100,
+    "criticalHit": 0,
+    "critDamage": 40,
+    "block": 0,
+    "counter": 0,
+    "curTasks": {
+      "currentMainTask": {
+        "status": 0,
+        "startTime": 1379697666217,
+        "taskRecord": {
+          "itemNum": 1
+        },
+        "id": "Task10101",
+        "taskId": "Task10101",
+        "type": 1,
+        "taskName": "",
+        "taskBeginTime": 0,
+        "taskEndTime": 0,
+        "taskExpireTime": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "needSociaty": 0,
+        "sociatyValue": 0,
+        "questNpcId": "",
+        "completeNpcId": "NPC0101",
+        "taskProp": "",
+        "taskGoal": {
+          "type": "3",
+          "itemId": "Ins10101",
+          "itemNum": "1"
+        },
+        "taskDescription": "",
+        "taskTalkNum": 0,
+        "taskTalk": "",
+        "notCompleteText": "",
+        "completeText": "",
+        "getExp": 100,
+        "getMoney": 100,
+        "rewardName": "",
+        "rewardItems": "",
+        "isBroadcast": 0,
+        "nextTaskId": "Task10102",
+        "showNpcId": "",
+        "hideNpcId": "",
+        "_id": 1
+      },
+      "currentBranchTask": {
+        "status": 0,
+        "startTime": 1379697666217,
+        "taskRecord": {
+          "itemNum": 1
+        },
+        "id": "Task20201",
+        "taskId": "Task20201",
+        "type": 2,
+        "taskName": "",
+        "taskBeginTime": 0,
+        "taskEndTime": 0,
+        "taskExpireTime": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "needSociaty": 0,
+        "sociatyValue": 0,
+        "questNpcId": "NPC0204",
+        "completeNpcId": "NPC0204",
+        "taskProp": "",
+        "taskGoal": {
+          "type": "3",
+          "itemId": "Ins10101",
+          "itemNum": "1"
+        },
+        "taskDescription": "",
+        "taskTalkNum": 0,
+        "taskTalk": "",
+        "notCompleteText": "",
+        "completeText": "",
+        "getExp": 100,
+        "getMoney": 0,
+        "rewardName": "",
+        "rewardItems": "",
+        "isBroadcast": 0,
+        "nextTaskId": "",
+        "showNpcId": "",
+        "hideNpcId": "",
+        "_id": 36
+      },
+      "currentDayTask": {
+        "status": 4,
+        "startTime": 1379697666217,
+        "taskRecord": {
+          "itemNum": 1
+        },
+        "id": "Task30201",
+        "taskId": "Task30201",
+        "type": 3,
+        "taskName": "",
+        "taskBeginTime": 0,
+        "taskEndTime": 0,
+        "taskExpireTime": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "needSociaty": 0,
+        "sociatyValue": 0,
+        "questNpcId": "NPC0204",
+        "completeNpcId": "NPC0204",
+        "taskProp": "",
+        "taskGoal": {
+          "type": "3",
+          "itemId": "Ins10101",
+          "itemNum": "1"
+        },
+        "taskDescription": "",
+        "taskTalkNum": 0,
+        "taskTalk": "",
+        "notCompleteText": "",
+        "completeText": "",
+        "getExp": 100,
+        "getMoney": 0,
+        "rewardName": "",
+        "rewardItems": "",
+        "isBroadcast": 0,
+        "nextTaskId": "",
+        "showNpcId": "",
+        "hideNpcId": "",
+        "_id": 37
+      },
+      "currentExerciseTask": {
+        "status": 0,
+        "startTime": 1379697666217,
+        "taskRecord": {
+          "itemNum": 0
+        },
+        "id": "Task40201",
+        "taskId": "Task40201",
+        "type": 4,
+        "taskName": "",
+        "taskBeginTime": 0,
+        "taskEndTime": 0,
+        "taskExpireTime": 0,
+        "minLevel": 0,
+        "maxLevel": 0,
+        "needSociaty": 0,
+        "sociatyValue": 0,
+        "questNpcId": "NPC0203",
+        "completeNpcId": "NPC0203",
+        "taskProp": "",
+        "taskGoal": {
+          "type": "2",
+          "itemId": "D11080201",
+          "itemNum": "10"
+        },
+        "taskDescription": "",
+        "taskTalkNum": 0,
+        "taskTalk": "",
+        "notCompleteText": "",
+        "completeText": "",
+        "getExp": 100,
+        "getMoney": 100,
+        "rewardName": "",
+        "rewardItems": "",
+        "isBroadcast": 0,
+        "nextTaskId": "Task40202",
+        "showNpcId": "",
+        "hideNpcId": "",
+        "_id": 34
+      }
+    },
+    "equipments": {
+      "weapon": {
+        "epid": 0,
+        "level": 0
+      },
+      "necklace": {
+        "epid": 0,
+        "level": 0
+      },
+      "helmet": {
+        "epid": 0,
+        "level": 0
+      },
+      "armor": {
+        "epid": 0,
+        "level": 0
+      },
+      "belt": {
+        "epid": 0,
+        "level": 0
+      },
+      "legguard": {
+        "epid": 0,
+        "level": 0
+      },
+      "amulet": {
+        "epid": 0,
+        "level": 0
+      },
+      "shoes": {
+        "epid": 0,
+        "level": 0
+      },
+      "ring": {
+        "epid": 0,
+        "level": 0
+      }
+    },
+    "package": {
+      "weapons": {
+        "itemCount": 9,
+        "items": {}
+      },
+      "equipments": {
+        "itemCount": 9,
+        "items": {}
+      },
+      "items": {
+        "itemCount": 9,
+        "items": {}
+      }
+    },
+    "skills": {
+      "currentSkill": {
+        "skillId": ""
+      },
+      "activeSkills": [
+        {
+          "skillId": "",
+          "status": 0
+        },
+        {
+          "skillId": "",
+          "status": 0
+        },
+        {
+          "skillId": "",
+          "status": 0
+        }
+      ],
+      "passiveSkills": [
+        {
+          "skillId": "",
+          "status": 0
+        },
+        {
+          "skillId": "",
+          "status": 0
+        },
+        {
+          "skillId": "",
+          "status": 0
+        },
+        {
+          "skillId": "",
+          "status": 0
+        }
+      ]
+    },
+    "formation": [
+      null,
+      {
+        "playerId": "S1C7420"
+      },
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "partners": [],
+    "gift": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "id": "10102",
+    "name": "一年前",
+    "acceptNPC": "",
+    "commitNPC": "NPC0101",
+    "reward": "",
+    "acceptDialogue": "process8",
+    "commitDialogue": "process10",
+    "disacceptDesc": "",
+    "doingDesc": "你不知道怎么回事就在村子周围了，回去找老树吧",
+    "finishDesc": "老树貌似耍你了，找它去算账吧",
+    "doingNPCDialogue": "",
+    "showNPC": "NPC0103",
+    "hideNPC": ""
+}

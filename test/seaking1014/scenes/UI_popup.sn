@@ -1,0 +1,163 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "UI_popup",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Notice",
+					"active": false,
+					"visible": true,
+					"layer": "noticeUI",
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 0,
+						"scaleY": 0,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Mask",
+							"active": true,
+							"visible": true,
+							"layer": "noticeMask",
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 0.61
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.AlwaysHitDelegate",
+									"properties": {}
+								},
+								{
+									"cid": "base.EventMask",
+									"properties": {
+										"name": "Popup.Notice"
+									}
+								},
+								{
+									"cid": "base.ColorLayer",
+									"properties": {
+										"color": "#000000"
+									}
+								}
+							]
+						},
+						{
+							"gid": "BG",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": -10,
+								"regX": 240,
+								"regY": 110,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_all.tt",
+										"index": "111",
+										"width": "480",
+										"height": "220",
+										"patchTop": 24,
+										"patchBottom": 24,
+										"patchLeft": 24,
+										"patchRight": 24,
+										"cache": false
+									}
+								}
+							]
+						},
+						{
+							"gid": "Text",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": -10,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "",
+										"color": "#ffffff",
+										"font": "normal 24px STHeiti,黑体",
+										"baseline": "middle",
+										"align": "center",
+										"password": false
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.CenterLayout",
+							"properties": {
+								"horizontal": true,
+								"vertical": true
+							}
+						},
+						{
+							"cid": "base.AlertEffect",
+							"properties": {}
+						}
+					]
+				}
+			],
+			"components": []
+		}
+	]
+}

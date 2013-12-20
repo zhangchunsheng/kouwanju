@@ -1,0 +1,361 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "M10101",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "stand",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 50,
+						"regY": 86,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_ShuiPaoPao.ans",
+								"defaultAnimation": "stand",
+								"frameTime": 164
+							}
+						}
+					]
+				},
+				{
+					"gid": "hit",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 50,
+						"regY": 86,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_ShuiPaoPao.ans",
+								"defaultAnimation": "hit",
+								"frameTime": 133
+							}
+						}
+					]
+				},
+				{
+					"gid": "attack",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 50,
+						"regY": 100,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_ShuiPaoPao.ans",
+								"defaultAnimation": "attack",
+								"frameTime": 70
+							}
+						}
+					]
+				},
+				{
+					"gid": "defense",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 50,
+						"regY": 90,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_ShuiPaoPao.ans",
+								"defaultAnimation": "defense",
+								"frameTime": 133
+							}
+						}
+					]
+				},
+				{
+					"gid": "death",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 25,
+						"regY": 110,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Monster_death.ans",
+								"defaultAnimation": "death",
+								"frameTime": 233
+							}
+						}
+					]
+				},
+				{
+					"gid": "Effect",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "attack_effect",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 86,
+								"regY": 90,
+								"scaleX": 1.2,
+								"scaleY": 1.2,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/Battle_ShuiPaoPao.ans",
+										"defaultAnimation": "attack_effect",
+										"frameTime": 99
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				},
+				{
+					"gid": "Values",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -28,
+						"y": -102,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Anger",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 9,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Current",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 1,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight_more.tt",
+												"index": "8"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_more.tt",
+										"index": "7"
+									}
+								}
+							]
+						},
+						{
+							"gid": "HP",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Current",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 1,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_fight_more.tt",
+												"index": "6"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_fight_more.tt",
+										"index": "7"
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "battle.M10101",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

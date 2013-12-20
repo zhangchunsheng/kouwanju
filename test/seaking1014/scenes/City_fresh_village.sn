@@ -1,0 +1,386 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Map",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Portal1",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2427,
+						"y": 96,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Right",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 95,
+								"y": 2,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"index": "2",
+										"texture": "resources/texture/portal.tt"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Effect",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -79,
+								"y": -1,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/Portal.ans",
+										"frameTime": 150,
+										"defaultAnimation": "left"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Left",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -47,
+								"y": -55,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/portal.tt",
+										"index": "3"
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "map.component.MapRenderer",
+					"properties": {
+						"folder": "resources/map/City_fresh_village",
+						"rows": 3,
+						"cols": 6
+					}
+				}
+			]
+		},
+		{
+			"gid": "PlayerLayer",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "DaoJuShangRen",
+					"active": true,
+					"visible": true,
+					"layer": "",
+					"transform": {
+						"x": 784,
+						"y": 791,
+						"regX": 36,
+						"regY": 84,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Name",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 33,
+								"y": -30,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "道具商人",
+										"color": "#ffffff",
+										"font": "normal 16px STHeiti,黑体",
+										"baseline": "top",
+										"align": "center"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Body",
+							"active": true,
+							"visible": true,
+							"layer": "NPC",
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/NPC.ans",
+										"defaultAnimation": "right",
+										"frameTime": 133
+									}
+								},
+								{
+									"cid": "base.RectHitDelegate",
+									"properties": {
+										"x": -10,
+										"y": 0,
+										"width": 80,
+										"height": 100
+									}
+								},
+								{
+									"cid": "npc.Click",
+									"properties": {
+										"npcId": "DaoJuShangRen"
+									}
+								},
+								{
+									"cid": "npc.HighlightFilter",
+									"properties": {
+										"active": true
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				},
+				{
+					"gid": "NPC0101",
+					"active": true,
+					"visible": true,
+					"layer": "NPC",
+					"transform": {
+						"x": 3484,
+						"y": 812,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Name",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 107,
+								"y": 137,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "老树",
+										"color": "#ffffff",
+										"font": "bold 18px STHeiti,黑体",
+										"baseline": "top",
+										"align": "center"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Symbol",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 84,
+								"y": 65.83,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "npc.component.Symbol",
+									"properties": {}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.RectHitDelegate",
+							"properties": {
+								"width": 200,
+								"height": 230
+							}
+						},
+						{
+							"cid": "npc.Click",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "Ins_HaiYangLuDi",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2457,
+						"y": 238,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 80,
+								"height": 50
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "map.component.LayerSorter",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

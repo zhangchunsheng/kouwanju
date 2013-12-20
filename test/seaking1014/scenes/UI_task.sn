@@ -1,0 +1,1350 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 0.54
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.ColorLayer",
+					"properties": {
+						"color": "#000000"
+					}
+				},
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				},
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				}
+			]
+		},
+		{
+			"gid": "UI_task",
+			"active": true,
+			"visible": true,
+			"layer": "taskUI",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "BG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -470,
+						"y": 50,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"index": "29",
+								"stretchDirection": "none",
+								"width": 940,
+								"height": 580,
+								"patchTop": 38,
+								"patchBottom": 38,
+								"patchLeft": 37,
+								"patchRight": 37,
+								"texture": "resources/texture/UI_public.tt"
+							}
+						}
+					]
+				},
+				{
+					"gid": "TitleBg",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -142,
+						"y": 10,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Title",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 103,
+								"y": 18,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_task.tt",
+										"index": "16"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONTextureRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_public.tt",
+								"index": "30"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Content",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 100,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "MainLine",
+							"active": true,
+							"visible": true,
+							"layer": "taskLine",
+							"transform": {
+								"x": -428,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "IconHighlight",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 21,
+										"y": 19,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "6"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 27,
+										"y": 29,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "8"
+											}
+										}
+									]
+								},
+								{
+									"gid": "LineText",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 14,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "7"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Name",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 194,
+										"y": 16,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#36ff00",
+												"font": "bold 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Description",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 44,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#ffe7ab",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Reward",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 73,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#feb800",
+												"font": "normal 16px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Btn",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 680,
+										"y": 20,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.TextureButton",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"normalIndex": "11",
+												"pressIndex": "12",
+												"name": "MainLineBtn"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_task.tt",
+										"index": "9",
+										"width": 856,
+										"height": 106,
+										"patchTop": 19,
+										"patchBottom": 19,
+										"patchLeft": 19,
+										"patchRight": 19
+									}
+								}
+							]
+						},
+						{
+							"gid": "Branch",
+							"active": true,
+							"visible": true,
+							"layer": "taskLine",
+							"transform": {
+								"x": -430,
+								"y": 126,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "IconHighlight",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 21,
+										"y": 19,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "6"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 27,
+										"y": 29,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "15"
+											}
+										}
+									]
+								},
+								{
+									"gid": "LineText",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 14,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "14"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Name",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 194,
+										"y": 16,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#36ff00",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Description",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 44,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#ffe7ab",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Reward",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 73,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#feb800",
+												"font": "normal 16px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Btn",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 680,
+										"y": 20,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.TextureButton",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"normalIndex": "17",
+												"pressIndex": "18"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_task.tt",
+										"index": "9",
+										"width": 856,
+										"height": 106,
+										"patchTop": 19,
+										"patchBottom": 19,
+										"patchLeft": 19,
+										"patchRight": 19
+									}
+								}
+							]
+						},
+						{
+							"gid": "Dailly",
+							"active": true,
+							"visible": true,
+							"layer": "taskLine",
+							"transform": {
+								"x": -430,
+								"y": 252,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "IconHighlight",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 21,
+										"y": 19,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "6"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 27,
+										"y": 29,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "1"
+											}
+										}
+									]
+								},
+								{
+									"gid": "LineText",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 14,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "0"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Name",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 194,
+										"y": 16,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#36ff00",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Description",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 44,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#ffe7ab",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Reward",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 73,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#feb800",
+												"font": "normal 16px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "BtnBox",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 680,
+										"y": 20,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.TextureButton",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"normalIndex": "4",
+												"pressIndex": "5"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_task.tt",
+										"index": "9",
+										"width": 856,
+										"height": 106,
+										"patchTop": 19,
+										"patchBottom": 19,
+										"patchLeft": 19,
+										"patchRight": 19
+									}
+								}
+							]
+						},
+						{
+							"gid": "Activity",
+							"active": true,
+							"visible": true,
+							"layer": "taskLine",
+							"transform": {
+								"x": -430,
+								"y": 378,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "IconHighlight",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 21,
+										"y": 19,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "6"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Icon",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 27,
+										"y": 29,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "3"
+											}
+										}
+									]
+								},
+								{
+									"gid": "LineText",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 14,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"index": "2"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Name",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 194,
+										"y": 16,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#36ff00",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Description",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 44,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#ffe7ab",
+												"font": "normal 18px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Reward",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 90,
+										"y": 73,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"color": "#feb800",
+												"font": "normal 16px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Btn",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 680,
+										"y": 20,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.TextureButton",
+											"properties": {
+												"texture": "resources/texture/UI_task.tt",
+												"normalIndex": "13",
+												"pressIndex": "13"
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_task.tt",
+										"index": "9",
+										"width": 856,
+										"height": 106,
+										"patchTop": 19,
+										"patchBottom": 19,
+										"patchLeft": 19,
+										"patchRight": 19
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "task.component.TaskListLayout",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "CloseBtn",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 411,
+						"y": 40,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.TextureButton",
+							"properties": {
+								"texture": "resources/texture/UI_public.tt",
+								"normalIndex": "10",
+								"pressIndex": "11",
+								"name": "TaskCloseButton"
+							}
+						}
+					]
+				},
+				{
+					"gid": "Bottom",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 582,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "OpenAutoPathFinding",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -245,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Radio",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 170,
+										"y": -3,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_public.tt",
+												"index": "8"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Text",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"text": "开启自动寻路功能",
+												"color": "#ffffff",
+												"font": "normal 20px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "CloseAutoPathFinding",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 14,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Radio",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 170,
+										"y": -3,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_public.tt",
+												"index": "9"
+											}
+										}
+									]
+								},
+								{
+									"gid": "Text",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.Text",
+											"properties": {
+												"text": "关闭自动寻路功能",
+												"color": "#ffffff",
+												"font": "normal 20px 黑体",
+												"baseline": "top",
+												"align": "start"
+											}
+										}
+									]
+								}
+							],
+							"components": []
+						}
+					],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "base.CenterLayout",
+					"properties": {
+						"vertical": false
+					}
+				}
+			]
+		}
+	]
+}

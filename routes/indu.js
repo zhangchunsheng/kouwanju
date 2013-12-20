@@ -19,6 +19,7 @@ var EntityType = require('../app/consts/consts').EntityType;
 var Monster = require('../app/domain/entity/monster');
 var dataApi = require('../app/utils/dataApi');
 var Fight = require('../app/domain/battle/fight');
+var FightTeam = require('../app/domain/battle/fightTeam');
 var indu = require('../app/domain/area/indu');
 var async = require('async');
 
@@ -84,6 +85,18 @@ exports.triggerEvent = function(req, res) {
             var monsters = {};
             var player;
 
+            var players = [];
+            var enemies = [];
+            var playersInfo = [];
+            var enemiesInfo = [];
+
+            var ownerTeam = new FightTeam({
+                type: consts.teamType.PLAYER_TEAM
+            });
+            var monsterTeam = new FightTeam({
+                type: consts.teamType.MONSTER_TEAM
+            });
+
             // 阵型中角色数据
             // get player info from db
             for(var i = 0 ; i < owner_formationData.length ; i++) {
@@ -97,6 +110,15 @@ exports.triggerEvent = function(req, res) {
                         player.formationId = i;
                         owners[i] = player;
                     }
+                    ownerTeam.addMember(player);
+                    players.push({
+                        "id" : player.id,
+                        "maxHP" : player.maxHp,
+                        "HP" : player.hp,
+                        "anger" : player.anger,
+                        "formation" : i
+                    });
+                    playersInfo.push(player.strip());
                 }
             }
             // get monster info from file config
@@ -109,6 +131,17 @@ exports.triggerEvent = function(req, res) {
                         type: EntityType.MONSTER
                     }));
                     monsters[i] = player;
+
+                    monsterTeam.addMember(player);
+
+                    enemies.push({
+                        "id" : player.id,
+                        "maxHP" : player.maxHp,
+                        "HP" : player.hp,
+                        "anger" : player.anger,
+                        "formation" : i
+                    });
+                    enemiesInfo.push(player.strip());
                 }
             }
 
@@ -117,7 +150,9 @@ exports.triggerEvent = function(req, res) {
                 owner_formation: owner_formationData,
                 monster_formation: monster_formationData,
                 owners: owners,
-                monsters: monsters
+                monsters: monsters,
+                ownerTeam: ownerTeam,
+                monsterTeam: monsterTeam
             });
 
             var result = fight.fight(function(err, eventResult) {
@@ -128,7 +163,9 @@ exports.triggerEvent = function(req, res) {
                         });
                     },
                     function(callback) {
-                        battleService.savePlayerBattleData(character, fight.owner_players, fight.monsters, eventResult, function(err, reply) {
+                        eventResult.players = players;
+                        eventResult.enemies = enemies;
+                        battleService.savePlayerBattleData(character, playersInfo, enemiesInfo, eventResult, function(err, reply) {
 
                         });
                         callback(null, 1);
@@ -173,6 +210,10 @@ exports.triggerEvent = function(req, res) {
                                     died: false
                                 },
                                 eventResult: eventResult
+                            }
+                            if(character.hasUpgrade) {
+                                result.hasUpgrade = true;
+                                result.playerInfo = character.getUpgradeInfo();
                             }
                             utils.send(msg, res, result);
                         }

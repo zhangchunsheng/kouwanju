@@ -1,0 +1,567 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Map",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "ExitPortal",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2767,
+						"y": 126,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Right",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/portal.tt",
+										"index": 0
+									}
+								}
+							]
+						},
+						{
+							"gid": "Effect",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 9,
+								"y": -11,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/Portal.ans",
+										"defaultAnimation": "right",
+										"frameTime": 163
+									}
+								}
+							]
+						},
+						{
+							"gid": "Left",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 30,
+								"y": -61,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONTextureRenderer",
+									"properties": {
+										"texture": "resources/texture/portal.tt",
+										"index": "1"
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "map.component.MapRenderer",
+					"properties": {
+						"folder": "resources/map/Ins_HaiYangLuDi",
+						"rows": 3,
+						"cols": 4.5
+					}
+				}
+			]
+		},
+		{
+			"gid": "PlayerLayer",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "process1003",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2315,
+						"y": 403,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 300,
+								"height": 300
+							}
+						}
+					]
+				},
+				{
+					"gid": "NPC0103",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2614,
+						"y": 312,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Name",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 44,
+								"y": -16,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "base.Text",
+									"properties": {
+										"text": "躺着的妹子",
+										"color": "#ffffff",
+										"font": "normal 14px 黑体",
+										"baseline": "middle",
+										"align": "center"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Symbol",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 23,
+								"y": -82,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "npc.component.Symbol",
+									"properties": {}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/NPC.ans",
+								"defaultAnimation": "left",
+								"frameTime": 133
+							}
+						}
+					]
+				},
+				{
+					"gid": "Ins_Exit",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2823,
+						"y": 246,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 100,
+								"height": 100
+							}
+						}
+					]
+				},
+				{
+					"gid": "Monster_M10101_001",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 1135,
+						"y": 1263,
+						"regX": 20,
+						"regY": 64,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Shadow",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -21,
+								"y": 45,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/temp/shadow.png"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Stand",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/ShuiPaoPao_stand.ans",
+										"defaultAnimation": "stand",
+										"frameTime": 133
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 80,
+								"height": 80,
+								"x": -20
+							}
+						}
+					]
+				},
+				{
+					"gid": "Monster_M10101_0010",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 1626,
+						"y": 925,
+						"regX": 20,
+						"regY": 64,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Shadow",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -21,
+								"y": 45,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/temp/shadow.png"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Stand",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/ShuiPaoPao_stand.ans",
+										"defaultAnimation": "stand",
+										"frameTime": 133
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 80,
+								"height": 80,
+								"x": -20
+							}
+						}
+					]
+				},
+				{
+					"gid": "Monster_M10101_0011",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 2217,
+						"y": 496,
+						"regX": 20,
+						"regY": 64,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "Shadow",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -21,
+								"y": 45,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.ImageRenderer",
+									"properties": {
+										"src": "resources/temp/shadow.png"
+									}
+								}
+							]
+						},
+						{
+							"gid": "Stand",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/ShuiPaoPao_stand.ans",
+										"defaultAnimation": "stand",
+										"frameTime": 133
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "collider.RectCollider",
+							"properties": {
+								"width": 80,
+								"height": 80,
+								"x": -20
+							}
+						}
+					]
+				}
+			],
+			"components": [
+				{
+					"cid": "map.component.LayerSorter",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

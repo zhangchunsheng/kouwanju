@@ -9,20 +9,29 @@
 var character = require('../../config/data/character');
 var experience = require('../../config/data/experience');
 var skillList = require('../../config/data/skillList');
+var skillsV2 = require('../../config/data/skillsV2');
+var tacticals = require('../../config/data/tacticals');
+var aptitudes = require('../../config/data/aptitudes');
 var item = require('../../config/data/item');
 var npc = require('../../config/data/npc');
 var task = require('../../config/data/task');
 var heros = require('../../config/data/heros');
+var herosV2 = require('../../config/data/herosV2');
 var monster = require('../../config/data/monster');
 var induMonstergroup = require('../../config/data/induMonstergroup');
 var instancedungeon = require('../../config/data/instancedungeon');
 var equipment = require('../../config/data/equipment');
 var equipmentLevelup = require('../../config/data/equipmentLevelup');
+var equipments = require('../../config/data/equipments');
+var forges = require('../../config/data/forges');
+var diamonds = require('../../config/data/diamonds');
 var partners = require('../../config/data/partners');
 var city = require('../../config/data/city');
 var indu_event = require('../../config/data/indu_event');
 var shops = require('../../config/data/shops');
 var casino = require('../../config/data/casino');
+var astrology = require("../../config/data/astrology");
+var weapons = require("../../config/data/weapons");
 /**
  * Data model `new Data()`
  *
@@ -37,12 +46,19 @@ var Data = function(data) {
     data.splice(0, 2);
 
     var result = {}, item;
+    var mresult = {};
     data.forEach(function(k) {
         item = mapData(fields, k);
         result[item.id] = item;
+        if(typeof item._id != "undefined") {
+            mresult[item._id] = item;
+        } else {
+            mresult[item.id] = item;
+        }
     });
 
     this.data = result;
+    this.mdata = mresult;
 };
 
 /**
@@ -118,6 +134,10 @@ Data.prototype.findById = function(id) {
     return this.data[id];
 };
 
+Data.prototype.findByMId = function(id) {
+    return this.mdata[id];
+};
+
 /**
  * find all item
  *
@@ -134,16 +154,25 @@ module.exports = {
     npc: new Data(npc),
     item: new Data(item),
     skillList: new Data(skillList),
+    skillsV2: new Data(skillsV2),
+    tacticals: new Data(tacticals),
+    aptitudes: new Data(aptitudes),
     task: new Data(task),
     heros: new Data(heros),
+    herosV2: new Data(herosV2),
     monster: new Data(monster),
     induMonstergroup: new Data(induMonstergroup),
     instancedungeon: new Data(instancedungeon),
     equipment: new Data(equipment),
     equipmentLevelup: new Data(equipmentLevelup),
+    equipments: new Data(equipments),
+    forges: new Data(forges),
+    diamonds: new Data(diamonds),
     partners: new Data(partners),
     city: new Data(city),
     indu_event: new Data(indu_event)  ,
     shops: new Data(shops),
-    casino : new Data(casino)
+    casino : new Data(casino),
+    astrology : new Data(astrology),
+    weapons : new Data(weapons)
 };

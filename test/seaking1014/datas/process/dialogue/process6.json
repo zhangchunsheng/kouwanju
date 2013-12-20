@@ -1,0 +1,29 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1008.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "我怎么感觉你知道的太多了，这事都能猜得到。"
+    },
+    {
+        "speakerID": "NPC0101",
+        "speaker": "树老头",
+        "contentLines": "此乃天机。"
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": ["好吧好吧，反正你的每句话都是天机。那就给", "我说我是怎么来到这的吧，咱们可是说好的，..."]
+    },
+    {
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines" : ["我去救人，你告诉我一些事情，再用天机糊弄我，信不", "信我把你连根拔了。"]
+    },
+    {
+        "speakerID": "NPC0101",
+        "speaker": "树老头",
+        "contentLines": ["这个你就自己去看吧，准备好了再来找我，我会送你", "去看个仔细"]
+    }]
+}

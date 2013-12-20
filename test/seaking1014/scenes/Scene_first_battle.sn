@@ -1,0 +1,63 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "GameObject_1379217774415",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "renderer.ImageRenderer",
+					"properties": {
+						"src": "resources/map/City_bingxuechangcheng/20.jpg",
+						"renderWidth": "100%",
+						"renderHeight": "640"
+					}
+				}
+			]
+		},
+		{
+			"gid": "Meng",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": -200,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 18,
+				"scaleY": 10,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 0.7
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "renderer.JSONAnimationSheetRenderer",
+					"properties": {
+						"ans": "resources/animation/Dream.ans",
+						"defaultAnimation": "play",
+						"frameTime": 150
+					}
+				}
+			]
+		}
+	]
+}

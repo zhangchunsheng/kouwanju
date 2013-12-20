@@ -70,10 +70,12 @@ areaDao.addEntity = function(player, cb) {
 
                 var date = new Date();
                 var value = {
+                    cId: player.cId,
                     name: player.nickname,
                     time: date.getTime()
                 };
                 client.hset(key, player.id, JSON.stringify(value), function(err, reply) {
+                    redis.release(client);
                     utils.invokeCallback(cb, null, reply);
                 });
             })
@@ -90,6 +92,7 @@ areaDao.removePlayer = function(player, cb) {
                 var key = player.currentScene;
 
                 client.hdel(key, player.id, function(err, reply) {
+                    redis.release(client);
                     utils.invokeCallback(cb, null, reply);
                 });
             })
@@ -122,6 +125,7 @@ areaDao.removeAndUpdatePlayer = function(areaId, player, cb) {
 
                 client.multi(array)
                     .exec(function(err, reply) {
+                        redis.release(client);
                         utils.invokeCallback(cb, null, reply);
                     });
             })

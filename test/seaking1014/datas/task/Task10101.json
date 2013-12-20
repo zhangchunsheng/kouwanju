@@ -1,0 +1,13 @@
+{
+    "id": "10101",
+    "next" : "Task10102",
+    "name": "迎接客人",
+    "reward": "奖励 100金币",
+    "startProcess" : "dialogue/process3",
+    "endProcess" : "",
+    "doingDesc": "老树让你去村后山地迎接一个神秘人",
+    "finishDesc": "找打了一个昏迷的妹子，给老树去看下吧",
+    "doingNPCDialogue": "",
+    "showNPC": "",
+    "hideNPC": ""
+}

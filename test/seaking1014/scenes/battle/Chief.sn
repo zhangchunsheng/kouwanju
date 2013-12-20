@@ -1,0 +1,275 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Chief",
+			"active": true,
+			"visible": true,
+			"layer": null,
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "stand",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 74,
+						"regY": 124,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "stand",
+								"frameTime": 133
+							}
+						}
+					]
+				},
+				{
+					"gid": "attack",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 180,
+						"regY": 203,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "attack",
+								"frameTime": 80
+							}
+						}
+					]
+				},
+				{
+					"gid": "comeback",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 69,
+						"regY": 128,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "comeback",
+								"frameTime": 90
+							}
+						}
+					]
+				},
+				{
+					"gid": "go",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 72,
+						"regY": 122,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "go",
+								"frameTime": 66
+							}
+						}
+					]
+				},
+				{
+					"gid": "hit",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 74,
+						"regY": 124,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "hit",
+								"frameTime": 133
+							}
+						}
+					]
+				},
+				{
+					"gid": "skill",
+					"active": false,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 130,
+						"regY": 216,
+						"scaleX": 1.2,
+						"scaleY": 1.2,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.JSONAnimationSheetRenderer",
+							"properties": {
+								"ans": "resources/animation/Battle_Chief.ans",
+								"defaultAnimation": "skill",
+								"frameTime": 78
+							}
+						}
+					]
+				},
+				{
+					"gid": "Effect",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "go_effect",
+							"active": false,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 0,
+								"y": 0,
+								"regX": 90,
+								"regY": 60,
+								"scaleX": 1.2,
+								"scaleY": 1.2,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.JSONAnimationSheetRenderer",
+									"properties": {
+										"ans": "resources/animation/Battle_Chief.ans",
+										"defaultAnimation": "go_effect",
+										"frameTime": 133
+									}
+								}
+							]
+						}
+					],
+					"components": []
+				},
+				{
+					"gid": "Values",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": -39,
+						"y": -144,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": []
+				}
+			],
+			"components": [
+				{
+					"cid": "battle.Chief",
+					"properties": {}
+				}
+			]
+		}
+	]
+}

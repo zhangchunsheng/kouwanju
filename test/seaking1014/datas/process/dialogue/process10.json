@@ -1,0 +1,39 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1014.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "这是怎么回事？你吓我么？"
+    },
+        {
+            "speakerID": "NPC0101",
+            "speaker": "树老头",
+            "contentLines": "那个就是一年前的你。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "你还会这一手？那能让我看看二十年前的我吗？"
+        },
+        {
+            "speakerID": "NPC0101",
+            "speaker": "树老头",
+            "contentLines": "那会你还没出生。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "还好我还没到二十岁。总算又知道了一点消息。那个妹子怎么样了？"
+        },
+        {
+            "speakerID": "NPC0101",
+            "speaker": "树老头",
+            "contentLines": "去海边了。你要找她？"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "我捡回来的，怎么着也算我的人吧，去看看自然是应该的。"
+        }]
+}

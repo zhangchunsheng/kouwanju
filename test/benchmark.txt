@@ -1,0 +1,914 @@
+服务器配置
+2核CPU 2G内存 100G磁盘 4M带宽
+
+-n 测试会话中所执行的请求个数,默认仅执行一个请求
+-c 一次产生的请求个数,即同一时间发出多少个请求,默认为一次一个
+-t 测试所进行的最大秒数,默认为无时间限制....其内部隐含值是[-n 50000],它可以使对服务器的测试限制在一个固定的总时间以内
+-p 包含了需要POST的数据的文件
+-T POST数据所使用的Content-type头信息
+-v 设置显示信息的详细程度
+-w 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表
+-i 以HTML表格的形式输出结果,默认是白色背景的两列宽度的一张表
+-x 设置<table>属性的字符串,此属性被填入<table 这里>
+-y 设置<tr>属性的字符串
+-z 设置<td>属性的字符串
+-C 对请求附加一个Cookie行，其典型形式是name=value的参数对,此参数可以重复
+-H 对请求附加额外的头信息,此参数的典型形式是一个有效的头信息行,其中包含了以冒号分隔的字段和值的对(如"Accept-Encoding: zip/zop;8bit")
+-A HTTP验证,用冒号:分隔传递用户名及密码
+-P 无论服务器是否需要(即是否发送了401认证需求代码),此字符串都会被发送
+-X 对请求使用代理服务器
+-V 显示版本号并退出
+-k 启用HTTP KeepAlive功能,即在一个HTTP会话中执行多个请求,默认为不启用KeepAlive功能
+-d 不显示"percentage served within XX [ms] table"的消息(为以前的版本提供支持)
+-S 不显示中值和标准背离值,且均值和中值为标准背离值的1到2倍时,也不显示警告或出错信息,默认会显示最小值/均值/最大值等(为以前的版本提供支持)
+-g 把所有测试结果写入一个'gnuplot'或者TSV(以Tab分隔的)文件
+-e 产生一个以逗号分隔的(CSV)文件,其中包含了处理每个相应百分比的请求所需要(从1%到100%)的相应百分比的(以微妙为单位)时间
+-h 显示使用方法
+-k 发送keep-alive指令到服务器端
+
+This is ApacheBench, Version 2.3 <$Revision: 1430300 $>  
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+Benchmarking 192.168.18.41 (be patient).....done
+Server Software:        Apache/2.4.4 #被测试Web服务软件名称 
+Server Hostname:        192.168.18.41 #服务器主机名,即请求的URL中的主机部分名称  
+Server Port:            80 #被测试Web服务器软件的监听端口
+Document Path:          /forum.php #请求URL的绝问文件路径,即请求的资源 
+Document Length:        12428 bytes #请求文件的大小
+Concurrency Level:      10 #并发数(-c属性来设置) 
+Time taken for tests:   1.014 seconds #执行完所有的请求所花费的时间,即整个测试持续的时间  
+Complete requests:      100 #完成的请求数量  
+Failed requests:        96 #失败的请求数量  
+   (Connect: 0, Receive: 0, Length: 96, Exceptions: 0)  
+Write errors:           0  
+Keep-Alive requests:    0  
+Total transferred:      1243660 bytes #整个场景中的网络传输量,即所有请求的响应数据的总和,包含头信息和正文长度  
+HTML transferred:       1180016 bytes #整个场景中的HTML内容传输量,即所有请求中响应数据的正文长度,不包含头信息的长度  
+Requests per second:    98.61 [#/sec] (mean) #吞吐率：即每秒处理的请求数,相当于LR中的每秒事务数,括号中的mean表示这是一个平均值,其值为Complete requests/Time taken for tests  
+Time per request:       101.407 [ms] (mean) #服务器平均请求处理的时间,即每个请求实际运行时间的平均值,其值为Time per request/Concurrency Level  
+Time per request:       10.141 [ms] (mean, across all concurrent requests) #平均每秒网络上的流量,即这些请求在单位内从服务器获取的数据长度,其值为(Total transferred/Time taken for tests)/1024  
+Transfer rate:          1197.65 [Kbytes/sec] received  #这个统计选项可以很好的说明服务器在处理能力达到极限时其出口带宽的需求量,可以帮助排除是否存在网络流量过大导致响应时间延长的问题
+Connection Times (ms) #网络上消耗的时间的分解
+              min  mean[+/-sd] median   max 
+Connect:        0    1   0.7      1       4  
+Processing:    24   99  93.1     68     482  
+Waiting:       19   92  92.1     59     475  
+Total:         25  100  93.3     69     482
+#整个场景中所有请求的响应情况,在场景中每个请求都有一个响应时间
+#下面结果表明,50％的用户响应时间(即请求处理时间,这里处理时间是指Time per request)小于69毫秒,66％的用户响应时间小于97毫秒,而最大的响应时间小于1268毫秒
+#对于并发请求,实际上CPU并不是同时处理的,而是按照每个请求获得的时间片而逐个轮转处理的,所以基本上第一个Time per request时间约等于第二个Time per request时间乘以并发请求数
+Percentage of the requests served within a certain time (ms) 
+  50%     69  
+  66%     97  
+  75%    117  
+  80%    123  
+  90%    224  
+  95%    330  
+  98%    452  
+  99%    482  
+ 100%    482 (longest request)  
+
+ab -c 1000 -t 10 http://106.3.38.35:8080/
+ab -n 10000 -c 1000 http://106.3.38.35:8080/
+cat /proc/sys/fs/file-max 188712
+ulimit -n 388712 2000
+ulimit -n 588712 3000
+ulimit -n 1024
+ 
+1000/10	1000/30	2000/10	2000/30	3000/30	5000/30
+Rps	4551.59	4419.52	4425.09	4714.81	4989.14	4816.55
+Tpq	0.220	0.226	0.226	0.212	0.200	0.208
+fail	0	0	0	0	0	0
+
+rps:代表每秒处理请求数，并发的主要指标 
+tpq:每个请求处理的时间，单位毫秒。 
+fail:代表平均处理失败请求数。
+
+ab -n 10000 -c 1000 'http://211.155.86.237:8090/autoRegister?registerType=2'
+ab -n 1 -c 1 'http://211.155.86.237:8090/autoRegister?registerType=2'
+ab -n 10000 -c 1000 'http://localhost:8090/autoRegister?registerType=2'
+ab -n 1000 -c 100 'http://localhost:8090/autoRegister?registerType=2'
+
+
+ab -n 30000 -t 100000000 'http://localhost:8090/autoRegister?registerType=2'
+
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 5000 requests
+Completed 10000 requests
+Completed 15000 requests
+Completed 20000 requests
+Completed 25000 requests
+Completed 30000 requests
+Completed 35000 requests
+Completed 40000 requests
+Completed 45000 requests
+Completed 50000 requests
+Finished 50000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8090
+
+Document Path:          /autoRegister?registerType=2
+Document Length:        209 bytes
+
+Concurrency Level:      1
+Time taken for tests:   127.046 seconds
+Complete requests:      50000
+Failed requests:        46765
+   (Connect: 0, Receive: 0, Length: 46765, Exceptions: 0)
+Write errors:           0
+Total transferred:      24728067 bytes
+HTML transferred:       10496765 bytes
+Requests per second:    393.56 [#/sec] (mean)
+Time per request:       2.541 [ms] (mean)
+Time per request:       2.541 [ms] (mean, across all concurrent requests)
+Transfer rate:          190.08 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:     2    3   0.8      2      42
+Waiting:        2    2   0.8      2      41
+Total:          2    3   0.8      2      42
+WARNING: The median and mean for the processing time are not within a normal deviation
+        These results are probably not that reliable.
+WARNING: The median and mean for the total time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      3
+  75%      3
+  80%      3
+  90%      3
+  95%      3
+  98%      4
+  99%      6
+ 100%     42 (longest request)
+ 
+16562 root      20   0  842m  70m 6500 R 92.2  3.8   0:38.02 node                                                                                            
+31834 seaking   20   0 52748  21m 1256 S 19.0  1.1   1:14.05 redis-server                                                                                    
+16568 root      20   0 60204 3332 2160 S  3.0  0.2   0:02.49 ab                                                                                              
+ 1465 mongod    20   0  454m  36m 4660 S  0.7  1.9  67:41.35 mongod                                                                                          
+16458 seaking   20   0 15024 1272  964 R  0.3  0.1   0:01.09 top                                                                                             
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.18 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.20 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.61 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.19 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.58 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.21 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.39 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:02.99 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.19 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.01 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.93 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd     
+   
+ab -n 30000 -c 500 'http://localhost:8090/autoRegister?registerType=2'
+ab -n 30000 -c 100 'http://localhost:8090/autoRegister?registerType=2'
+apr_poll: The timeout specified has expired (70007)
+ab -n 1000 -c 90 'http://localhost:8090/autoRegister?registerType=2'
+
+ab -n 30000 -c 1000 'http://localhost:8090/autoRegister?registerType=2'
+apr_socket_recv: Connection reset by peer (104)
+
+ab -n 30000 -c 500 'http://localhost:8090/autoRegister?registerType=2'
+
+ab -n 30000 'http://localhost:8090/autoRegister?registerType=2'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 3000 requests
+Completed 6000 requests
+Completed 9000 requests
+Completed 12000 requests
+Completed 15000 requests
+Completed 18000 requests
+Completed 21000 requests
+Completed 24000 requests
+Completed 27000 requests
+Completed 30000 requests
+Finished 30000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8090
+
+Document Path:          /autoRegister?registerType=2
+Document Length:        210 bytes
+
+Concurrency Level:      1
+Time taken for tests:   77.991 seconds
+Complete requests:      30000
+Failed requests:        0
+Write errors:           0
+Total transferred:      14839306 bytes
+HTML transferred:       6300000 bytes
+Requests per second:    384.66 [#/sec] (mean)
+Time per request:       2.600 [ms] (mean)
+Time per request:       2.600 [ms] (mean, across all concurrent requests)
+Transfer rate:          185.81 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:     2    3   0.7      2      42
+Waiting:        2    3   0.7      2      42
+Total:          2    3   0.7      2      42
+WARNING: The median and mean for the processing time are not within a normal deviation
+        These results are probably not that reliable.
+WARNING: The median and mean for the waiting time are not within a normal deviation
+        These results are probably not that reliable.
+WARNING: The median and mean for the total time are not within a normal deviation
+        These results are probably not that reliable.
+
+Percentage of the requests served within a certain time (ms)
+  50%      2
+  66%      3
+  75%      3
+  80%      3
+  90%      3
+  95%      3
+  98%      4
+  99%      6
+ 100%     42 (longest request)
+
+17262 seaking   20   0  841m  68m 6500 R 85.2  3.7   0:31.98 node                                                                                            
+31834 seaking   20   0  115m  61m 1256 S 22.6  3.3   2:04.59 redis-server                                                                                    
+17268 seaking   20   0 59580 3244 2160 S  6.0  0.2   0:01.33 ab                                                                                              
+ 1465 mongod    20   0  454m  36m 4660 S  0.3  1.9  67:47.75 mongod                                                                                          
+16458 seaking   20   0 15024 1276  964 R  0.3  0.1   0:02.86 top                                                                                             
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.20 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.36 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.61 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.27 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.59 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.41 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.58 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.00 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.20 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.02 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.93 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd 
+   
+ab -n 30000 -c 300 'http://localhost:8090/autoRegister?registerType=2'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 3000 requests
+Completed 6000 requests
+Completed 9000 requests
+Completed 12000 requests
+Completed 15000 requests
+Completed 18000 requests
+Completed 21000 requests
+Completed 24000 requests
+Completed 27000 requests
+Completed 30000 requests
+Finished 30000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8090
+
+Document Path:          /autoRegister?registerType=2
+Document Length:        210 bytes
+
+Concurrency Level:      300
+Time taken for tests:   74.255 seconds
+Complete requests:      30000
+Failed requests:        25064
+   (Connect: 0, Receive: 0, Length: 25064, Exceptions: 0)
+Write errors:           0
+Total transferred:      14864104 bytes
+HTML transferred:       6325064 bytes
+Requests per second:    404.01 [#/sec] (mean)
+Time per request:       742.554 [ms] (mean)
+Time per request:       2.475 [ms] (mean, across all concurrent requests)
+Transfer rate:          195.48 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    8 104.4      0    3002
+Processing:   354  733  82.0    717    1489
+Waiting:      354  733  82.0    717    1489
+Total:        354  741 127.0    718    3604
+
+Percentage of the requests served within a certain time (ms)
+  50%    718
+  66%    760
+  75%    780
+  80%    801
+  90%    832
+  95%    872
+  98%    931
+  99%   1142
+ 100%   3604 (longest request)
+ 
+testCreateMainPlayer
+ab -n 30000 -c 300 'http://211.155.86.237:4011/role/testCreateMainPlayer'
+ab -n 30000 -c 300 'http://localhost:4011/role/testCreateMainPlayer'
+
+31834 seaking   20   0  195m 151m 1256 S  0.7  8.1   3:00.20 redis-server                                                                                    
+  940 root      20   0     0    0    0 S  0.3  0.0   0:04.37 flush-253:0                                                                                     
+ 1465 mongod    20   0  454m  36m 4660 R  0.3  1.9  67:49.33 mongod                                                                                          
+16458 seaking   20   0 15024 1276  964 R  0.3  0.1   0:03.28 top                                                                                             
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.20 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.48 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.62 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.39 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.59 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.45 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.61 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.00 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.20 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.02 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.94 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd                                                                                      
+   38 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kswapd0   
+   
+ab -n 30000 'http://localhost:4011/role/testCreateMainPlayer'
+
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 3000 requests
+Completed 6000 requests
+Completed 9000 requests
+Completed 12000 requests
+Completed 15000 requests
+Completed 18000 requests
+Completed 21000 requests
+Completed 24000 requests
+Completed 27000 requests
+Completed 30000 requests
+Finished 30000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            4011
+
+Document Path:          /role/testCreateMainPlayer
+Document Length:        6854 bytes
+
+Concurrency Level:      1
+Time taken for tests:   122.533 seconds
+Complete requests:      30000
+Failed requests:        29991
+   (Connect: 0, Receive: 0, Length: 29991, Exceptions: 0)
+Write errors:           0
+Total transferred:      214895108 bytes
+HTML transferred:       205726834 bytes
+Requests per second:    244.83 [#/sec] (mean)
+Time per request:       4.084 [ms] (mean)
+Time per request:       4.084 [ms] (mean, across all concurrent requests)
+Transfer rate:          1712.67 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       1
+Processing:     3    4   1.0      4      54
+Waiting:        3    4   1.0      4      53
+Total:          3    4   1.0      4      55
+
+Percentage of the requests served within a certain time (ms)
+  50%      4
+  66%      4
+  75%      4
+  80%      4
+  90%      5
+  95%      5
+  98%      7
+  99%      8
+ 100%     55 (longest request)
+ 
+top - 19:15:00 up 14 days, 18:57,  2 users,  load average: 0.26, 0.22, 0.11
+Tasks: 110 total,   3 running, 107 sleeping,   0 stopped,   0 zombie
+Cpu(s): 43.0%us,  7.1%sy,  0.0%ni, 45.7%id,  0.0%wa,  0.0%hi,  4.2%si,  0.0%st
+Mem:   1922552k total,  1182664k used,   739888k free,   228560k buffers
+Swap:  2096440k total,        0k used,  2096440k free,   294652k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                         
+17279 seaking   20   0  895m  67m 6124 R 95.8  3.6   0:25.85 node                                                                                            
+31834 seaking   20   0  195m 151m 1256 R 13.6  8.1   3:06.38 redis-server                                                                                    
+17286 seaking   20   0 59580 3032 2156 S  3.0  0.2   0:01.22 ab                                                                                              
+ 1465 mongod    20   0  454m  36m 4660 S  0.3  1.9  67:49.65 mongod                                                                                          
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.20 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.48 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.62 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.40 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.59 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.46 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.62 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.00 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.20 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.02 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.94 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd                                                                                      
+   38 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kswapd0 
+   
+   top - 19:18:24 up 14 days, 19:00,  2 users,  load average: 0.39, 0.27, 0.15
+Tasks: 110 total,   2 running, 108 sleeping,   0 stopped,   0 zombie
+Cpu(s): 42.8%us,  7.6%sy,  0.0%ni, 44.6%id,  0.0%wa,  0.0%hi,  5.1%si,  0.0%st
+Mem:   1922552k total,  1295600k used,   626952k free,   228564k buffers
+Swap:  2096440k total,        0k used,  2096440k free,   344160k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                         
+17300 seaking   20   0  895m  67m 6124 R 97.5  3.6   0:24.08 node                                                                                            
+17295 seaking   20   0  243m 211m 1244 S 23.3 11.3   0:06.86 redis-server                                                                                    
+17306 seaking   20   0 59580 3032 2156 S  5.0  0.2   0:01.53 ab                                                                                              
+ 1465 mongod    20   0  454m  36m 4660 S  0.3  1.9  67:50.32 mongod                                                                                          
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.20 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.49 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.62 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.40 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.59 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.46 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.63 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.00 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.20 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.02 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.94 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd                                                                                      
+   38 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kswapd0 
+   
+   top - 19:20:57 up 14 days, 19:03,  2 users,  load average: 0.59, 0.36, 0.19
+Tasks: 110 total,   2 running, 108 sleeping,   0 stopped,   0 zombie
+Cpu(s): 42.5%us,  7.1%sy,  0.0%ni, 47.6%id,  0.0%wa,  0.0%hi,  2.9%si,  0.0%st
+Mem:   1922552k total,  1437276k used,   485276k free,   228572k buffers
+Swap:  2096440k total,        0k used,  2096440k free,   406908k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                         
+17312 seaking   20   0  894m  64m 6124 R 91.5  3.4   0:14.80 node                                                                                            
+17295 seaking   20   0  319m 287m 1256 S 14.3 15.3   0:45.71 redis-server                                                                                    
+17318 seaking   20   0 59580 2960 2160 S  3.3  0.2   0:00.61 ab                                                                                              
+ 1465 mongod    20   0  454m  36m 4660 S  0.3  1.9  67:50.89 mongod                                                                                          
+16434 seaking   20   0 95828 1724  776 S  0.3  0.1   0:00.49 sshd                                                                                            
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:06.20 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.65 migration/0                                                                                     
+    4 root      20   0     0    0    0 S  0.0  0.0   0:28.49 ksoftirqd/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.62 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.28 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:22.42 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.59 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:48.47 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:40.64 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.00 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.20 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.02 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:02.94 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.22 khungtaskd 
+   
+ab -n 1000 -c 100 'http://localhost:8090/autoRegister?registerType=2'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8090
+
+Document Path:          /autoRegister?registerType=2
+Document Length:        211 bytes
+
+Concurrency Level:      100
+Time taken for tests:   2.828 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      495740 bytes
+HTML transferred:       211000 bytes
+Requests per second:    353.62 [#/sec] (mean)
+Time per request:       282.792 [ms] (mean)
+Time per request:       2.828 [ms] (mean, across all concurrent requests)
+Transfer rate:          171.19 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.5      0       4
+Processing:   229  280  35.3    288     387
+Waiting:      229  279  35.3    288     387
+Total:        229  280  35.6    288     388
+
+Percentage of the requests served within a certain time (ms)
+  50%    288
+  66%    290
+  75%    292
+  80%    293
+  90%    334
+  95%    358
+  98%    379
+  99%    383
+ 100%    388 (longest request)
+ 
+ab -n 1000 -c 200 'http://localhost:8090/autoRegister?registerType=2'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8090
+
+Document Path:          /autoRegister?registerType=2
+Document Length:        211 bytes
+
+Concurrency Level:      200
+Time taken for tests:   2.675 seconds
+Complete requests:      1000
+Failed requests:        0
+Write errors:           0
+Total transferred:      495740 bytes
+HTML transferred:       211000 bytes
+Requests per second:    373.83 [#/sec] (mean)
+Time per request:       534.995 [ms] (mean)
+Time per request:       2.675 [ms] (mean, across all concurrent requests)
+Transfer rate:          180.98 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   64 242.9      0    1001
+Processing:   165  434 114.9    450     749
+Waiting:      165  434 114.9    449     749
+Total:        165  497 280.3    450    1749
+
+Percentage of the requests served within a certain time (ms)
+  50%    450
+  66%    458
+  75%    557
+  80%    587
+  90%    650
+  95%   1475
+  98%   1477
+  99%   1478
+ 100%   1749 (longest request)
+ 
+ab -n 1000 -c 200 'http://localhost:4011/role/testCreateMainPlayer' > test.txt
+ab -v 2 -n 1000 -c 200 'http://localhost:4011/role/testCreateMainPlayer' > test.txt
+
+ab -v 2 -n 30000 -c 200 'http://localhost:4011/role/testCreateMainPlayer' > test.txt
+
+top - 14:09:26 up 15 days, 13:51,  2 users,  load average: 0.30, 0.07, 0.02
+Tasks: 101 total,   3 running,  98 sleeping,   0 stopped,   0 zombie
+Cpu(s): 41.7%us,  9.5%sy,  0.0%ni, 42.7%id,  0.0%wa,  0.0%hi,  6.1%si,  0.0%st
+Mem:   1922552k total,  1582232k used,   340320k free,   227304k buffers
+Swap:  2096440k total,        0k used,  2096440k free,   458568k cached
+
+  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                                                                         
+17360 seaking   20   0 1005m 112m 6132 R 102.2  6.0   0:20.04 node                                                                                           
+17295 seaking   20   0  363m 331m 1256 R 36.6 17.7   1:30.01 redis-server                                                                                    
+ 2156 seaking   20   0 61496 4320 2152 S 10.3  0.2   0:00.67 ab                                                                                              
+    4 root      20   0     0    0    0 S  0.3  0.0   0:29.74 ksoftirqd/0                                                                                     
+ 1465 mongod    20   0  454m  36m 4660 S  0.3  1.9  71:31.45 mongod                                                                                          
+    1 root      20   0 19228 1480 1188 S  0.0  0.1   0:07.00 init                                                                                            
+    2 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kthreadd                                                                                        
+    3 root      RT   0     0    0    0 S  0.0  0.0   0:00.70 migration/0                                                                                     
+    5 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/0                                                                                     
+    6 root      RT   0     0    0    0 S  0.0  0.0   0:01.70 watchdog/0                                                                                      
+    7 root      RT   0     0    0    0 S  0.0  0.0   0:00.33 migration/1                                                                                     
+    8 root      RT   0     0    0    0 S  0.0  0.0   0:00.00 migration/1                                                                                     
+    9 root      20   0     0    0    0 S  0.0  0.0   0:23.91 ksoftirqd/1                                                                                     
+   10 root      RT   0     0    0    0 S  0.0  0.0   0:01.67 watchdog/1                                                                                      
+   11 root      20   0     0    0    0 S  0.0  0.0   0:51.13 events/0                                                                                        
+   12 root      20   0     0    0    0 S  0.0  0.0   0:43.35 events/1                                                                                        
+   13 root      20   0     0    0    0 S  0.0  0.0   0:00.00 cgroup                                                                                          
+   14 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khelper                                                                                         
+   15 root      20   0     0    0    0 S  0.0  0.0   0:00.00 netns                                                                                           
+   16 root      20   0     0    0    0 S  0.0  0.0   0:00.00 async/mgr                                                                                       
+   17 root      20   0     0    0    0 S  0.0  0.0   0:00.00 pm                                                                                              
+   18 root      20   0     0    0    0 S  0.0  0.0   0:03.16 sync_supers                                                                                     
+   19 root      20   0     0    0    0 S  0.0  0.0   0:03.38 bdi-default                                                                                     
+   20 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/0                                                                                   
+   21 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kintegrityd/1                                                                                   
+   22 root      20   0     0    0    0 S  0.0  0.0   0:01.18 kblockd/0                                                                                       
+   23 root      20   0     0    0    0 S  0.0  0.0   0:03.08 kblockd/1                                                                                       
+   24 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpid                                                                                          
+   25 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_notify                                                                                    
+   26 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kacpi_hotplug                                                                                   
+   27 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/0                                                                                           
+   28 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata/1                                                                                           
+   29 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ata_aux                                                                                         
+   30 root      20   0     0    0    0 S  0.0  0.0   0:00.00 ksuspend_usbd                                                                                   
+   31 root      20   0     0    0    0 S  0.0  0.0   0:00.00 khubd                                                                                           
+   32 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kseriod                                                                                         
+   33 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/0                                                                                            
+   34 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md/1                                                                                            
+   35 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/0                                                                                       
+   36 root      20   0     0    0    0 S  0.0  0.0   0:00.00 md_misc/1                                                                                       
+   37 root      20   0     0    0    0 S  0.0  0.0   0:00.23 khungtaskd                                                                                      
+   38 root      20   0     0    0    0 S  0.0  0.0   0:00.00 kswapd0 
+   
+ab -n 1000 -c 200 'http://localhost:8000/'
+ab -n 1000 -c 200 'http://211.155.86.237:8000/'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            8000
+
+Document Path:          /
+Document Length:        1 bytes
+
+Concurrency Level:      200
+Time taken for tests:   0.255 seconds
+Complete requests:      1000
+Failed requests:        991
+   (Connect: 0, Receive: 0, Length: 991, Exceptions: 0)
+Write errors:           0
+Total transferred:      77893 bytes
+HTML transferred:       2893 bytes
+Requests per second:    3925.94 [#/sec] (mean)
+Time per request:       50.943 [ms] (mean)
+Time per request:       0.255 [ms] (mean, across all concurrent requests)
+Transfer rate:          298.64 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.1      0       4
+Processing:    18   31  10.6     29     205
+Waiting:       16   30  10.6     29     205
+Total:         22   31  10.7     29     205
+
+Percentage of the requests served within a certain time (ms)
+  50%     29
+  66%     30
+  75%     31
+  80%     38
+  90%     43
+  95%     45
+  98%     54
+  99%     55
+ 100%    205 (longest request)
+ 
+http://192.168.1.99:4011/auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3&jsoncallback=jQuery110204726751435082406_1381478514170&_=1381478514172
+http://192.168.1.22:4011/auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3&jsoncallback=jQuery110204726751435082406_1381478514170&_=1381478514173
+
+ab -n 1000 -c 100 'http://192.168.1.22:4011/auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3'
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.1.22 (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Completed 600 requests
+Completed 700 requests
+Completed 800 requests
+Completed 900 requests
+Completed 1000 requests
+Finished 1000 requests
+
+
+Server Software:        
+Server Hostname:        192.168.1.22
+Server Port:            4011
+
+Document Path:          /auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3
+Document Length:        11000 bytes
+
+Concurrency Level:      100
+Time taken for tests:   10.252 seconds
+Complete requests:      1000
+Failed requests:        997
+   (Connect: 0, Receive: 0, Length: 997, Exceptions: 0)
+Write errors:           0
+Total transferred:      11311509 bytes
+HTML transferred:       11004899 bytes
+Requests per second:    97.54 [#/sec] (mean)
+Time per request:       1025.177 [ms] (mean)
+Time per request:       10.252 [ms] (mean, across all concurrent requests)
+Transfer rate:          1077.51 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   1.3      0       6
+Processing:   747  997 113.4    977    1411
+Waiting:      746  996 113.4    977    1411
+Total:        752  997 113.9    977    1414
+
+Percentage of the requests served within a certain time (ms)
+  50%    977
+  66%   1048
+  75%   1068
+  80%   1074
+  90%   1095
+  95%   1203
+  98%   1321
+  99%   1369
+ 100%   1414 (longest request)
+ 
+ab -v 2 -n 1000 -c 100 'http://192.168.1.22:4011/auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3' > text_auth.txt
+
+ab -n 1000 -c 100 'http://192.168.1.22:4011/auth?token=6f7ca24dd5ed8115e74bc48f62e3a5f9884c262fe765cf43e807ceb4553cfef3'
+
+ab -v 2 -n 1000 -c 200 'http://211.155.86.237:4011/role/testCreateMainPlayer'

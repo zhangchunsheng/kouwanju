@@ -1,0 +1,150 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				},
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				}
+			]
+		},
+		{
+			"gid": "UI_worldmap",
+			"active": true,
+			"visible": true,
+			"layer": "uiWorldmap",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "Map",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "renderer.ImageRenderer",
+							"properties": {
+								"src": "resources/worldmap/map.jpg",
+								"renderWidth": "100%",
+								"renderHeight": "640"
+							}
+						},
+						{
+							"cid": "base.AlwaysHitDelegate",
+							"properties": {}
+						},
+						{
+							"cid": "worldmap.component.Scroller",
+							"properties": {}
+						}
+					]
+				},
+				{
+					"gid": "BtnLayout",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "ExitBtn",
+							"active": true,
+							"visible": true,
+							"layer": "uiWorldmapBtn",
+							"transform": {
+								"x": -152,
+								"y": -72,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.TextureButton",
+									"properties": {
+										"name": "WorldMapReturnBtn",
+										"texture": "resources/texture/UI_others.tt",
+										"normalIndex": "14",
+										"pressIndex": "15"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.Float",
+							"properties": {
+								"float": "right_bottom"
+							}
+						}
+					]
+				}
+			],
+			"components": []
+		}
+	]
+}

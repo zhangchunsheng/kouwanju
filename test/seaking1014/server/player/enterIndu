@@ -1,0 +1,48 @@
+{
+  "code": 200,
+  "induInfo": {
+    "induId": "Ins10101",
+    "induData": [
+      {
+        "eventId": "MG101011",
+        "mgid": "MG101011",
+        "showMonsterId": "M10101"
+      },
+      {
+        "eventId": "MG101012",
+        "mgid": "MG101012",
+        "showMonsterId": "M10101"
+      },
+      {
+        "eventId": "MG101013",
+        "mgid": "MG101013",
+        "showMonsterId": "M10101"
+      },
+      {
+        "eventId": "MG101014",
+        "mgid": "MG101014",
+        "showMonsterId": "M10101"
+      },
+      {
+        "eventId": "MG101015",
+        "mgid": "MG101015",
+        "showMonsterId": "M10102"
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "eventId": "E101011"
+      },
+      {
+        "eventId": "E101012"
+      },
+      null,
+      null,
+      null,
+      null
+    ],
+    "enterDate": 1380299995867
+  }
+}

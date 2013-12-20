@@ -30,6 +30,7 @@ var Task = function(opts) {
     this.registerType = opts.registerType;
     this.loginName = opts.loginName;
     this.kindId = opts.taskId;
+    this.taskId = opts.taskId;
     this.status = opts.status;
     this.startTime = opts.startTime || (new Date()).getTime();
     this.finishTime = opts.finishTime || 0;
@@ -55,6 +56,9 @@ module.exports = Task;
  */
 
 Task.prototype._initTaskInfo = function() {
+    if(typeof this.taskRecord.itemNum != "undefined") {
+        this.taskRecord.itemNum = parseInt(this.taskRecord.itemNum);
+    }
     var info = taskData.findById(this.kindId);
     if (!!info) {
         for(var key in info) {
@@ -169,9 +173,9 @@ Task.prototype.updateStatus = function(player, itemNum, flag) {
     }
 
     if(flag) {
-        this.taskRecord.itemNum = itemNum;
+        this.taskRecord.itemNum = parseInt(itemNum);
     } else {
-        this.taskRecord.itemNum += itemNum;
+        this.taskRecord.itemNum += parseInt(itemNum);
     }
 
     if(this.taskRecord.itemNum >= this.taskGoal.itemNum) {
@@ -224,7 +228,7 @@ Task.prototype.strip = function() {
         serverId: this.serverId,
         registerType: this.registerType,
         loginName: this.loginName,
-        taskId: this.kindId,
+        taskId: this.taskId,
         status: this.status,
         startTime: this.startTime,
         finishTime: this.finishTime,
@@ -237,7 +241,7 @@ Task.prototype.strip = function() {
  */
 Task.prototype.taskInfo = function() {
     return {
-        taskId: this.kindId,
+        taskId: this.taskId,
         status: this.status,
         startTime: this.startTime,
         finishTime: this.finishTime,
@@ -256,7 +260,7 @@ Task.prototype.logTask = function() {
         serverId: this.serverId,
         registerType: this.registerType,
         loginName: this.loginName,
-        taskId: this.kindId,
+        taskId: this.taskId,
         status: consts.TaskStatus.HANDOVERED,
         startTime: this.startTime,
         finishTime: this.finishTime,

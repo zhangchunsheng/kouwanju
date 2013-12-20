@@ -5,6 +5,10 @@
  * Date: 2013-09-22
  * Description: shop
  */
+var packageService = require('../app/services/packageService');
+var userService = require('../app/services/userService');
+var equipmentsService = require('../app/services/equipmentsService');
+var taskService = require('../app/services/taskService');
 var shopService = require('../app/services/shopService');
 var userService = require('../app/services/userService');
 var Code = require('../shared/code');
@@ -12,6 +16,7 @@ var utils = require('../app/utils/utils');
 var dataApi = require('../app/utils/dataApi');
 var PackageType = require('../app/consts/consts').PackageType;
 var consts = require('../app/consts/consts');
+var async = require("async");
 
 exports.index = function(req, res) {
     res.send("index");
@@ -26,9 +31,11 @@ exports.buyItem = function(req, res) {
     var msg = req.query;
     var session = req.session;
 
-    var wid = msg.wid
-        , num = msg.num;
-
+    var index = msg.index;
+    var npcId = msg.npcId;
+    if(!index || !npcId){
+        return utils.send(msg, res, {code: Code.ARGUMENT_EXCEPTION});
+    }
     var uid = session.uid
         , serverId = session.serverId
         , registerType = session.registerType
@@ -36,25 +43,37 @@ exports.buyItem = function(req, res) {
 
     var playerId = session.playerId;
     var characterId = utils.getRealCharacterId(playerId);
-
+    // var currentScene = msg.currentScene;
+    
     var data = {};
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
-        var result=false;
+        var result = false;
 
-        var items = dataApi.shops.findById(player.currentScene).shopData;
-        for(var i = 0 ; i < items.length ; i++) {
-            if(items[i].indexOf(wid) == 0) {
-                result = true;
-                break;
-            }
-        }
-        if(!result) {
+        /*if(currentScene != player.currentScene) {
             data = {
-                code: Code.FAIL
+                code: Code.AREA.WRONG_CURRENTSCENE
+            };
+            utils.send(msg, res, data);
+            return;
+        }*/
+        var shops = dataApi.shops.findById(npcId);
+        if(!shops ) {
+            return utils.send(msg, res, {
+                code: Code.SHOP.NOT_EXIST_NPCSHOP
+            });
+        }
+        var items = shops.shopData;
+        var itemData = items[index];
+        if(!itemData) {
+            data = {
+                code: Code.SHOP.NOT_EXIST_ITEM
             };
             utils.send(msg, res, data);
             return;
         }
+        var data = itemData.split("|");
+        var itemId = data[0];
+        var itemNum = data[1]||1;
         
 //      if(!) {
 //          next(null,{
@@ -63,38 +82,41 @@ exports.buyItem = function(req, res) {
 //          return;
 //      }
         var itemInfo = {};
-        var type = "";
-        if(wid.indexOf("D") >= 0) {
+        var type ;
+        if(itemId.indexOf("D") >= 0) {
             type = PackageType.ITEMS;
-            itemInfo = dataApi.item.findById(wid);
-        } else if(wid.indexOf("W") >= 0) {
-            type = PackageType.WEAPONS;
-            itemInfo = dataApi.equipment.findById(wid);
-        } else {
+            itemInfo = dataApi.item.findById(itemId);
+        } else if(itemId.indexOf("E") >= 0) {
             type = PackageType.EQUIPMENTS;
-            itemInfo = dataApi.equipment.findById(wid);
+            itemInfo = dataApi.equipment.findById(itemId);
+        } else if(itemId.indexOf("W") >= 0){
+            type = PackageType.WEAPONS;
+            itemInfo = dataApi.weapons.findById(itemId);
         }
-        if(typeof itemInfo == "undefined" || itemInfo == null){
+        console.log("itemInfo:",itemInfo);
+        if(typeof itemInfo == "undefined" || itemInfo == null) {
             data = {
                 code: Code.SHOP.NOT_EXIST_ITEM
             };
             utils.send(msg, res, data);
-            return ;
+            return;
         }
-        if( type == PackageType.WEAPONS || type == PackageType.EQUIPMENTS ) {
-            if(num != 1) {
-                utils.send(msg, res, {code:'数据错误'});
+        if(type == PackageType.WEAPONS || type == PackageType.EQUIPMENTS) {
+            if(itemNum != 1) {
+                utils.send(msg, res, {
+                     code:Code.ARGUMENT_EXCEPTION
+                });
                 return;    
             }
-        }else{
-            if(itemInfo.pileNum != num) {
+        } else {
+            /*if(itemInfo.pileNum < itemNum) {
                 utils.send(msg, res, {code:'数据错误'});
                 return;      
-            }
+            }*/
         }
         var price = itemInfo.price;
-        var costMoney = price * num;
-
+        var costMoney = price * itemNum;
+        console.log("Price:",price);
         if(player.money < costMoney) {
             data = {
                 code: Code.SHOP.NOT_ENOUGHT_MONEY
@@ -104,13 +126,13 @@ exports.buyItem = function(req, res) {
         }
         
         var item = {
-            itemId: wid,
-            itemNum: num,
-            level: 1
+            itemId: itemId,
+            itemNum: itemNum,
+            level: itemInfo.level || 1
         }
 
         var result = player.buyItem(type, item, costMoney);
-
+        
         /*if(result.packageIndex == -1) {
             data = {
                 code: Code.PACKAGE.NOT_ENOUGHT_SPACE
@@ -124,8 +146,7 @@ exports.buyItem = function(req, res) {
             };
             utils.send(msg, res, data);
         }*/
-
-        if(result.packageChange.length == 0) {
+        if(!result || result.packageChange.length == 0) {
             data = {
                 code: Code.PACKAGE.NOT_ENOUGHT_SPACE
             };
@@ -133,10 +154,29 @@ exports.buyItem = function(req, res) {
         } else {
             data = {
                 code: consts.MESSAGE.RES,
-                money: result.money,
-                packageChange: result.packageChange
+                data:{
+                    money: result.money,
+                    packageChange: result.packageChange
+                }
+                
+                //costMoney: costMoney
             };
-            utils.send(msg, res, data);
+            async.parallel([
+                function(callback) {
+                    userService.updatePlayerAttribute(player, callback);
+                },
+                function(callback) {
+                    packageService.update(player.packageEntity.strip(), callback);
+                },
+                function(callback) {
+                    equipmentsService.update(player.equipmentsEntity.strip(), callback);
+                },
+                function(callback) {
+                    taskService.updateTask(player, player.curTasksEntity.strip(), callback);
+                }
+            ], function(err, reply) {
+                utils.send(msg, res, data);
+            });
         }
     });
 }

@@ -1,4 +1,4 @@
- /**
+/**
  * Copyright(c)2013,Wozlla,www.wozlla.com
  * Version: 1.0
  * Author: Peter Zhang
@@ -99,6 +99,15 @@ module.exports = {
         4: "currentExerciseTask"
     },
 
+    pushMessageType: {
+        ARENA_PK: 1,
+        TIP_MESSAGE: 2
+    },
+
+    messageChannel: {
+        PUSH_MESSAGE: "pushMessage"
+    },
+
     /**
      * 任务目标类型
      * 0 - 接取即完成
@@ -123,6 +132,7 @@ module.exports = {
         EQUIPMENT: 5,
         TO_LEVEL: 6,
         UPGRADE_EQUIPMENT: 7,
+        FORGEUPGRADE_EQUIPMENT: 12,
         BUY_ITEM: 8,
         CONSUMER_GAMECURRENCY: 9,
         LEARN_SKILL: 10,
@@ -137,7 +147,8 @@ module.exports = {
     PackageType: {
         WEAPONS: "weapons",
         EQUIPMENTS: "equipments",
-        ITEMS: "items"
+        ITEMS: "items",
+        DIAMOND: "diamond"
     },
 
     EqType: {
@@ -152,6 +163,18 @@ module.exports = {
         RING: 'ring'//戒指
     },
 
+    EqDict: [
+        'weapon',//武器
+        'necklace',//项链
+        'helmet',//头盔
+        'armor' ,//护甲
+        'belt',//腰带
+        'legguard',//护腿
+        'amulet',//护符
+        'shoes',//鞋
+        'ring'//戒指
+    ],
+
     MailType: {
         SYSTEM: 1,
         PLAYER: 2,
@@ -160,10 +183,12 @@ module.exports = {
     },
 
     MailKeyType:{
+        MAILIN:"MI",
+        MAILOUT:"MO",
+        READ:"ERR",
         NOREAD:"ERN",
         HASITEM:"ERW",
-        READ:"ERR",
-        SEND:"ES"
+        SEND:"ESS"
     },
 
     EventType: {
@@ -217,6 +242,39 @@ module.exports = {
         DODGE: "dodge",
         BLOCK: "block",
         COUNTER: "counter"
+    },
+
+    /*1 - 生命
+     2 - 攻击
+     3 - 防御
+     4 - 幸运
+     5 - 速度
+     6 - 暴击
+     7 - 格挡
+     8 - 闪避
+     9 - 反击*/
+    attrId: {
+        HP: 1,
+        ATTACK: 2,
+        DEFENSE: 3,
+        SUNDERARMOR: 4,
+        SPEED: 5,
+        CRITICALHIT: 6,
+        BLOCK: 7,
+        DODGE: 8,
+        COUNTER: 9
+    },
+
+    addGhostNumOneMinute: 10,
+
+    MONEY_TYPE: {
+        GOLDEN: "1",
+        GAME_CURRENCY: "2"
+    },
+
+    upgradeApititude: {
+        money: 1000,
+        gameCurrency: 2
     },
 
     correspondingSkillsType: {
@@ -279,7 +337,61 @@ module.exports = {
         "addBlood": 23,
         "attack_focus": 24,
         "skill": 25,
-        "ice": 26
+        "ice": 26,
+        "block_focus": 30,
+        "counter_focus": 31,
+        "criticalHit_focus": 32,
+        "revive": 33
+    },
+
+    buffKind: {
+        ITEM: 1,
+        SKILL: 2,
+        TEAM: 3
+    },
+
+    teamType: {
+        PLAYER_TEAM: 1,
+        MONSTER_TEAM: 2,
+        OPPONENT_TEAM: 3
+    },
+
+    buffScope: {
+        PEASONAL: 1,
+        TEAM: 2
+    },
+
+    effectName: {
+        HP: "hp",//HP
+        EXPERIENCE: "experience",//经验
+        ATTACK: "attack",//攻击
+        DEFENSE: "defense",//防御
+        FOCUS: "focus",//集中值
+        SPEED: "speed",//速度
+        DODGE: "dodge",//闪避
+        CRITICALHIT: "criticalHit",//暴击几率
+        CRITDAMAGE: "critDamage",//暴击伤害
+        BLOCK: "block",//格挡
+        COUNTER: "counter",//反击
+        PARALLELDAMAGE: "parallelDamage",//溅射伤害
+        BURN: "burn",//点燃
+        STUNT: "stunt",//禁锢
+        POISON: "poison",//施毒
+        CONFUSION: "confusion",//迷惑
+        DEFENSE_FOCUS: "defense_focus",//防御力加成(focus)
+        HPRECOVERYSPEED: "hpRecoverySpeed",//血量回复
+        ADDITEMATTR: "addItemAttr",//装备加成
+        ADDATTACK: "addAttack",//增加自己攻击力
+        BOUNCEATTACK: "bounceAttack",//反弹伤害
+        MONEY: "money",//额外金钱
+        ADDBLOOD: "addBlood",//吸血
+        ATTACK_FOCUS: "attack_focus",//攻击力加成(focus)
+        SKILL: "skill",//技能
+        ICE: "ice",//冰冻
+        BLOCK_FOCUS: "block_focus",//格挡focus加成
+        COUNTER_FOCUS: "counter_focus",//反击focus加成
+        CRITICALHIT_FOCUS: "criticalHit_focus",//暴击几率focus加成
+        REVIVE: "revive"
     },
 
     buffType: {
@@ -308,7 +420,32 @@ module.exports = {
         ADDBLOOD: "addBlood",//吸血
         ATTACK_FOCUS: "attack_focus",//攻击力加成(focus)
         SKILL: "skill",//技能
-        ICE: "ice"//冰冻
+        ICE: "ice",//冰冻
+        BLOCK_FOCUS: "block_focus",//格挡focus加成
+        COUNTER_FOCUS: "counter_focus",//反击focus加成
+        CRITICALHIT_FOCUS: "criticalHit_focus",//暴击几率focus加成
+        REVIVE: "revive",
+        ADDSPEED: "addspeed",
+        REDUCESPEED: "reducespeed"
+    },
+
+    characterFightStatus: {
+        COMMON: 1,//正常
+        FREEZEN: 2//冻结
+    },
+
+    characterFightType: {
+        ATTACK: 1,
+        DEFENSE: 2,
+        AFTER_ATTACK: 3,
+        AFTER_DEFENSE: 4,
+        ROUND: 5,
+        ATTACKING: 6
+    },
+
+    attackType: {
+        SINGLE: 1,
+        ALL: 2
     },
 
     correspondingEffect_attr: {
@@ -337,7 +474,11 @@ module.exports = {
         23: "addBlood",
         24: "attack_focus",
         25: "skill",
-        26: "ice"
+        26: "ice",
+        30: "block_focus",
+        31: "counter_focus",
+        32: "criticalHit_focus",
+        33: "revive"
     },
 
     valueType: {
@@ -348,9 +489,10 @@ module.exports = {
 
     timeType: {
         ATTACK_NUM: 0,//攻击次数
-        BEHITTED_NUM: 1,//受攻击次数
+        BEHITTED_NUM: 4,//受攻击次数
         ROUND: 2,//回合
-        PERMANENTLY: 3//永久
+        PERMANENTLY: 3,//永久
+        COUNT: 1
     },
 
     targetType: {
@@ -361,7 +503,43 @@ module.exports = {
         OWNER_RANDOM: 5,//己方随机目标
         OPPONENT_RANDOM: 6,//敌方随机目标
         OWNER_SPECIFIC: 7,//己方特定目标
-        OPPONENT_SPECIFIC: 8//敌方特定目标
+        OPPONENT_SPECIFIC: 8,//敌方特定目标 1周围1格，2正前，3正后，4左侧，5右侧，6前一行，7同行，8后一行
+        SKILL: 10
+    },
+
+    targetSpecialType: {
+        AROUND_ONE_CELL: 1// 周围1格
+    },
+
+    attackSide: {
+        OWNER: 1,//己方
+        OPPONENT: 2//敌方
+    },
+
+    attackAction: {
+        common: 1,//普通攻击
+        skill: 2,//技能攻击
+        addHp: 3
+    },
+
+    damageType: {
+        common: 1,
+        criticalHit: 2,
+        extraDamage: 3,
+        parallelDamage: 4
+    },
+
+    effectTargetType: {
+        OWNER: 1,
+        OPPONENT: 2
+    },
+
+    defenseAction: {//1 - 被击中 2 - 闪避 3 - 被击中反击 4 - 格挡
+        beHitted: 1,
+        dodge: 2,
+        counter: 3,
+        block: 4,
+        addHp: 5
     },
 
     requirementType: {

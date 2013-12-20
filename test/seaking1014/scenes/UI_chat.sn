@@ -1,0 +1,726 @@
+{
+	"backgroundColor": null,
+	"children": [
+		{
+			"gid": "Mask",
+			"active": true,
+			"visible": true,
+			"layer": "uiMask",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [],
+			"components": [
+				{
+					"cid": "base.EventMask",
+					"properties": {}
+				},
+				{
+					"cid": "base.AlwaysHitDelegate",
+					"properties": {}
+				}
+			]
+		},
+		{
+			"gid": "UI_chat",
+			"active": true,
+			"visible": true,
+			"layer": "chatUI",
+			"transform": {
+				"x": 0,
+				"y": 0,
+				"regX": 0,
+				"regY": 0,
+				"scaleX": 1,
+				"scaleY": 1,
+				"skewX": 0,
+				"skewY": 0,
+				"rotation": 0,
+				"alpha": 1
+			},
+			"children": [
+				{
+					"gid": "BG",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [],
+					"components": [
+						{
+							"cid": "base.NinePatchRenderer",
+							"properties": {
+								"texture": "resources/texture/UI_chat.tt",
+								"index": "3",
+								"width": "100%",
+								"height": "640",
+								"patchTop": 10,
+								"patchBottom": 10,
+								"patchLeft": 10,
+								"patchRight": 10
+							}
+						}
+					]
+				},
+				{
+					"gid": "Layout",
+					"active": true,
+					"visible": true,
+					"layer": null,
+					"transform": {
+						"x": 0,
+						"y": 0,
+						"regX": 0,
+						"regY": 0,
+						"scaleX": 1,
+						"scaleY": 1,
+						"skewX": 0,
+						"skewY": 0,
+						"rotation": 0,
+						"alpha": 1
+					},
+					"children": [
+						{
+							"gid": "MessageListBox",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -372,
+								"y": 14,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Messages",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 26,
+										"y": 32,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "chat.component.MessageRenderer",
+											"properties": {}
+										},
+										{
+											"cid": "chat.component.MessageScroller",
+											"properties": {}
+										},
+										{
+											"cid": "base.RectHitDelegate",
+											"properties": {
+												"x": 0,
+												"y": 0,
+												"width": 776,
+												"height": 452
+											}
+										}
+									]
+								},
+								{
+									"gid": "TopShadow",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 8,
+										"y": 8,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 0.3
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.NinePatchRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_all.tt",
+												"index": "100",
+												"width": "820",
+												"height": "30",
+												"patchTop": 0,
+												"patchBottom": 0,
+												"patchLeft": 67,
+												"patchRight": 67
+											}
+										}
+									]
+								},
+								{
+									"gid": "BottomShadow",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 8,
+										"y": 471,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 0.3
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "base.NinePatchRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_all.tt",
+												"index": "99",
+												"width": "815",
+												"height": "30",
+												"patchTop": 0,
+												"patchBottom": 0,
+												"patchLeft": 67,
+												"patchRight": 67
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_public.tt",
+										"index": "7",
+										"width": "830",
+										"height": "510",
+										"patchTop": 20,
+										"patchBottom": 20,
+										"patchLeft": 20,
+										"patchRight": 20
+									}
+								}
+							]
+						},
+						{
+							"gid": "ChannelContainer",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -480,
+								"y": 0,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "BG",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 0,
+										"y": 0,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": []
+								},
+								{
+									"gid": "ChannelBtn1Box",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 12,
+										"y": 30,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "Btn",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 12,
+												"y": 14,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_chat.tt",
+														"index": 0
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_chat.tt",
+												"index": "1"
+											}
+										}
+									]
+								},
+								{
+									"gid": "ChannelBtn2Box",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 12,
+										"y": 130,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "Btn",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 12,
+												"y": 14,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_chat.tt",
+														"index": 0
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_chat.tt",
+												"index": "1"
+											}
+										}
+									]
+								},
+								{
+									"gid": "ChannelBtn3Box",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 12,
+										"y": 230,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "Btn",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 12,
+												"y": 14,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_chat.tt",
+														"index": 0
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_chat.tt",
+												"index": "1"
+											}
+										}
+									]
+								},
+								{
+									"gid": "ChannelBtn4Box",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 12,
+										"y": 330,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "Btn",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 12,
+												"y": 14,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_chat.tt",
+														"index": 0
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "renderer.JSONTextureRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_chat.tt",
+												"index": "1"
+											}
+										}
+									]
+								}
+							],
+							"components": []
+						},
+						{
+							"gid": "InputBox",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": -372,
+								"y": 534,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [
+								{
+									"gid": "Input",
+									"active": true,
+									"visible": true,
+									"layer": null,
+									"transform": {
+										"x": 40,
+										"y": 18,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [
+										{
+											"gid": "Focus",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 12,
+												"y": 10,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "renderer.JSONTextureRenderer",
+													"properties": {
+														"texture": "resources/texture/UI_chat.tt",
+														"index": "5"
+													}
+												}
+											]
+										},
+										{
+											"gid": "Text",
+											"active": true,
+											"visible": true,
+											"layer": null,
+											"transform": {
+												"x": 14,
+												"y": 29,
+												"regX": 0,
+												"regY": 0,
+												"scaleX": 1,
+												"scaleY": 1,
+												"skewX": 0,
+												"skewY": 0,
+												"rotation": 0,
+												"alpha": 1
+											},
+											"children": [],
+											"components": [
+												{
+													"cid": "base.Text",
+													"properties": {
+														"text": "一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十",
+														"color": "#ffffff",
+														"font": "normal 18px Hei,黑体",
+														"baseline": "middle",
+														"align": "start"
+													}
+												}
+											]
+										}
+									],
+									"components": [
+										{
+											"cid": "base.NinePatchRenderer",
+											"properties": {
+												"texture": "resources/texture/UI_chat.tt",
+												"index": "4",
+												"width": "590",
+												"height": "55",
+												"patchTop": 20,
+												"patchBottom": 20,
+												"patchLeft": 20,
+												"patchRight": 20
+											}
+										}
+									]
+								},
+								{
+									"gid": "SendBtn",
+									"active": true,
+									"visible": true,
+									"layer": "chatUI",
+									"transform": {
+										"x": 658,
+										"y": 18,
+										"regX": 0,
+										"regY": 0,
+										"scaleX": 1,
+										"scaleY": 1,
+										"skewX": 0,
+										"skewY": 0,
+										"rotation": 0,
+										"alpha": 1
+									},
+									"children": [],
+									"components": [
+										{
+											"cid": "renderer.TextureButton",
+											"properties": {
+												"name": "ChatSendBtn",
+												"texture": "resources/texture/UI_chat.tt",
+												"normalIndex": "6",
+												"pressIndex": "7"
+											}
+										},
+										{
+											"cid": "base.RectHitDelegate",
+											"properties": {
+												"x": -10,
+												"y": 0,
+												"width": 152,
+												"height": 72
+											}
+										}
+									]
+								}
+							],
+							"components": [
+								{
+									"cid": "base.NinePatchRenderer",
+									"properties": {
+										"texture": "resources/texture/UI_public.tt",
+										"index": "7",
+										"width": "830",
+										"height": "90",
+										"patchTop": 20,
+										"patchBottom": 20,
+										"patchLeft": 20,
+										"patchRight": 20
+									}
+								}
+							]
+						},
+						{
+							"gid": "CloseBtn",
+							"active": true,
+							"visible": true,
+							"layer": null,
+							"transform": {
+								"x": 411,
+								"y": 7,
+								"regX": 0,
+								"regY": 0,
+								"scaleX": 1,
+								"scaleY": 1,
+								"skewX": 0,
+								"skewY": 0,
+								"rotation": 0,
+								"alpha": 1
+							},
+							"children": [],
+							"components": [
+								{
+									"cid": "renderer.TextureButton",
+									"properties": {
+										"name": "ChatPanelCloseBtn",
+										"texture": "resources/texture/UI_public.tt",
+										"normalIndex": "10",
+										"pressIndex": "11"
+									}
+								}
+							]
+						}
+					],
+					"components": [
+						{
+							"cid": "base.CenterLayout",
+							"properties": {
+								"horizontal": true,
+								"vertical": false
+							}
+						}
+					]
+				}
+			],
+			"components": []
+		}
+	]
+}

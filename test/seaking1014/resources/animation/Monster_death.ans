@@ -1,0 +1,47 @@
+{
+	"src": "resources/animation/Monster_death.ans.png",
+	"frameTime": 33,
+	"defaultAnimation": "death",
+	"frames": [
+		{
+			"x": 0,
+			"y": 0,
+			"w": 52,
+			"h": 68,
+			"ox": 0,
+			"oy": 38
+		},
+		{
+			"x": 0,
+			"y": 68,
+			"w": 48,
+			"h": 98,
+			"ox": 2,
+			"oy": 8
+		},
+		{
+			"x": 52,
+			"y": 0,
+			"w": 50,
+			"h": 106,
+			"ox": 1,
+			"oy": 0
+		},
+		{
+			"x": 0,
+			"y": 166,
+			"w": 42,
+			"h": 70,
+			"ox": 5,
+			"oy": 0
+		}
+	],
+	"animations": {
+		"death": [
+			0,
+			1,
+			2,
+			3
+		]
+	}
+}

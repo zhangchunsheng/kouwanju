@@ -1,0 +1,54 @@
+{
+    "type" : "dialogue",
+    "next" : "script/process1001.js",
+    "dialogue" : [{
+        "speakerID": "NPC0000",
+        "speaker": "#BoyName#",
+        "contentLines": "主角：不是吧，又是这里！"
+    },
+        {
+            "speakerID": "",
+            "speaker": "凶猛的怪物",
+            "contentLines": "少废话，纳命来！"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": ["那么凶猛干嘛，又不是第一次见面了，见面就", "打打杀杀的，何必呢。"]
+        },
+        {
+            "speakerID": "",
+            "speaker": "凶猛的怪物",
+            "contentLines": "我也不想这样啊。"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "那这次是谁让你们来的？"
+        },
+        {
+            "speakerID": "",
+            "speaker": "凶猛的怪物",
+            "contentLines": "还不是无良的策划！！"
+        },
+        {
+            "speakerID": "",
+            "speaker": "策划君",
+            "contentLines": "你们的话太多了。快开打！！！"
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "还有人想来见识一下本大爷的威力么？"
+        },
+        {
+            "speakerID": "",
+            "speaker": "更凶猛的怪物",
+            "contentLines": ["就是身为主角也不要太嚣张，看来需要我来教", "训你一下！"]
+        },
+        {
+            "speakerID": "NPC0000",
+            "speaker": "#BoyName#",
+            "contentLines": "看来只有进入终极的葫芦小金刚形态了！"
+        }]
+}

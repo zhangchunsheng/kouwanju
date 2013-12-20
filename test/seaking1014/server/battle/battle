@@ -1,0 +1,96 @@
+{
+  "induData": {
+    "eid": "MG101011",
+    "died": true
+  },
+  "playerInfo": {
+    "S1C7420": {
+      "hp": 134,
+      "speed" : 30
+    }
+  },
+  "monsterInfo": {
+    "M10101": {
+      "hp": 200,
+      "speed" : 30
+    }
+  },
+  "eventResult": {
+    "formationData": {
+      "owner": [
+        null,
+        {
+          "playerId": "S1C7420"
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "monster": [
+        "M10101",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "battleData": [
+      {
+        "attackSide": 2,
+        "currentTime": 1,
+        "delayTime": 1,
+        "attackData": {
+          "fId": 0,
+          "action": 2,
+          "skillId": 0,
+          "attack": 82,
+          "hp": 147,
+          "anger": 10
+        },
+        "defenseData": {
+          "defense": 11,
+          "reduceBlood": 71,
+          "fId": 1,
+          "hp": 134,
+          "anger": 6
+        }
+      },
+      {
+        "attackSide": 1,
+        "currentTime": 1.700102,
+        "delayTime": 0.700102,
+        "attackData": {
+          "fId": 1,
+          "action": 2,
+          "skillId": "SK01113",
+          "attack": 430,
+          "buffs": [],
+          "hp": 134,
+          "anger": 13
+        },
+        "defenseData": {
+          "defense": 33,
+          "groupDamage": {},
+          "buffs": [],
+          "reduceBlood": 397,
+          "fId": 0,
+          "died": true,
+          "hp": 0,
+          "anger": 16
+        }
+      }
+    ],
+    "battleResult": {
+      "isWin": true,
+      "getItems": {
+        "exp": 30,
+        "money": 0,
+        "items": []
+      }
+    }
+  }
+}

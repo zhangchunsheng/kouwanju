@@ -14,12 +14,35 @@ var utils = require('../app/utils/utils');
 var consts = require('../app/consts/consts');
 var PackageType = require('../app/consts/consts').PackageType;
 var dataApi = require('../app/utils/dataApi');
+var Buff = require('../app/domain/buff');
 var async = require('async');
 
 exports.index = function(req, res) {
     res.send("index");
 }
 
+exports.test = function(req, res) {
+    var msg = req.query;
+    var session = req.session;
+
+    var uid = session.uid
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName;
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+
+    var itemId = msg.itemId;
+    var itemNum = msg.itemNum;
+    var itemLevel = msg.itemLevel;
+     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+        item = {itemId: "D10010101", itemNum:3};
+        var i = player.packageEntity.addItemWithNoType(player, item);
+        utils.send(msg, res, {data:i});
+
+    });
+}
 /**
  * 添加物品
  * @param req
@@ -42,7 +65,7 @@ exports.addItem = function(req, res) {
     var itemLevel = msg.itemLevel;
 
     var data = {};
-    if (!itemId.match(/W|E|D/)) {
+    if (!itemId.match(/W|E|D|B/)) {
         data = {
             code: consts.MESSAGE.ARGUMENT_EXCEPTION,
             packageIndex: 0
@@ -57,6 +80,8 @@ exports.addItem = function(req, res) {
         type = PackageType.EQUIPMENTS;
     } else if(itemId.indexOf("D") == 0) {
         type = PackageType.ITEMS;
+    } else if(itemId.indexOf("B") == 0) {
+        type = PackageType.DIAMOND;
     }
 
     var item = {
@@ -154,19 +179,32 @@ exports.sellItem = function(req, res) {
 
     var playerId = session.playerId;
     var characterId = utils.getRealCharacterId(playerId);
-
-    var type = msg.type,
-        itemId = msg.itemId,
+    var index = msg.index,
         itemNum = msg.itemNum;
-
+    if(!index || !itemNum) {
+        return utils.send(msg, res, {code: Code.FAIL});
+    }
     var data = {};
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
         var itemInfo = {};
-        if("items" == type) {
-            itemInfo = dataApi.item.findById(itemId);
-        } else {
-            itemInfo = dataApi.equipment.findById(itemId);
+        var item = player.packageEntity.get(index);
+        if(!item || item.itemNum < itemNum){
+            return utils.send(msg, res, {code: Code.FAIL});
         }
+        var type = player.packageEntity.getItemType(item);
+        var itemId = item.itemId;
+        var type;
+        if(itemId.indexOf("D") >= 0) {
+            type = PackageType.ITEMS;
+            itemInfo = dataApi.item.findById(itemId);
+        } else if(itemId.indexOf("E") >= 0) {
+            type = PackageType.EQUIPMENTS;
+            itemInfo = dataApi.equipment.findById(itemId);
+        } else if(itemId.indexOf("W") >= 0){
+            type = PackageType.WEAPONS;
+            itemInfo = dataApi.weapons.findById(itemId);
+        }
+        console.log("itemInfo",itemInfo);
         if(!itemInfo) {
             data = {
                 code:Code.PACKAGE.NOT_EXIST_ITEM
@@ -174,28 +212,29 @@ exports.sellItem = function(req, res) {
             utils.send(msg, res, data);
             return;
         }
-        if(!itemInfo.canSell) {
+        if(itemInfo.canSell) {
             data = {
                 code:Code.FAIL
             };
             utils.send(msg, res, data);
             return;
         }
-        var price = itemInfo.price;
+        var price = itemInfo.price / 2;
         var incomeMoney = price * itemNum;
         var result = removeItem(req, res, msg, player);
         if(!!result) {
+            
             player.money += incomeMoney;
             player.save();
+
             data = {
                 code: consts.MESSAGE.RES,
-                money: player.money,
-                item: {
-                    type: type,
-                    index: msg.index,
-                    itemNum: result,
-                    itemId: itemId
+                data:{
+                    money: player.money,
+                    packageChange: result
                 }
+                
+                //,itemInfo: itemInfo
             };
             async.parallel([
                 function(callback) {
@@ -211,33 +250,26 @@ exports.sellItem = function(req, res) {
                     taskService.updateTask(player, player.curTasksEntity.strip(), callback);
                 }
             ], function(err, reply) {
+                /*if(err){utils.send(msg, res, {
+                    code: Code.FAIL,
+                    err: err
+                });return;}*/
+            console.log(err);
                 utils.send(msg, res, data);
             });
+        }else{
+            utils.send(msg, res, {code: code.FAIL});
         }
     });
 }
 
 function removeItem(req, res, msg, player) {
-    var type = msg.type
-        ,index = msg.index
-        ,itemId = msg.itemId
+    var index = msg.index
         ,itemNum = msg.itemNum;
     var itemInfo = {};
-    if("items" == type) {
-        itemInfo = dataApi.item.findById(itemId);
-    } else {
-        itemInfo = dataApi.equipment.findById(itemId);
-    }
-
     var data = {};
-    if(!itemInfo.canDestroy) {
-        data = {
-            code: Code.FAIL
-        };
-        utils.send(msg, res, data);
-    }
 
-    var checkResult = player.packageEntity.checkItem(type, index, itemId);
+    var checkResult = player.packageEntity.checkItem( index);
     if(!checkResult ) {
         data = {
             code: Code.PACKAGE.NOT_EXIST_ITEM
@@ -252,10 +284,10 @@ function removeItem(req, res, msg, player) {
         utils.send(msg, res, data);
         return 0;
     }
-    if(player.packageEntity.removeItem(type, index, itemNum)) {
-        return checkResult - itemNum;
+    if(item = player.packageEntity.removeItem( index, itemNum)) {
+        return item;
     }
-    return  0;
+    return  null;
 }
 
 /**
@@ -278,11 +310,10 @@ exports.discardItem = function(req, res) {
     var data = {};
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
         var result = removeItem(req, res, msg, player);
-        if(!!result) {
+        if(result >= 0) {
             data = {
                 code:consts.MESSAGE.RES,
-                item: {
-                    type: msg.type,
+                data: {
                     index: msg.index,
                     itemNum: result,
                     itemId: msg.itemId
@@ -319,7 +350,6 @@ exports.resetItem = function(req, res) {
 
     var start = msg.start;
     var end = msg.end;
-    var type = msg.type;
 
     var uid = session.uid
         , serverId = session.serverId
@@ -331,8 +361,8 @@ exports.resetItem = function(req, res) {
 
     var data = {};
     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
-        var startItem  =  player.packageEntity[type].items[start];
-        var endItem =  player.packageEntity[type].items[end];
+        var startItem  =  player.packageEntity.items[start];
+        var endItem =  player.packageEntity.items[end];
         if(startItem == null) {
             data = {
                 code: Code.FAIL
@@ -340,12 +370,12 @@ exports.resetItem = function(req, res) {
             utils.send(msg, res, data);
             return;
         }
-        player.packageEntity[type].items[start] = endItem;
-        player.packageEntity[type].items[end] = startItem;
+        player.packageEntity.items[start] = endItem;
+        player.packageEntity.items[end] = startItem;
         player.packageEntity.save();
         data = {
             code:Code.OK,
-            items:[{
+            data:[{
                 index: start,
                 item: endItem
             },{
@@ -404,10 +434,16 @@ exports.userItem = function(req, res) {
             return;
         }
         var itemInfo = null;
-        if("items" == type) {
-            itemInfo = dataApi.item.findById(Item.itemId);
-        } else {
-            itemInfo = dataApi.equipment.findById(Item.itemId);
+        var type ;
+        if(itemId.indexOf("D") >= 0) {
+            type = PackageType.ITEMS;
+            itemInfo = dataApi.item.findById(itemId);
+        } else if(itemId.indexOf("E") >= 0) {
+            type = PackageType.EQUIPMENTS;
+            itemInfo = dataApi.equipment.findById(itemId);
+        } else if(itemId.indexOf("W") >= 0){
+            type = PackageType.WEAPONS;
+            itemInfo = dataApi.weapons.findById(itemId);
         }
         if(player.level < itemInfo.needLevel) {
             data = {
@@ -429,10 +465,11 @@ exports.userItem = function(req, res) {
         var package = player.packageEntity;
         switch(itemClass) {
             case consts.ItemCategory.Increase:
-                player.buffs.push({
+                var buff = new Buff({
                     useEffectId: itemInfo.useEffectId,
                     startTime: new Date().getTime()
                 });
+                player.buffs.push(buff);
 
                 package.removeItem(type, index, 1);
                 package.save();
@@ -489,10 +526,11 @@ exports.userItem = function(req, res) {
                         });
                         break;
                     case "02"://持续恢复hp
-                        player.buffs.push({
+                        var buff = new Buff({
                             useEffectId: itemInfo.useEffectId,
-                            startTime: new Date()
+                            startTime: new Date().getTime()
                         });
+                        player.buffs.push(buff);
                         package.removeItem(type, index, 1);
                         package.save();
                         data = {
@@ -550,4 +588,146 @@ exports.userItem = function(req, res) {
                 break;
         }
     });
+}
+
+exports._Set = function(req, res) {
+    var msg = req.query;
+    var session = req.session;
+       var uid = session.uid
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName;
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+        var package = player.packageEntity;
+        package.itemCount = msg.itemCount;
+        package.items = JSON.parse(msg.items);
+        package.save();
+        async.parallel([
+                function(callback) {
+                    userService.updatePlayerAttribute(player, callback);
+                },
+                function(callback) {
+                    packageService.update(player.packageEntity.strip(), callback);
+                },
+                function(callback) {
+                    equipmentsService.update(player.equipmentsEntity.strip(), callback);
+                },
+                function(callback) {
+                    taskService.updateTask(player, player.curTasksEntity.strip(), callback);
+                }
+            ], function(err, reply) {
+                utils.send(msg, res, {code: Code.OK, data:msg.items});
+            });
+     });
+}
+
+/**
+ * 整理背包
+ * @param req
+ * @param res
+ */
+exports.arrange = function(req, res) {
+    var msg = req.query;
+    var session = req.session;
+       var uid = session.uid
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName;
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+    userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+        var package = player.packageEntity;
+        package.arrange(function(err, r) {
+            if(err) {
+                utils.send(msg, res, {
+                    code: Code.FAIL
+                });
+                return;
+            }
+            async.parallel([
+                function(callback) {
+                    userService.updatePlayerAttribute(player, callback);
+                },
+                function(callback) {
+                    packageService.update(player.packageEntity.strip(), callback);
+                },
+                function(callback) {
+                    equipmentsService.update(player.equipmentsEntity.strip(), callback);
+                },
+                function(callback) {
+                    taskService.updateTask(player, player.curTasksEntity.strip(), callback);
+                }
+            ], function(err, reply) {
+                utils.send(msg, res,{code: Code.OK, data: r});
+            });
+        });
+    });
+}
+
+exports.unlock = function(req, res) {
+    var msg = req.query;
+    var end = msg.end;
+    var type = msg.type;
+    var session = req.session;
+       var uid = session.uid
+        , serverId = session.serverId
+        , registerType = session.registerType
+        , loginName = session.loginName;
+
+    var playerId = session.playerId;
+    var characterId = utils.getRealCharacterId(playerId);
+     userService.getCharacterAllInfo(serverId, registerType, loginName, characterId, function(err, player) {
+         var items =  player.packageEntity;
+         if( end < items.itemCount) {
+            utils.send(msg, res, {
+                code: Code.FAIL
+            });
+             return;
+         }
+         var costMoney = 0, costGameCurrency =0;
+         if(end < 23) {
+            costMoney = (23 - items.itemCount)*(2000*(itemCount+1-14)+2000*(end-14))/2;
+         } else if(end >= 23 && items.itemCount <= 23 ) {
+            costMoney = (23 - items.itemCount) * (2000*(items.itemCount -14 +1)+2000*(23-14))/2;
+            costGameCurrency = (end - 23)*((end-23)+1)/2;
+         }else{
+             costGameCurrency = (end-items.itemCount)*((end-23)+(items.itemCount-23+1))/2;
+         }
+         if(player.money < costMoney || player.gameCurrency < costGameCurrency) {
+            utils.send(msg, res, {
+                code: Code.FAIL
+            });
+             return;
+         }
+         player.money = player.money - costMoney;
+         player.gameCurrency = player.gameCurrency - costGameCurrency;
+         player.packageEntity.unlock(type, end);
+         player.save();
+         var data = {
+            code: consts.MESSAGE.RES,
+            money: player.money,
+            gameCurrency: player.gameCurrency
+         }
+         async.parallel([
+                function(callback) {
+                    userService.updatePlayerAttribute(player, callback);
+                },
+                function(callback) {
+                    packageService.update(player.packageEntity.strip(), callback);
+                },
+                function(callback) {
+                    equipmentsService.update(player.equipmentsEntity.strip(), callback);
+                },
+                function(callback) {
+                    taskService.updateTask(player, player.curTasksEntity.strip(), callback);
+                }
+        ], function(err, reply) {
+                utils.send(msg, res, data);
+        });
+         
+     });
 }

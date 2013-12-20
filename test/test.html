@@ -73,7 +73,10 @@
         </div>
         <div id="createMainPlayer" class="button">创建角色</div>
         <div id="getMainPlayer" class="button">获得角色信息</div>
-
+        <div id="getNickname" class="button">获得昵称</div>
+        <div id="removeMainPlayer" class="button">删除角色</div>
+        <div id="testCreateMainPlayer" class="button">创建角色测试</div>
+        <div id="getMainPlayerWithCookie" class="button">获得角色信息</div>
         <div id="battle" class="button">战斗</div>
 
         <div class="clearfix"></div>
@@ -116,7 +119,15 @@
 
         <div>背包系统</div>
         <div>
-            itemId:<input id="itemId" type="text" value="W0101"/>
+            itemId:<input id="itemId" type="text" value="W01011"/>
+            index:<input id="index1" type="text" value="1"/>
+            itemNum:<input id="itemNum" type="text" value="1"/>
+            type:
+            <select id="type1">
+                <option value="items" selected="selected">items</option>
+                <option value="weapons">weapons</option>
+                <option value="equipments">equipments</option>
+            </select>
         </div>
         <div id="addItem" class="button">添加物品</div>
         <div id="sellItem" class="button">出售</div>
@@ -131,13 +142,16 @@
 
         <div>武器系统</div>
         <div>
+            playerId:<input id="playerId" type="text" value="S1C7420P8">
+        </div>
+        <div>
             index:<input id="index" type="text" value="2"/>
         </div>
         <div>
-            weaponId:<input id="weaponId" type="text" value="W0201"/>
+            weaponId:<input id="weaponId" type="text" value="W02011"/>
         </div>
         <div>
-            eqId:<input id="eqId" type="text" value="W0201"/>
+            eqId:<input id="eqId" type="text" value="W02011"/>
         </div>
         <div>
             pkgType:<input id="pkgType" type="text" value="weapons"/>
@@ -148,7 +162,7 @@
         <div id="wearWeapon" class="button">装载武器</div>
         <div id="unWearWeapon" class="button">卸载武器</div>
         <div id="equip" class="button">装载装备</div>
-        <div id="unEquip" class="button">装载装备</div>
+        <div id="unEquip" class="button">卸载装备</div>
         <div id="upgrade" class="button">升级装备</div>
 
         <div class="clearfix"></div>
@@ -198,6 +212,13 @@
         <div id="collectItem" class="button">领物品</div>
         <div id="delMail" class="button">删除邮件</div>
         <div id="hasNewMail" class="button">新消息</div>
+
+        <div class="clearfix"></div>
+
+        <div>GM</div>
+        <div id="resetTask" class="button">更新任务</div>
+        <div id="updateMoney" class="button">更新金币</div>
+        <div id="updateExp" class="button">更新经验</div>
 
         <div class="clearfix"></div>
 
